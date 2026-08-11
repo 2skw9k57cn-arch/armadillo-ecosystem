@@ -1,0 +1,32 @@
+{
+  "BAI": {
+    "mint": "3fwW1L1NDf1vcy1Cv7GbKd4932Zpvu3szYNwky7zpump",
+    "decimals": 6,
+    "min_trade_usdc": 0.5
+  },
+  "ARBA": {
+    "mint": "CiwUUVqFHN3GCNKJaMH188ErUN1DgWfs6VaUebhRpump",
+    "decimals": 6,
+    "min_trade_usdc": 0.05
+  },
+  "ARMASA": {
+    "mint": "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump",
+    "decimals": 6,
+    "min_trade_usdc": 0.05
+  },
+  "DUECES": {
+    "mint": "Asx6N6wsEnrhQGhhnicimqsMTSnbiUgCT4PPhBHopump",
+    "decimals": 6,
+    "min_trade_usdc": 0.05
+  },
+  "SLPN": {
+    "mint": "2h3dWrY1eQDz3U2zYbuyPC9f5tusfVimrAB6K2qapump",
+    "decimals": 6,
+    "min_trade_usdc": 0.05
+  },
+  "YAGA": {
+    "mint": "6ZwuDAAc7YHmbwueimDoMf8dDSjVnHLJ7kEqiD9Kpump",
+    "decimals": 6,
+    "min_trade_usdc": 0.05
+  }
+}

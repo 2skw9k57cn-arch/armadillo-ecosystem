@@ -1,0 +1,5 @@
+config.json
+*.key
+*.pem
+.env
+signer-keys.json

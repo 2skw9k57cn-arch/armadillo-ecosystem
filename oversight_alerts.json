@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-08-09 05:59 UTC",
+  "alerts": [
+    {
+      "check": "solana_wallet",
+      "status": "\ud83d\udd34",
+      "detail": "0.0000 SOL (~$0.00)",
+      "sol": 0.0
+    },
+    {
+      "check": "revenue_flywheel",
+      "status": "\ud83d\udfe1",
+      "detail": "revenue $0.00, buybacks 0, scout jobs 31(3 hired)",
+      "revenue_total": 0,
+      "buyback_cycles": 0,
+      "scout_jobs": 31,
+      "scout_hired": 3
+    },
+    {
+      "check": "compute",
+      "status": "\ud83d\udfe1",
+      "detail": "ArmaBase:0, Scout:0, Saint:0",
+      "agents": [
+        {
+          "agent": "ArmaBase",
+          "status": "\ud83d\udd34",
+          "balance": 0
+        },
+        {
+          "agent": "Scout",
+          "status": "\ud83d\udd34",
+          "balance": 0
+        },
+        {
+          "agent": "Saint",
+          "status": "\ud83d\udd34",
+          "balance": 0
+        }
+      ]
+    }
+  ],
+  "actions": [
+    "\u26a0\ufe0f Solana: sniper wallet has 0.0000 SOL \u2014 user needs to send SOL to CT5Z79b1ie7A..."
+  ]
+}

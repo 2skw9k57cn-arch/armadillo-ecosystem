@@ -1,0 +1,492 @@
+{
+  "bags": {
+    "MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5": {
+      "symbol": "MEW1gQWJ",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.606084+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.606096+00:00",
+          "price": 0.000341,
+          "value": 1.485354
+        }
+      ],
+      "status": "sold",
+      "current_price": 0.000341,
+      "current_value": 1.485354,
+      "last_checked": "2026-08-09T06:09:41.606093+00:00",
+      "sell_time": "2026-08-09T06:09:41.678542+00:00",
+      "sell_price": 0.0003417984533152514,
+      "sell_reason": "death spiral (-100%)",
+      "realized_pnl": 1.385354
+    },
+    "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263": {
+      "symbol": "DezXAZ8z",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.725845+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.725859+00:00",
+          "price": 2e-06,
+          "value": 2.567919
+        }
+      ],
+      "status": "sold",
+      "current_price": 2e-06,
+      "current_value": 2.567919,
+      "last_checked": "2026-08-09T06:09:41.725856+00:00",
+      "sell_time": "2026-08-09T06:09:41.796639+00:00",
+      "sell_price": 2.484680072569463e-06,
+      "sell_reason": "death spiral (-100%)",
+      "realized_pnl": 2.4679189999999998
+    },
+    "2GL1Licg8692gW3ucgAoacJhhzackmcVVb2nAVmWpump": {
+      "symbol": "2GL1Licg",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.836278+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.836292+00:00",
+          "price": 0,
+          "value": 0.233745
+        },
+        {
+          "time": "2026-08-09T06:16:40.581402+00:00",
+          "price": 0,
+          "value": 0.129042,
+          "amount": 197008025.128893
+        },
+        {
+          "time": "2026-08-09T06:17:28.310863+00:00",
+          "price": 0,
+          "value": 0.073884,
+          "amount": 118204815.077336
+        }
+      ],
+      "status": "holding",
+      "current_price": 0,
+      "current_value": 0.073884,
+      "last_checked": "2026-08-09T06:17:28.310849+00:00",
+      "current_amount": 118204815.077336,
+      "profit_stages_triggered": [
+        1
+      ],
+      "last_sell_time": "2026-08-09T06:17:29.089840+00:00",
+      "loss_stages_triggered": [
+        1
+      ]
+    },
+    "2h3dWrY1eQDz3U2zYbuyPC9f5tusfVimrAB6K2qapump": {
+      "symbol": "SLPN",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.878438+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.878455+00:00",
+          "price": 0,
+          "value": 0.000326
+        },
+        {
+          "time": "2026-08-09T06:16:41.374610+00:00",
+          "price": 0,
+          "value": 0.000326,
+          "amount": 385129.70914
+        },
+        {
+          "time": "2026-08-09T06:17:29.131995+00:00",
+          "price": 0,
+          "value": 0.000326,
+          "amount": 385129.70914
+        }
+      ],
+      "status": "dust",
+      "current_price": 0,
+      "current_value": 0.000326,
+      "last_checked": "2026-08-09T06:17:29.131984+00:00",
+      "current_amount": 385129.70914
+    },
+    "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump": {
+      "symbol": "ARMASA",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.920261+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.920275+00:00",
+          "price": 0,
+          "value": 0.007855
+        },
+        {
+          "time": "2026-08-09T06:16:41.415231+00:00",
+          "price": 0,
+          "value": 0.007882,
+          "amount": 17544503.645323
+        },
+        {
+          "time": "2026-08-09T06:17:29.174882+00:00",
+          "price": 0,
+          "value": 0.007861,
+          "amount": 17544503.645323
+        }
+      ],
+      "status": "holding",
+      "current_price": 0,
+      "current_value": 0.007861,
+      "last_checked": "2026-08-09T06:17:29.174870+00:00",
+      "current_amount": 17544503.645323,
+      "loss_stages_triggered": [
+        1
+      ],
+      "last_sell_time": "2026-08-09T06:17:29.927957+00:00"
+    },
+    "3fwW1L1NDf1vcy1Cv7GbKd4932Zpvu3szYNwky7zpump": {
+      "symbol": "BAI",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:41.961665+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:41.961676+00:00",
+          "price": 0,
+          "value": 0.000293
+        },
+        {
+          "time": "2026-08-09T06:16:42.206586+00:00",
+          "price": 0,
+          "value": 0.000294,
+          "amount": 878764.660847
+        },
+        {
+          "time": "2026-08-09T06:17:29.969062+00:00",
+          "price": 0,
+          "value": 0.000293,
+          "amount": 878764.660847
+        }
+      ],
+      "status": "dust",
+      "current_price": 0,
+      "current_value": 0.000293,
+      "last_checked": "2026-08-09T06:17:29.969052+00:00",
+      "current_amount": 878764.660847
+    },
+    "42cXQvAAr7hcPBPWAS4ocVtDyeJ4Fa6gRR2uG4gppump": {
+      "symbol": "TBB",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.010616+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.010630+00:00",
+          "price": 0.017737,
+          "value": 0.91108
+        }
+      ],
+      "status": "sold",
+      "current_price": 0.017737,
+      "current_value": 0.91108,
+      "last_checked": "2026-08-09T06:09:42.010627+00:00",
+      "sell_time": "2026-08-09T06:09:42.079686+00:00",
+      "sell_price": 0.01773702241906836,
+      "sell_reason": "death spiral (-82%)",
+      "realized_pnl": 0.81108
+    },
+    "6ZwuDAAc7YHmbwueimDoMf8dDSjVnHLJ7kEqiD9Kpump": {
+      "symbol": "YAGA",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.119855+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.119867+00:00",
+          "price": 2e-06,
+          "value": 0.097527
+        }
+      ],
+      "status": "sold",
+      "current_price": 2e-06,
+      "current_value": 0.097527,
+      "last_checked": "2026-08-09T06:09:42.119864+00:00",
+      "sell_time": "2026-08-09T06:09:42.197168+00:00",
+      "sell_price": 3.9639878940735606e-06,
+      "sell_reason": "death spiral (-100%)",
+      "realized_pnl": -0.002473000000000003
+    },
+    "7Tw72WbSmYEqJme8ZaFGnW9Ss7Y8eJNUYkzFrgWQpump": {
+      "symbol": "Tom",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.238920+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.238934+00:00",
+          "price": 0.00022,
+          "value": 1.784503
+        }
+      ],
+      "status": "sold",
+      "current_price": 0.00022,
+      "current_value": 1.784503,
+      "last_checked": "2026-08-09T06:09:42.238932+00:00",
+      "sell_time": "2026-08-09T06:09:42.310454+00:00",
+      "sell_price": 0.00022070500984548683,
+      "sell_reason": "death spiral (-100%)",
+      "realized_pnl": 1.6844789999999998
+    },
+    "7uhnFQr1SaxkNYtwo6QcG4CPg6dSbFC6MM5q2EVUpump": {
+      "symbol": "DUECES",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.350543+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.350554+00:00",
+          "price": 0,
+          "value": 0.004614
+        },
+        {
+          "time": "2026-08-09T06:16:42.249490+00:00",
+          "price": 0,
+          "value": 0.004614,
+          "amount": 9985727.161758
+        },
+        {
+          "time": "2026-08-09T06:17:30.009882+00:00",
+          "price": 0,
+          "value": 0.001148,
+          "amount": 2496431.79044
+        }
+      ],
+      "status": "holding",
+      "current_price": 0,
+      "current_value": 0.001148,
+      "last_checked": "2026-08-09T06:17:30.009873+00:00",
+      "current_amount": 2496431.79044,
+      "loss_stages_triggered": [
+        1,
+        2
+      ],
+      "last_sell_time": "2026-08-09T06:17:30.758255+00:00"
+    },
+    "C5Np9tRxNnuZkuknyQezrvWj5d115gxhfSf31eo4pump": {
+      "symbol": "ARMASA",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.389721+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.389734+00:00",
+          "price": 0,
+          "value": 0.075267
+        },
+        {
+          "time": "2026-08-09T06:16:43.066794+00:00",
+          "price": 0,
+          "value": 0.075267,
+          "amount": 78781220.163344
+        },
+        {
+          "time": "2026-08-09T06:17:30.798971+00:00",
+          "price": 0,
+          "value": 0.036839,
+          "amount": 39390610.081672
+        }
+      ],
+      "status": "holding",
+      "current_price": 0,
+      "current_value": 0.036839,
+      "last_checked": "2026-08-09T06:17:30.798959+00:00",
+      "current_amount": 39390610.081672,
+      "loss_stages_triggered": [
+        1,
+        2
+      ],
+      "last_sell_time": "2026-08-09T06:17:31.570326+00:00"
+    },
+    "CiwUUVqFHN3GCNKJaMH188ErUN1DgWfs6VaUebhRpump": {
+      "symbol": "ARBA",
+      "entry_price": 0.1,
+      "first_seen": "2026-08-09T06:09:42.432147+00:00",
+      "price_history": [
+        {
+          "time": "2026-08-09T06:09:42.432159+00:00",
+          "price": 0,
+          "value": 0.033736
+        },
+        {
+          "time": "2026-08-09T06:16:43.843809+00:00",
+          "price": 0,
+          "value": 0.033746,
+          "amount": 17626027.153822
+        },
+        {
+          "time": "2026-08-09T06:17:31.620721+00:00",
+          "price": 0,
+          "value": 0.008381,
+          "amount": 4406506.788456
+        }
+      ],
+      "status": "holding",
+      "current_price": 0,
+      "current_value": 0.008381,
+      "last_checked": "2026-08-09T06:17:31.620711+00:00",
+      "current_amount": 4406506.788456,
+      "loss_stages_triggered": [
+        1
+      ],
+      "last_sell_time": "2026-08-09T06:16:44.607251+00:00"
+    }
+  },
+  "sells": [
+    {
+      "time": "2026-08-09T06:09:41.677385+00:00",
+      "action": "SELL",
+      "symbol": "MEW1gQWJ",
+      "mint": "MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5",
+      "token_in": 4345.70135,
+      "usd_out": 1.485354,
+      "entry_cost": 0.1,
+      "pnl": 1.385354,
+      "pnl_pct": 13.853539999999999,
+      "reason": "death spiral (-100%)"
+    },
+    {
+      "time": "2026-08-09T06:09:41.795333+00:00",
+      "action": "SELL",
+      "symbol": "DezXAZ8z",
+      "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+      "token_in": 1033500.86329,
+      "usd_out": 2.567919,
+      "entry_cost": 0.1,
+      "pnl": 2.4679189999999998,
+      "pnl_pct": 24.679189999999995,
+      "reason": "death spiral (-100%)"
+    },
+    {
+      "time": "2026-08-09T06:09:42.078409+00:00",
+      "action": "SELL",
+      "symbol": "TBB",
+      "mint": "42cXQvAAr7hcPBPWAS4ocVtDyeJ4Fa6gRR2uG4gppump",
+      "token_in": 51.366006,
+      "usd_out": 0.91108,
+      "entry_cost": 0.1,
+      "pnl": 0.81108,
+      "pnl_pct": 8.1108,
+      "reason": "death spiral (-82%)"
+    },
+    {
+      "time": "2026-08-09T06:09:42.195857+00:00",
+      "action": "SELL",
+      "symbol": "YAGA",
+      "mint": "6ZwuDAAc7YHmbwueimDoMf8dDSjVnHLJ7kEqiD9Kpump",
+      "token_in": 24603.253745,
+      "usd_out": 0.097527,
+      "entry_cost": 0.1,
+      "pnl": -0.002473000000000003,
+      "pnl_pct": -0.02473000000000003,
+      "reason": "death spiral (-100%)"
+    },
+    {
+      "time": "2026-08-09T06:09:42.309092+00:00",
+      "action": "SELL",
+      "symbol": "Tom",
+      "mint": "7Tw72WbSmYEqJme8ZaFGnW9Ss7Y8eJNUYkzFrgWQpump",
+      "token_in": 8085.357923,
+      "usd_out": 1.784479,
+      "entry_cost": 0.1,
+      "pnl": 1.6844789999999998,
+      "pnl_pct": 16.844789999999996,
+      "reason": "death spiral (-100%)"
+    },
+    {
+      "time": "2026-08-09T06:16:41.331426+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "2GL1Licg",
+      "mint": "2GL1Licg8692gW3ucgAoacJhhzackmcVVb2nAVmWpump",
+      "token_in": 78803210.0515572,
+      "usd_out": 0.055158,
+      "entry_cost": 0.1,
+      "pnl": -0.04484200000000001,
+      "pnl_pct": -0.44842000000000004,
+      "reason": "profit stage 1 (+29%)"
+    },
+    {
+      "time": "2026-08-09T06:16:43.017031+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "DUECES",
+      "mint": "7uhnFQr1SaxkNYtwo6QcG4CPg6dSbFC6MM5q2EVUpump",
+      "token_in": 7489295.3713185005,
+      "usd_out": 0.003465,
+      "entry_cost": 0.1,
+      "pnl": -0.09653500000000001,
+      "pnl_pct": -0.9653500000000002,
+      "reason": "loss stage 1 (-95%, low value, cutting 75%)"
+    },
+    {
+      "time": "2026-08-09T06:16:43.799828+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "ARMASA",
+      "mint": "C5Np9tRxNnuZkuknyQezrvWj5d115gxhfSf31eo4pump",
+      "token_in": 39390610.081672,
+      "usd_out": 0.038428,
+      "entry_cost": 0.1,
+      "pnl": -0.06157200000000001,
+      "pnl_pct": -0.61572,
+      "reason": "loss stage 1 (-25%, cutting 50%)"
+    },
+    {
+      "time": "2026-08-09T06:16:44.605524+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "ARBA",
+      "mint": "CiwUUVqFHN3GCNKJaMH188ErUN1DgWfs6VaUebhRpump",
+      "token_in": 13219520.3653665,
+      "usd_out": 0.025369,
+      "entry_cost": 0.1,
+      "pnl": -0.074631,
+      "pnl_pct": -0.74631,
+      "reason": "loss stage 1 (-66%, low value, cutting 75%)"
+    },
+    {
+      "time": "2026-08-09T06:17:29.087959+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "2GL1Licg",
+      "mint": "2GL1Licg8692gW3ucgAoacJhhzackmcVVb2nAVmWpump",
+      "token_in": 59102407.538668,
+      "usd_out": 0.038167,
+      "entry_cost": 0.1,
+      "pnl": 0.038167,
+      "pnl_pct": 0.0,
+      "reason": "loss stage 1 (-26%, cutting 50%)"
+    },
+    {
+      "time": "2026-08-09T06:17:29.926617+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "ARMASA",
+      "mint": "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump",
+      "token_in": 13158377.73399225,
+      "usd_out": 0.005912,
+      "entry_cost": 0.1,
+      "pnl": 0.005912,
+      "pnl_pct": 0.0,
+      "reason": "loss stage 1 (-92%, low value, cutting 75%)"
+    },
+    {
+      "time": "2026-08-09T06:17:30.756479+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "DUECES",
+      "mint": "7uhnFQr1SaxkNYtwo6QcG4CPg6dSbFC6MM5q2EVUpump",
+      "token_in": 1248215.89522,
+      "usd_out": 0.000574,
+      "entry_cost": 0.1,
+      "pnl": 0.000574,
+      "pnl_pct": 0.0,
+      "reason": "loss stage 2 (-99%, cutting half of remaining)"
+    },
+    {
+      "time": "2026-08-09T06:17:31.568643+00:00",
+      "action": "SELL_PARTIAL",
+      "symbol": "ARMASA",
+      "mint": "C5Np9tRxNnuZkuknyQezrvWj5d115gxhfSf31eo4pump",
+      "token_in": 19695305.040836,
+      "usd_out": 0.018611,
+      "entry_cost": 0.1,
+      "pnl": 0.018611,
+      "pnl_pct": 0.0,
+      "reason": "loss stage 2 (-63%, cutting half of remaining)"
+    }
+  ],
+  "total_realized_pnl": 6.1320429999999995,
+  "last_run": "2026-08-09 06:17 UTC"
+}

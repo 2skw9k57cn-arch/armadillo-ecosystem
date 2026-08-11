@@ -1,0 +1,22 @@
+{
+  "MEW": {
+    "mint": "MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5",
+    "decimals": 6,
+    "entry_sol": 0.02,
+    "entry_token": 434.570135,
+    "entry_price": 4.602249070797283e-05,
+    "entry_time": 1785785442.08281,
+    "cycles_held": 689,
+    "tx": "43cpumpiCKqgMJy42HeTcvtwRC6G9UTEVhg9Le7efttV4SR75YtBBCbrWyz36Rcue9yAcxdfwv3P45tbT2y4KtWB"
+  },
+  "BONK": {
+    "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "decimals": 5,
+    "entry_sol": 0.02,
+    "entry_token": 516828.45673,
+    "entry_price": 3.8697559585904034e-08,
+    "entry_time": 1785808001.3873968,
+    "cycles_held": 0,
+    "tx": "4TMwvGrirmNMsZ4ut6iraCzNfGnj9YpFa4wZeMkZVEJW26rhkeU1ojYj5GrtC6RLR6m55DtyNPeEXXKpMDJHomv2"
+  }
+}

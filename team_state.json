@@ -1,0 +1,109 @@
+{
+  "created": "2026-08-04T04:39:18.752931",
+  "cycles": 2,
+  "saint_hl_deposits": [],
+  "saint_hl_withdrawals": [],
+  "transfers_to_armabase": [
+    {
+      "amount": 7.991034000000001,
+      "time": "2026-08-04T04:40:42.792838"
+    }
+  ],
+  "armabase_buyback_cycles": 0,
+  "scout_jobs_found": 31,
+  "scout_jobs_hired": 3,
+  "revenue_generated": 0.0,
+  "profit_withdrawn": 0.0,
+  "last_run": "2026-08-04T19:40:36.842352",
+  "history": [
+    {
+      "timestamp": "2026-08-04T04:40:42.792828",
+      "agent": "Saint",
+      "action": "transfer_failed",
+      "details": {
+        "to": "ArmaBase",
+        "amount": 7.991034000000001,
+        "error": "{\"error\":\"Invalid --to address: 0x833589fCD6edb6e08f4c7c32d4f71b54bda02913\",\"code\":\"VALIDATION_ERROR\",\"recovery\":\"Provide a 0x-prefixed 20-byte EVM address.\"}\n[acp-wrapper] Copied signer from 0x12b5d8"
+      }
+    },
+    {
+      "timestamp": "2026-08-04T04:41:11.138361",
+      "agent": "Scout",
+      "action": "browse_jobs",
+      "details": {
+        "found": 5
+      }
+    },
+    {
+      "timestamp": "2026-08-04T19:40:36.842243",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    }
+  ],
+  "jobs_created": [
+    {
+      "job_id": "70877",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-04T19:40:03.475263"
+    },
+    {
+      "job_id": "70878",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-04T19:40:17.578108"
+    },
+    {
+      "job_id": "70879",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-04T19:40:33.868816"
+    }
+  ],
+  "deployer_alerts": [
+    {
+      "token": "ARBA",
+      "mint": "CiwUUVqFHN3GCNKJaMH188ErUN1DgWfs6VaUebhRpump",
+      "market_cap": 5.513175693260696,
+      "sniped": true,
+      "snipe_details": "TX: 2bVGmzRWAmbm4wkcTsZL... | out=17626040165914 impact=0.00%",
+      "time": "2026-08-05T05:43:14.999057"
+    },
+    {
+      "token": "ARMASA",
+      "mint": "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump",
+      "market_cap": 5.394560909328345,
+      "sniped": true,
+      "snipe_details": "TX: 5RPGzkk1uMjrZRQo74VH... | out=17575851649900 impact=0.00%",
+      "time": "2026-08-05T05:43:15.864397"
+    },
+    {
+      "token": "DUECES",
+      "mint": "7uhnFQr1SaxkNYtwo6QcG4CPg6dSbFC6MM5q2EVUpump",
+      "market_cap": 9.77344273721986,
+      "sniped": true,
+      "snipe_details": "TX: 5UJRVnqAcG79uSM2kBcJ... | out=9985727161758 impact=0.00%",
+      "time": "2026-08-05T22:08:50.975029"
+    },
+    {
+      "token": "DUECES",
+      "mint": "Asx6N6wsEnrhQGhhnicimqsMTSnbiUgCT4PPhBHopump",
+      "market_cap": 600.8464305935813,
+      "sniped": true,
+      "snipe_details": "TX: 5jR6cc335QWckWCUursE... | out=147502741993 impact=0.90%",
+      "time": "2026-08-05T22:10:57.715267"
+    },
+    {
+      "token": "YAGA",
+      "mint": "6ZwuDAAc7YHmbwueimDoMf8dDSjVnHLJ7kEqiD9Kpump",
+      "market_cap": 4000.0,
+      "sniped": true,
+      "snipe_details": "TX: 5cnuCDYyrgae2LuLhbyD... | out=24603253745 impact=1.42%",
+      "time": "2026-08-09T05:51:34.220677"
+    }
+  ]
+}

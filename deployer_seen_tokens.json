@@ -1,0 +1,93 @@
+{
+  "tokens": {
+    "42cXQvAAr7hcPBPWAS4ocVtDyeJ4Fa6gRR2uG4gppump": {
+      "symbol": "TBB",
+      "name": "The Bitcoin Bull",
+      "market_cap": 16041785,
+      "detected": "2026-08-05T04:27:00Z",
+      "sniped": false
+    },
+    "FQj1GEMcDR5UBnNBJRDMjB7qkRnYfei1TSyGBrJ7pump": {
+      "symbol": "ARMASA",
+      "name": "Armadillo Saint",
+      "market_cap": 6,
+      "detected": "2026-08-05T04:27:00Z",
+      "sniped": false
+    },
+    "7Tw72WbSmYEqJme8ZaFGnW9Ss7Y8eJNUYkzFrgWQpump": {
+      "symbol": "Tom",
+      "name": "Tom The Lizard",
+      "market_cap": 163796,
+      "detected": "2026-08-05T04:27:00Z",
+      "sniped": false
+    },
+    "C5Np9tRxNnuZkuknyQezrvWj5d115gxhfSf31eo4pump": {
+      "symbol": "ARMASA",
+      "name": "Armadillo Saint",
+      "market_cap": 1,
+      "detected": "2026-08-05T04:27:00Z",
+      "sniped": false
+    },
+    "3fwW1L1NDf1vcy1Cv7GbKd4932Zpvu3szYNwky7zpump": {
+      "symbol": "BAI",
+      "name": "Bitcoin Armadillo Invader",
+      "market_cap": 23,
+      "detected": "2026-08-05T04:35:00Z",
+      "sniped": true,
+      "snipe_time": "2026-08-05T04:35:30Z",
+      "snipe_amount": "0.005 SOL",
+      "tokens_received": 15067681
+    },
+    "CiwUUVqFHN3GCNKJaMH188ErUN1DgWfs6VaUebhRpump": {
+      "symbol": "ARBA",
+      "name": "Armadillo Base Token",
+      "market_cap": 5.513175693260696,
+      "detected": "2026-08-05T05:43:09.916733",
+      "sniped": true,
+      "snipe_time": "2026-08-05T05:43:14.996807"
+    },
+    "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump": {
+      "symbol": "ARMASA",
+      "name": "Armadillo Saint",
+      "market_cap": 5.394560909328345,
+      "detected": "2026-08-05T05:43:12.445561",
+      "sniped": true,
+      "snipe_time": "2026-08-05T05:43:15.863229"
+    },
+    "7uhnFQr1SaxkNYtwo6QcG4CPg6dSbFC6MM5q2EVUpump": {
+      "symbol": "DUECES",
+      "name": "Armadillo is out",
+      "market_cap": 9.77344273721986,
+      "detected": "2026-08-05T22:08:44.927986",
+      "sniped": true,
+      "snipe_time": "2026-08-05T22:08:50.973486"
+    },
+    "Asx6N6wsEnrhQGhhnicimqsMTSnbiUgCT4PPhBHopump": {
+      "symbol": "DUECES",
+      "name": "Armadillo is out",
+      "market_cap": 600.8464305935813,
+      "detected": "2026-08-05T22:10:56.893627",
+      "sniped": true,
+      "snipe_time": "2026-08-05T22:10:57.714306"
+    },
+    "2h3dWrY1eQDz3U2zYbuyPC9f5tusfVimrAB6K2qapump": {
+      "symbol": "SLPN",
+      "name": "Solana Pimp",
+      "market_cap": 566,
+      "detected": "2026-08-05T22:15:00Z",
+      "sniped": true,
+      "snipe_time": "2026-08-05T22:15:30Z"
+    },
+    "6ZwuDAAc7YHmbwueimDoMf8dDSjVnHLJ7kEqiD9Kpump": {
+      "symbol": "YAGA",
+      "name": "Yoga Angel Girl Anon",
+      "market_cap": 4000.0,
+      "detected": "2026-08-09T05:51:33.700694",
+      "sniped": true,
+      "snipe_time": "2026-08-09T05:51:34.219531"
+    }
+  },
+  "last_checked_slot": 438130513,
+  "total_detected": 10,
+  "total_sniped": 7
+}

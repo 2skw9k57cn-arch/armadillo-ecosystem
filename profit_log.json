@@ -1,0 +1,63 @@
+{
+  "total_collected": 5.0,
+  "history": [
+    {
+      "cycle": 1,
+      "timestamp": 1785784556,
+      "date": "2026-08-03 19:15:56 UTC",
+      "chain": "solana",
+      "action": "buy_arrb",
+      "amount_in": 1.09461,
+      "amount_out": 326112850.353542,
+      "tx": "3NLUiqZTrvY1cWJbVsZ4NdFMemkBt4qGn15FqVwTVTZzDSNUVNqxKXoULvfqL3vHm76jGuHpUxJuoQ1rhmsMYPGr",
+      "note": ""
+    },
+    {
+      "cycle": 1,
+      "timestamp": 1785784561,
+      "date": "2026-08-03 19:16:01 UTC",
+      "chain": "solana",
+      "action": "sell_arrb",
+      "amount_in": 340212.244897,
+      "amount_out": 0.00084,
+      "tx": "2UmThCbTTKS5QsWXC9byip6LnHmPEg4dcm4jz9EjLFtDY1AR7thoaq9XfRt14fpQNfDJZXybix1iZsh7RCethunq",
+      "note": ""
+    },
+    {
+      "cycle": 2,
+      "timestamp": 1785784589,
+      "date": "2026-08-03 19:16:29 UTC",
+      "chain": "solana",
+      "action": "sell_arrb",
+      "amount_in": 228381058.920949,
+      "amount_out": 0.449926,
+      "tx": "4Zxx5334QwwjUvi1znAhKLUyzYFTNu1n2NdKiAmLjzVMW4UBRvDPnUzYJdzv6Dseaa7EUb4rpeDHAzQuMbzUsHAR",
+      "note": ""
+    },
+    {
+      "time": "2026-08-06T04:53:10.826264",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.673534015
+    },
+    {
+      "time": "2026-08-06T04:56:06.046484",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.67373953
+    },
+    {
+      "time": "2026-08-06T04:56:47.964558",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.673962144
+    },
+    {
+      "time": "2026-08-06T04:57:11.724721",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.674121116
+    },
+    {
+      "time": "2026-08-06T04:57:41.008371",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.674230753
+    }
+  ]
+}

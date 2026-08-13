@@ -32,6 +32,9 @@ __pycache__/
 **/sol_trade_log.json
 **/treasury_learning.json
 **/pumpfun_loop_tokens.json
+**/revenue_log.json
+**/sol_positions.json
+**/volume_log.json
 
 # Reports (regenerated)
 reports/

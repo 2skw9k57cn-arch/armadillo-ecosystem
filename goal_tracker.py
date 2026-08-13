@@ -99,7 +99,7 @@ def get_sol_balance():
 def get_acp_usdc_total():
     """Get total USDC across all 3 agent wallets on Base"""
     total = 0.0
-    config_path = "/workspace/config.json"
+    config_path = os.path.expanduser("~/.config/acp/config.json")
     for agent_key, wallet in WALLETS.items():
         try:
             with open(config_path) as f:

@@ -46,7 +46,7 @@ TOKENS = {
     },
     "ARRB": {
         "contract":  "0xdA3C5b4d05c40a9244E534a966A1424C51055950",
-        "chain_out": "2025",   # Robinhood Chain
+        "chain_out": "4663",   # Robinhood Chain
         "decimals":  18,
     },
     "OGSAINT": {

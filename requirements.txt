@@ -1,0 +1,3 @@
+requests>=2.31.0
+solders>=0.20.0
+solana>=0.34.0

@@ -30,8 +30,8 @@ def commit_and_push():
     """Stage all changes, commit with timestamp, push to origin."""
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
     
-    # Stage everything (respects .gitignore)
-    run_git("add", "-A")
+    # Stage only known file types (never commit arbitrary error output or temp files)
+    run_git("add", "--", "*.py", "*.json", "*.md", "*.txt", "*.png", "*.webp", ".gitignore")
     
     # Check what's staged
     code, staged, _ = run_git("diff", "--cached", "--stat")

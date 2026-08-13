@@ -38,12 +38,14 @@ HL_API = "https://api.hyperliquid.xyz/info"
 
 # Trading config — BASE values, adjusted by learning engine
 MAX_POSITION_PCT = 0.10      # Base: max 10% of HL balance per position
-MAX_POSITIONS = 2             # Max concurrent positions
+MAX_POSITIONS = 3             # Max concurrent positions (raised from 2 for diversification)
 DEFAULT_LEVERAGE = 3
 MIN_HL_BALANCE = 3.0
 MIN_DEPOSIT = 5.0
 STOP_LOSS_PCT = -0.05         # Base: -5%
 TAKE_PROFIT_PCT = 0.10        # Base: +10%
+TRAILING_STOP_ACTIVATE = 0.04 # Activate trailing stop at +4% profit
+TRAILING_STOP_DISTANCE = 0.02 # Trail by 2% from peak
 POSITION_LOG = "/workspace/saint_positions.json"
 HL_DEPOSIT_LOG = "/workspace/saint_hl_log.json"
 LEARNING_DB = "/workspace/saint_learning.json"
@@ -174,17 +176,24 @@ def get_all_markets():
         return {}
 
 def analyze_market(symbol, learning_db, market_info=None):
-    """Full technical analysis of a market — returns signal dict or None"""
+    """Full technical analysis of a market — returns signal dict or None.
+    Uses multi-timeframe confirmation (15m + 1h alignment)."""
     print(f"\n  Analyzing {symbol}...")
 
-    # Fetch candle data
-    candles = get_candles(symbol, "1h", 48)
-    if not candles or len(candles) < 20:
-        print(f"    Not enough candle data ({len(candles) if candles else 0} candles)")
+    # Fetch 1h candle data
+    candles_1h = get_candles(symbol, "1h", 48)
+    if not candles_1h or len(candles_1h) < 20:
+        print(f"    Not enough 1h candle data ({len(candles_1h) if candles_1h else 0} candles)")
         return None
 
-    closes = [float(c['c']) for c in candles]
-    volumes = [float(c['v']) for c in candles]
+    # Fetch 15m candle data for multi-timeframe confirmation
+    candles_15m = get_candles(symbol, "15m", 24)
+    if not candles_15m or len(candles_15m) < 10:
+        print(f"    Not enough 15m candle data, using 1h only")
+        candles_15m = None
+
+    closes = [float(c['c']) for c in candles_1h]
+    volumes = [float(c['v']) for c in candles_1h]
     current = closes[-1]
 
     # Get market info if not provided
@@ -197,19 +206,33 @@ def analyze_market(symbol, learning_db, market_info=None):
     max_lev = market_info.get('max_lev', 3)
     oi = market_info.get('oi', 0)
 
-    # Calculate all indicators
+    # Calculate all indicators on 1h
     rsi = calc_rsi(closes, 14)
     ema9 = calc_ema(closes, 9)
     ema21 = calc_ema(closes, 21)
     bb_mid, bb_upper, bb_lower = calc_bollinger(closes, 20, 2)
     macd_line, signal_line, macd_hist = calc_macd(closes)
-    atr = calc_atr(candles, 14)
+    atr = calc_atr(candles_1h, 14)
     avg_vol = sum(volumes) / len(volumes) if volumes else 1
     recent_vol = sum(volumes[-3:]) / 3 if len(volumes) >= 3 else 0
     vol_spike = recent_vol / avg_vol if avg_vol > 0 else 1.0
 
     # ATR as % of price (volatility)
     atr_pct = (atr / current * 100) if current > 0 and atr > 0 else 0
+
+    # ── Multi-timeframe confirmation on 15m ──────────────────────────
+    mtf_confirmed = True
+    mtf_direction = None
+    if candles_15m:
+        closes_15m = [float(c['c']) for c in candles_15m]
+        rsi_15m = calc_rsi(closes_15m, 14)
+        ema9_15m = calc_ema(closes_15m, 9)
+        ema21_15m = calc_ema(closes_15m, 21)
+        if ema9_15m > ema21_15m:
+            mtf_direction = "long"
+        elif ema9_15m < ema21_15m:
+            mtf_direction = "short"
+        print(f"    15m: RSI={rsi_15m:.1f} EMA9={'>' if ema9_15m > ema21_15m else '<'}EMA21 → {mtf_direction or 'neutral'}")
 
     print(f"    Price: ${current:,.4f} | 24h: {day_change:+.2f}% | OI: {oi:,.0f} | Funding: {funding:+.6f}")
     print(f"    RSI: {rsi:.1f} | EMA9: ${ema9:.4f} vs EMA21: ${ema21:.4f} | ATR: {atr_pct:.2f}%")
@@ -288,10 +311,24 @@ def analyze_market(symbol, learning_db, market_info=None):
 
     if net > 0 and confidence >= min_confidence:
         direction = "long"
+        # Multi-timeframe check: if 15m disagrees, reduce confidence
+        if mtf_direction and mtf_direction != direction:
+            confidence = int(confidence * 0.7)
+            print(f"    ⚠️ 15m timeframe disagrees — confidence reduced to {confidence}%")
+            if confidence < min_confidence:
+                print(f"    😐 Below threshold after MTF check")
+                return None
         print(f"    📈 LONG signal — confidence: {confidence:.0f}% (bull: {bull_score}, bear: {bear_score})")
         print(f"    Reasons: {', '.join(reasons_bull)}")
     elif net < 0 and confidence >= min_confidence:
         direction = "short"
+        # Multi-timeframe check
+        if mtf_direction and mtf_direction != direction:
+            confidence = int(confidence * 0.7)
+            print(f"    ⚠️ 15m timeframe disagrees — confidence reduced to {confidence}%")
+            if confidence < min_confidence:
+                print(f"    😐 Below threshold after MTF check")
+                return None
         print(f"    📉 SHORT signal — confidence: {confidence:.0f}% (bull: {bull_score}, bear: {bear_score})")
         print(f"    Reasons: {', '.join(reasons_bear)}")
     else:
@@ -320,7 +357,7 @@ def analyze_market(symbol, learning_db, market_info=None):
     leverage = DEFAULT_LEVERAGE + adaptive["leverage_adjustment"]
     leverage = max(1, min(min(5, max_lev), leverage))  # Clamp to 1x-5x and market max
 
-    effective_mult = asset_mult * adaptive["position_size_mult"]
+    effective_mult = asset_mult * adaptive["position_size_mult"] * get_kelly_size(learning_db, symbol)
 
     return {
         'symbol': symbol,
@@ -395,21 +432,40 @@ def get_adaptive_params(db):
     loss_streak = db.get("current_loss_streak", 0)
     win_streak = db.get("current_win_streak", 0)
 
-    # Position sizing
-    # Loss streak protection fires immediately (no min trades needed)
-    if loss_streak >= 3:
-        params["position_size_mult"] = 0.3
-    elif total >= 5:
-        if win_rate > 60:
-            params["position_size_mult"] = min(1.5, 1.0 + (win_rate - 60) / 100)
-        elif win_rate < 40:
-            params["position_size_mult"] = max(0.5, win_rate / 80)
-        else:
-            params["position_size_mult"] = 1.0
+    # ── Kelly Criterion position sizing ──────────────────────────────
+    # Kelly fraction = W - (1-W)/R where W=win_rate, R=avg_win/avg_loss
+    if total >= 5:
+        win_p = wins / total
+        avg_win = db.get("total_pnl", 0) / max(1, wins) if wins > 0 else 0
+        avg_loss = abs(db.get("total_pnl", 0)) / max(1, losses) if losses > 0 else 1
+        # Use realized PnL to estimate payoff ratio
+        recent = db.get("recent_trades", [])
+        win_pnls = [t.get("pnl", 0) for t in recent if t.get("win")]
+        loss_pnls = [abs(t.get("pnl", 0)) for t in recent if not t.get("win")]
+        if win_pnls and loss_pnls:
+            avg_win = sum(win_pnls) / len(win_pnls)
+            avg_loss = sum(loss_pnls) / len(loss_pnls)
+        R = avg_win / max(0.01, avg_loss) if avg_loss > 0 else 1.0
+        kelly = win_p - (1 - win_p) / R
+        # Use half-Kelly for safety, clamp 0.1x–1.5x
+        kelly_size = max(0.1, min(1.5, kelly * 0.5))
+        params["position_size_mult"] = kelly_size
     else:
         params["position_size_mult"] = 1.0
 
-    # Leverage
+    # Loss streak override — always protect
+    if loss_streak >= 3:
+        params["position_size_mult"] = min(params["position_size_mult"], 0.3)
+
+    # ── Winning cycle detection ──────────────────────────────────────
+    # On consecutive wins, gradually increase size and extend TP
+    if win_streak >= 3:
+        win_bonus = min(0.3, (win_streak - 2) * 0.1)
+        params["position_size_mult"] = min(1.5, params["position_size_mult"] + win_bonus)
+    elif total >= 5 and win_rate > 60:
+        params["position_size_mult"] = min(1.5, params["position_size_mult"] + 0.1)
+
+    # Leverage — increase on win streaks, decrease on losses
     base_lev = DEFAULT_LEVERAGE
     if win_streak >= 2:
         base_lev += 1
@@ -417,7 +473,7 @@ def get_adaptive_params(db):
         base_lev -= 1
     params["leverage_adjustment"] = base_lev - DEFAULT_LEVERAGE
 
-    # SL/TP
+    # SL/TP — tighten on losses, extend on wins
     if loss_streak >= 2:
         params["sl_tightening"] = -0.01 * min(loss_streak, 3)
     elif win_streak >= 3:
@@ -430,7 +486,7 @@ def get_adaptive_params(db):
     else:
         params["tp_extension"] = 0.0
 
-    # Confidence threshold
+    # Confidence threshold — raise after losses, lower after wins
     base_threshold = 50
     if loss_streak >= 2:
         params["confidence_threshold"] = min(75, base_threshold + loss_streak * 5)
@@ -440,6 +496,27 @@ def get_adaptive_params(db):
         params["confidence_threshold"] = base_threshold
 
     return params
+
+
+def get_kelly_size(db, symbol):
+    """Kelly criterion size multiplier for a specific asset based on its history."""
+    asset = db.get("per_asset", {}).get(symbol, {})
+    trades = asset.get("trades", 0)
+    if trades < 3:
+        return 1.0  # Not enough data, use default
+    wins = asset.get("wins", 0)
+    losses = asset.get("losses", 0)
+    if losses == 0:
+        return 1.3  # All wins, increase
+    win_p = wins / trades
+    pnl = asset.get("pnl", 0)
+    # Estimate payoff from PnL
+    avg_pnl = pnl / trades
+    if avg_pnl > 0:
+        R = abs(avg_pnl) / max(0.01, abs(pnl) / max(1, losses))
+        kelly = win_p - (1 - win_p) / max(0.1, R)
+        return max(0.2, min(1.5, kelly * 0.5 + 0.5))
+    return 0.5  # Losing asset, reduce
 
 def record_trade(db, symbol, side, size, entry, leverage, sl, tp,
                  signal_type, confidence, funding, day_change, pnl, hold_cycles,
@@ -767,7 +844,7 @@ def close_position(position):
         return False
 
 def check_positions(learning_db):
-    """Check open positions, close on SL/TP, record outcomes for learning"""
+    """Check open positions, close on SL/TP/trailing stop, record outcomes for learning"""
     hl = get_hl_status()
     positions = hl['positions']
 
@@ -795,28 +872,42 @@ def check_positions(learning_db):
         sl_threshold = (STOP_LOSS_PCT + adaptive["sl_tightening"]) * 100 * leverage
         tp_threshold = (TAKE_PROFIT_PCT + adaptive["tp_extension"]) * 100 * leverage
 
+        # ── Trailing stop: if position is profitable, trail the stop ──
+        # Get peak PnL from position log
+        pos_info = find_position_log_entry(pos_log, coin)
+        peak_pnl_pct = pos_info.get('peak_pnl_pct', 0) if pos_info else 0
+        current_pnl_pct = pnl_pct
+        if current_pnl_pct > peak_pnl_pct:
+            peak_pnl_pct = current_pnl_pct
+            # Update peak in log
+            update_peak_pnl(coin, peak_pnl_pct)
+
+        trailing_sl_trigger = TRAILING_STOP_ACTIVATE * 100 * leverage
+        trailing_sl_distance = TRAILING_STOP_DISTANCE * 100 * leverage
+
+        should_close = False
+        close_reason = ""
+
         if pnl_pct <= sl_threshold:
-            print(f"    🛑 STOP LOSS ({pnl_pct:.2f}% ≤ {sl_threshold:.2f}%) — closing")
-            if close_position(pos):
-                pos_info = find_position_log_entry(pos_log, coin)
-                hold_cycles = count_hold_cycles(pos_info)
-                record_trade(learning_db, coin, side, abs(size), entry, leverage,
-                           0, 0, pos_info.get('signal_type', 'unknown'),
-                           pos_info.get('confidence', 50), 0, 0, pnl, hold_cycles,
-                           pos_info.get('rsi', 0), pos_info.get('atr_pct', 0),
-                           pos_info.get('vol_spike', 1), pos_info.get('reasons', []))
-                print(f"    📝 Learned: PnL ${pnl:+.2f} on {coin} {side}")
+            should_close = True
+            close_reason = f"STOP LOSS ({pnl_pct:.2f}% ≤ {sl_threshold:.2f}%)"
         elif pnl_pct >= tp_threshold:
-            print(f"    🎯 TAKE PROFIT ({pnl_pct:.2f}% ≥ {tp_threshold:.2f}%) — closing")
+            should_close = True
+            close_reason = f"TAKE PROFIT ({pnl_pct:.2f}% ≥ {tp_threshold:.2f}%)"
+        elif peak_pnl_pct >= trailing_sl_trigger and pnl_pct <= peak_pnl_pct - trailing_sl_distance:
+            should_close = True
+            close_reason = f"TRAILING STOP (peak {peak_pnl_pct:.2f}%, now {pnl_pct:.2f}%, dropped {trailing_sl_distance:.1f}%)"
+
+        if should_close:
+            print(f"    🛑 {close_reason} — closing")
             if close_position(pos):
-                pos_info = find_position_log_entry(pos_log, coin)
                 hold_cycles = count_hold_cycles(pos_info)
                 record_trade(learning_db, coin, side, abs(size), entry, leverage,
                            0, 0, pos_info.get('signal_type', 'unknown'),
                            pos_info.get('confidence', 50), 0, 0, pnl, hold_cycles,
                            pos_info.get('rsi', 0), pos_info.get('atr_pct', 0),
                            pos_info.get('vol_spike', 1), pos_info.get('reasons', []))
-                print(f"    📝 Learned: PnL ${pnl:+.2f} on {coin} {side}")
+                print(f"    📝 Learned: PnL ${pnl:+.2f} on {coin} {side} ({close_reason.split('(')[0].strip()})")
 
     return len(positions)
 
@@ -837,6 +928,19 @@ def find_position_log_entry(log, coin):
         if p.get('symbol') == coin and p.get('status') == 'open':
             return p
     return {}
+
+def update_peak_pnl(coin, peak_pnl_pct):
+    """Update the peak PnL% for an open position in the log (for trailing stop)."""
+    log = load_position_log()
+    for p in reversed(log):
+        if p.get('symbol') == coin and p.get('status') == 'open':
+            p['peak_pnl_pct'] = peak_pnl_pct
+            break
+    try:
+        with open(POSITION_LOG, 'w') as f:
+            json.dump(log, f, indent=2)
+    except Exception:
+        pass
 
 def count_hold_cycles(pos_info):
     if not pos_info.get('opened'):
@@ -967,7 +1071,7 @@ if __name__ == "__main__":
     # 3. Manage existing positions (with learning)
     open_count = check_positions(learning_db)
 
-    # 4. Scan markets for new opportunities
+    # 4. Scan markets for new opportunities — dynamic + hardcoded
     adaptive = get_adaptive_params(learning_db)
     
     if open_count < MAX_POSITIONS and hl['account_value'] >= MIN_HL_BALANCE:
@@ -976,7 +1080,7 @@ if __name__ == "__main__":
         # Get all market data once
         all_markets = get_all_markets()
         
-        # Build scan list: core markets first, then extended markets sorted by OI
+        # Build scan list: core markets first, then dynamic top movers
         scan_list = list(CORE_MARKETS)
         
         # Add extended markets that meet OI threshold
@@ -991,17 +1095,24 @@ if __name__ == "__main__":
         extended_available.sort(key=lambda x: x[1], reverse=True)
         scan_list.extend([s for s, _ in extended_available])
         
-        # Also scan top 5 markets by |day_change| (big movers = opportunity)
+        # ── Dynamic: scan top 8 markets by |day_change| (big movers = opportunity) ──
         movers = []
         for sym, m in all_markets.items():
             if sym not in scan_list and m['oi'] >= MIN_OI_EXTENDED and m['price'] > 0:
-                if abs(m['day_change']) > 5:
+                if abs(m['day_change']) > 3:  # Lowered from 5 to catch more
                     movers.append((sym, abs(m['day_change'])))
+        
         movers.sort(key=lambda x: x[1], reverse=True)
-        scan_list.extend([s for s, _ in movers[:5]])
+        dynamic_movers = [s for s, _ in movers[:8]]
+        scan_list.extend(dynamic_movers)
+        
+        # ── Dynamic: scan top 5 by volume spike (high OI + high volume = breakout) ──
+        # We'll check volume via candle data during analysis
+        
+        if dynamic_movers:
+            print(f"  📊 Dynamic movers detected: {', '.join(dynamic_movers[:5])}")
         
         print(f"  Scanning {len(scan_list)} markets: {', '.join(scan_list[:10])}{'...' if len(scan_list) > 10 else ''}")
-        
         best_signal = None
         best_confidence = 0
         

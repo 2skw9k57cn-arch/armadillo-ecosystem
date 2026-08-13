@@ -1,5 +1,5 @@
 {
-  "total_collected": 5.0,
+  "total_collected": 9.0,
   "history": [
     {
       "cycle": 1,
@@ -58,6 +58,26 @@
       "time": "2026-08-06T04:57:41.008371",
       "amount_usdc": 1.0,
       "sol_balance_after": 0.674230753
+    },
+    {
+      "time": "2026-08-12T22:13:45.547331",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.301220455
+    },
+    {
+      "time": "2026-08-12T22:16:36.382845",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.30112327
+    },
+    {
+      "time": "2026-08-12T22:51:08.501506",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.301085535
+    },
+    {
+      "time": "2026-08-12T23:51:55.276094",
+      "amount_usdc": 1.0,
+      "sol_balance_after": 0.105073711
     }
   ]
 }

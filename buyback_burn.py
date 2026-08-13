@@ -302,18 +302,40 @@ except Exception:
 # ──────────────────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
+    # ─── Self-Healing Cron Mesh Bootstrap ───────────────────────────────
+    sys.path.insert(0, "/workspace")
+    try:
+        from cron_watchdog import ensure_all_crons
+        _recreated = ensure_all_crons()
+        if _recreated:
+            print(f"  🔧 Self-healed crons: {', '.join(sorted(_recreated))}")
+    except Exception:
+        pass
+    # ──────────────────────────────────────────────────────────────────────────
+
+    # ─── Goal Check ─────────────────────────────────────────────────────
+    try:
+        from goal_tracker import check_goal
+        if check_goal():
+            print("🏁 Goal achieved — buyback-burn halting.")
+            sys.exit(0)
+    except Exception:
+        pass
+    # ──────────────────────────────────────────────────────────────────────────
+
+    MAX_CYCLES = 21  # User-requested: run 21 cycles then self-terminate
+
     now = time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime())
     print(f"🔥 Armadillo Ecosystem Buyback & Burn 🔥")
     print(f"   {now}")
     print(f"   Tokens: ARBA (ArmaBase) | ARMAD (Saint) | ARRB (Scout)")
     print(f"   Split: own token 40% / cross tokens 30% each")
     print(f"   Burn: 0xdEaD (deflationary)")
+    print(f"   Max cycles: {MAX_CYCLES} (then self-terminates + removes cron)")
     print()
     
-    # Run for each agent that has funds
-    agents = ["armabase", "saint", "scout"]
+    # Load burn log to determine current cycle count
     cycle = 1
-    
     if os.path.exists(BURN_LOG):
         try:
             with open(BURN_LOG) as f:
@@ -329,7 +351,34 @@ if __name__ == "__main__":
         except:
             pass
     
-    print(f"\n{'─' * 50}")
+    # Check if we've reached 21 cycles
+    if cycle > MAX_CYCLES:
+        print(f"\n✋ Cycle {cycle} exceeds max {MAX_CYCLES} — self-terminating.")
+        print(f"   Removing buyback-burn cron and exiting.")
+        try:
+            result = subprocess.run(
+                f"{os.environ.get('HERMES_BIN', '/opt/hermes-agent/venv/bin/hermes')} cron list 2>&1",
+                shell=True, capture_output=True, text=True, timeout=15
+            )
+            import re
+            for m in re.finditer(r'\s*([0-9a-f]{12})\s*\[active\]\s*\n\s*Name:\s+buyback-burn', result.stdout):
+                job_id = m.group(1)
+                subprocess.run(
+                    f"{os.environ.get('HERMES_BIN', '/opt/hermes-agent/venv/bin/hermes')} cron delete {job_id} 2>&1",
+                    shell=True, capture_output=True, text=True, timeout=10
+                )
+                print(f"   Deleted cron {job_id}")
+            # Also remove from ALL_JOBS in watchdog
+            print("   Buyback-burn cron removed. Profit engine will continue trading.")
+        except Exception as e:
+            print(f"   Cron removal error: {e}")
+        sys.exit(0)
+    
+    print(f"\n   Cycle {cycle}/{MAX_CYCLES}")
+    print(f"{'─' * 50}")
+    
+    # Run for each agent that has funds
+    agents = ["armabase", "saint", "scout"]
     
     total_burns = 0
     for agent in agents:
@@ -339,4 +388,6 @@ if __name__ == "__main__":
             total_burns += 1
     
     print(f"\n{'─' * 50}")
-    print(f"✅ Done. {total_burns}/{len(agents)} agents burned tokens this cycle.")
+    print(f"✅ Cycle {cycle}/{MAX_CYCLES} done. {total_burns}/{len(agents)} agents burned tokens.")
+    if cycle >= MAX_CYCLES:
+        print(f"🏁 Reached {MAX_CYCLES} cycles — buyback-burn will self-terminate on next run.")

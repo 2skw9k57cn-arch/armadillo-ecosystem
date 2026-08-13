@@ -35,7 +35,7 @@ DEAD_ADDRESS = "0x000000000000000000000000000000000000dEaD"
 WALLET = "0x12b5d81cdbe234de287cf45061f5e56f3ceb37dc"
 GRADUATION_VIRTUAL = 42000  # VIRTUAL needed in bonding curve to graduate
 GROWTH_LOG = "/workspace/growth_log.json"
-FIRECRAWL_API_KEY = "fc-b3f6a9065d1c456a81d79009c46eb08e"
+# (Firecrawl dependency removed — using direct DexScreener API calls now)
 
 # ============ UTILITIES ============
 def run(cmd):
@@ -141,29 +141,23 @@ def hire_agents_for_intelligence():
     return []
 
 def research_trending_tokens():
-    """Use Firecrawl to research trending tokens for trading decisions"""
+    """Research trending tokens via DexScreener API (no firecrawl dependency)"""
     try:
-        from firecrawl import FirecrawlApp
-        app = FirecrawlApp(api_key=FIRECRAWL_API_KEY)
-        
-        result = app.scrape_url(
+        import requests as _req
+        resp = _req.get(
             "https://api.dexscreener.com/latest/dex/search?q=trending",
-            formats=["markdown"]
+            timeout=15,
+            headers={"User-Agent": "ArmaBase/1.0"}
         )
-        
-        # Also search for crypto market opportunities
-        search_result = app.search(
-            "trending Solana Base tokens high volume profit opportunity today",
-            limit=3
-        )
-        
-        if search_result and hasattr(search_result, 'web'):
+        if resp.status_code == 200:
+            data = resp.json()
+            pairs = data.get("pairs", []) or data.get("data", []) or []
             opportunities = []
-            for r in search_result.web[:3]:
+            for p in pairs[:5]:
                 opportunities.append({
-                    'title': r.title if hasattr(r, 'title') else '',
-                    'url': r.url if hasattr(r, 'url') else '',
-                    'description': (r.description if hasattr(r, 'description') else '')[:200],
+                    'title': f"{p.get('baseToken',{}).get('symbol','?')}/{p.get('quoteToken',{}).get('symbol','?')} — ${p.get('priceUsd','?')}",
+                    'url': p.get('url', ''),
+                    'description': f"Vol24h: ${p.get('volume',{}).get('h24',0):,.0f} | Liquidity: ${p.get('liquidity',{}).get('usd',0):,.0f}",
                 })
             log_growth('research', 'trending_tokens', {'opportunities': opportunities})
             return opportunities
@@ -200,11 +194,16 @@ def solana_trading_status():
     if os.path.exists(log_file):
         with open(log_file) as f:
             trades = json.load(f)
-        sells = [t for t in trades if t.get('action') == 'SELL']
+        # Guard against non-dict entries (corrupted log)
+        if not isinstance(trades, list):
+            print(f"  📈 Solana trade log invalid format, skipping")
+            return []
+        dict_trades = [t for t in trades if isinstance(t, dict)]
+        sells = [t for t in dict_trades if t.get('action') == 'SELL']
         wins = [t for t in sells if t.get('pnl_pct', 0) > 0]
         total_pnl = sum(t.get('pnl_pct', 0) for t in sells)
-        print(f"  📈 Solana trades: {len(trades)} total, {len(sells)} sells, {len(wins)} wins, avg P&L: {total_pnl/max(len(sells),1):.1f}%")
-        return trades
+        print(f"  📈 Solana trades: {len(dict_trades)} total, {len(sells)} sells, {len(wins)} wins, avg P&L: {total_pnl/max(len(sells),1):.1f}%")
+        return dict_trades
     print(f"  📈 No Solana trades yet")
     return []
 
@@ -228,33 +227,12 @@ def run_growth_cycle(cycle_num):
     print(f"\n--- Phase 1: Graduation Engine ---")
     if not status['active']:
         # Use USDC to buy ARBA (pushes bonding curve toward 42K VIRTUAL)
+        # Buyback-burn disabled by user request — just buy and hold, no burning
         if status['usdc'] >= 3:
             buy_amount = status['usdc'] - 1.0  # Keep $1 reserve
             ok, arba = self_buy_arba(round(buy_amount, 2))
             if ok:
-                time.sleep(3)
-                # Try to burn (needs approval)
-                new_arba = get_bal('ARBA')
-                if new_arba > 100:
-                    print(f"  🔥 Attempting burn of {new_arba:,.0f} ARBA...")
-                    amt_hex = hex(int(new_arba * 10**18))[2:].zfill(64)
-                    calldata = f"0xa9059cbb000000000000000000000000000000000000000000000000000000000000dead{amt_hex}"
-                    out, err, rc = run(
-                        f"acp wallet send-transaction --chain-id 8453 "
-                        f"--to {ARBA_CONTRACT} --data {calldata} --json"
-                    )
-                    if "approval" in out.lower():
-                        m = re.search(r'id=([a-f0-9-]+)', out)
-                        if m:
-                            print(f"  ⚠️ BURN NEEDS APPROVAL: https://app.virtuals.io/wallet/approve-transaction?id={m.group(1)}")
-                    else:
-                        try:
-                            d = json.loads(out)
-                            tx = d.get('txHash', '')
-                            if tx:
-                                print(f"  🔥 Burned! TX: {tx}")
-                        except:
-                            pass
+                print(f"  ✅ Bought {arba:,.0f} ARBA (holding, not burning)")
         else:
             print(f"  ⚠️ Not enough USDC (${status['usdc']:.2f}). Need funding to continue graduation.")
     

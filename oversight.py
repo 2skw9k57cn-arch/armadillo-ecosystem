@@ -48,11 +48,20 @@ AGENTS = [
      "min_usd": 1.0, "expected_policy": ["No Policy", "ACP_ONLY"]},
 ]
 
+# Active crons only — paused crons excluded for capital efficiency.
+# Capital-guard in cron_watchdog.py auto-resumes paused crons when USDC arrives.
 EXPECTED_CRONS = {
-    "cron-watchdog": "3m", "deployer-watcher": "5m", "oversight": "10m",
-    "sniper-guard": "10m", "pumpfun-loop": "20m", "team-coordinator": "15m",
-    "saint-perps": "30m", "scout-ecosystem": "45m", "revenue-engine": "30m",
-    "learning-engine": "1h", "buyback-burn": "1h", "growth-engine": "2h",
+    "cron-watchdog": "15m", "deployer-watcher": "5m", "oversight": "30m",
+    "sniper-guard": "10m",
+    "saint-perps": "30m",
+    "learning-engine": "1h",
+    "treasury-engine": "15m", "volume-engine": "30m",
+}
+# Paused crons — not expected, won't be flagged as missing or recreated
+PAUSED_CRONS = {
+    "pumpfun-loop": "20m", "team-coordinator": "15m",
+    "scout-ecosystem": "45m", "revenue-engine": "30m",
+    "buyback-burn": "1h", "growth-engine": "2h",
 }
 
 # ─── Helpers ──────────────────────────────────────────────────────────────
@@ -99,7 +108,7 @@ def save_json(path, data):
 # ─── Checks ───────────────────────────────────────────────────────────────
 
 def check_crons():
-    """Check all 10 cron jobs are alive"""
+    """Check all active cron jobs are alive (paused crons excluded)"""
     out = hermes(["cron", "list"])
     live = set(re.findall(r'Name:\s+(\S+)', out))
     missing = set(EXPECTED_CRONS.keys()) - live
@@ -116,7 +125,7 @@ def check_crons():
             pass
 
     status = "🟢" if not missing else "🔴"
-    detail = "all 10 active" if not missing else f"missing: {', '.join(sorted(missing))}"
+    detail = f"all {len(EXPECTED_CRONS)} active" if not missing else f"missing: {', '.join(sorted(missing))}"
     return {"check": "crons", "status": status, "detail": detail,
             "missing": sorted(missing), "total": len(live)}
 

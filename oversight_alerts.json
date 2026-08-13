@@ -1,20 +1,57 @@
 {
-  "timestamp": "2026-08-09 05:59 UTC",
+  "timestamp": "2026-08-13 00:29 UTC",
   "alerts": [
     {
-      "check": "solana_wallet",
-      "status": "\ud83d\udd34",
-      "detail": "0.0000 SOL (~$0.00)",
-      "sol": 0.0
+      "check": "hl_positions",
+      "status": "\ud83d\udfe1",
+      "detail": "$19.90 | 3 pos | PnL $-1.92 | withdraw $0.29",
+      "account": 19.904279,
+      "withdrawable": 0.291906,
+      "total_pnl": -1.9216799999999998,
+      "positions": [
+        {
+          "coin": "BTC",
+          "side": "long",
+          "size": 0.001,
+          "entry": 64949.0,
+          "pnl": -1.367,
+          "leverage": 5,
+          "status": "\ud83d\udfe2",
+          "near_sl": false,
+          "near_tp": false
+        },
+        {
+          "coin": "KAS",
+          "side": "long",
+          "size": 400.0,
+          "entry": 0.026561,
+          "pnl": -0.3976,
+          "leverage": 3,
+          "status": "\ud83d\udfe2",
+          "near_sl": false,
+          "near_tp": false
+        },
+        {
+          "coin": "ENA",
+          "side": "long",
+          "size": 120.0,
+          "entry": 0.088485,
+          "pnl": -0.15708,
+          "leverage": 3,
+          "status": "\ud83d\udfe2",
+          "near_sl": false,
+          "near_tp": false
+        }
+      ]
     },
     {
       "check": "revenue_flywheel",
       "status": "\ud83d\udfe1",
-      "detail": "revenue $0.00, buybacks 0, scout jobs 31(3 hired)",
+      "detail": "revenue $0.00, buybacks 0, scout jobs 2928(324 hired)",
       "revenue_total": 0,
       "buyback_cycles": 0,
-      "scout_jobs": 31,
-      "scout_hired": 3
+      "scout_jobs": 2928,
+      "scout_hired": 324
     },
     {
       "check": "compute",
@@ -39,7 +76,5 @@
       ]
     }
   ],
-  "actions": [
-    "\u26a0\ufe0f Solana: sniper wallet has 0.0000 SOL \u2014 user needs to send SOL to CT5Z79b1ie7A..."
-  ]
+  "actions": []
 }

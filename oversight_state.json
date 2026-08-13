@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-09 05:59 UTC",
+  "timestamp": "2026-08-13 00:29 UTC",
   "checks": [
     {
       "check": "crons",
       "status": "\ud83d\udfe2",
-      "detail": "all 10 active",
+      "detail": "all 8 active",
       "missing": [],
-      "total": 10
+      "total": 8
     },
     {
       "check": "policies",
@@ -16,13 +16,13 @@
         {
           "agent": "ArmaBase",
           "status": "\ud83d\udfe2",
-          "policy": "ACP_ONLY",
+          "policy": "No Policy (no approval required)",
           "autonomous": true
         },
         {
           "agent": "Scout",
           "status": "\ud83d\udfe2",
-          "policy": "ACP_ONLY",
+          "policy": "No Policy (no approval required)",
           "autonomous": true
         },
         {
@@ -36,70 +36,90 @@
     {
       "check": "balances",
       "status": "\ud83d\udfe2",
-      "detail": "ecosystem total $57.56",
-      "total_usd": 57.559475147359294,
+      "detail": "ecosystem total $34.79",
+      "total_usd": 34.79251735869015,
       "agents": [
         {
           "agent": "ArmaBase",
           "status": "\ud83d\udfe2",
-          "usd": 17.480644629586752,
+          "usd": 8.661613364362948,
           "hl_usd": 0,
           "hl_positions": 0,
-          "detail": "$17.48 [VIRTUAL $10.12, ARRB $4.91, $ASTRO $1.73]",
+          "detail": "$8.66 [VIRTUAL $4.77, $ASTRO $1.74, USDC $1.36]",
           "tokens": [
             {
               "sym": "VIRTUAL",
-              "usd": 10.121485682310182,
-              "amt": 17.873010210683702
+              "usd": 4.774852040239398,
+              "amt": 8.020917252207958
             },
             {
               "sym": "Tiktok",
-              "usd": 0.072317803536,
+              "usd": 0.07107520660200001,
               "amt": 18.0
             },
             {
               "sym": "SAMO",
-              "usd": 0.013928625444999999,
+              "usd": 0.01368997502,
               "amt": 25.0
             },
             {
               "sym": "Instagram",
-              "usd": 0.036159835149,
+              "usd": 0.035746563321,
               "amt": 9.0
             },
             {
+              "sym": "LienFi",
+              "usd": 0.02159425389,
+              "amt": 50.0
+            },
+            {
+              "sym": "GITLAWB",
+              "usd": 0.018631403535,
+              "amt": 50.0
+            },
+            {
               "sym": "SOAS",
-              "usd": 0.011512875867500001,
+              "usd": 0.011259391544999999,
               "amt": 25.0
             },
             {
               "sym": "CASHBULL",
-              "usd": 0.036280774800000005,
+              "usd": 0.035209140291,
               "amt": 9.0
             },
             {
+              "sym": "USOS",
+              "usd": 0.0117588329775,
+              "amt": 25.0
+            },
+            {
               "sym": "BFS / MrBeast",
-              "usd": 0.01911658305,
+              "usd": 0.01888389712,
               "amt": 100.0
             },
             {
+              "sym": "USWR",
+              "usd": 0.0117283254625,
+              "amt": 25.0
+            },
+            {
               "sym": "TCAT",
-              "usd": 0.03315355848,
+              "usd": 0.0325067524416,
               "amt": 144.0
             },
             {
               "sym": "JUGGERNAUT",
-              "usd": 0.018656630805,
-              "amt": 15.0
-            },
-            {
-              "sym": "YOLO",
-              "usd": 0.012048834369,
+              "usd": 0.03645262278,
               "amt": 30.0
             },
             {
+              "sym": "YOLO",
+              "usd": 0.0177064652025,
+              "amt": 45.0
+            },
+            {
               "sym": "USDG",
-              "usd": 0.0103521882602,
+              "usd": 0.0101761067567,
               "amt": 17.0
             },
             {
@@ -109,42 +129,57 @@
             },
             {
               "sym": "USAS",
-              "usd": 0.01912510887,
+              "usd": 0.018881811869999997,
               "amt": 100.0
             },
             {
               "sym": "USDC",
-              "usd": 0.1084131576,
-              "amt": 0.108424
+              "usd": 1.3583812694000001,
+              "amt": 1.358653
+            },
+            {
+              "sym": "XST",
+              "usd": 0.013994981750000001,
+              "amt": 25.0
             },
             {
               "sym": "DCGR",
-              "usd": 0.02007435148,
+              "usd": 0.02014748312,
               "amt": 50.0
             },
             {
               "sym": "OZZY",
-              "usd": 0.011488788696,
+              "usd": 0.011256718952,
               "amt": 40.0
             },
             {
+              "sym": "HOODIE",
+              "usd": 0.01054960793,
+              "amt": 10.0
+            },
+            {
               "sym": "PONS",
-              "usd": 0.12576345755999999,
+              "usd": 0.12563725002,
               "amt": 60.0
             },
             {
+              "sym": "BYCOCKET",
+              "usd": 0.017255201042000002,
+              "amt": 17.0
+            },
+            {
               "sym": "CAT",
-              "usd": 0.0188763694625,
+              "usd": 0.0183041749675,
               "amt": 25.0
             },
             {
-              "sym": "ARRB",
-              "usd": 4.911797461830533,
-              "amt": 214930.362322296
+              "sym": "YOLO",
+              "usd": 0.014101154454999999,
+              "amt": 5.0
             },
             {
               "sym": "$ASTRO",
-              "usd": 1.7305892634151794,
+              "usd": 1.7411165825624384,
               "amt": 826528.762734
             }
           ]
@@ -152,74 +187,114 @@
         {
           "agent": "Scout",
           "status": "\ud83d\udfe2",
-          "usd": 9.22690805699288,
+          "usd": 2.0723599610817938,
           "hl_usd": 0,
           "hl_positions": 0,
-          "detail": "$9.23 [USDC $3.98, VIRTUAL $3.62, VIRTUAL $1.13]",
+          "detail": "$2.07 [VIRTUAL $1.19, ARRB $0.34, USDC $0.25]",
           "tokens": [
             {
+              "sym": "AAIF",
+              "usd": 0.0117281308175,
+              "amt": 25.0
+            },
+            {
               "sym": "VIRTUAL",
-              "usd": 1.1326,
+              "usd": 1.1938,
               "amt": 2.0
             },
             {
+              "sym": "LienFi",
+              "usd": 0.010797126945,
+              "amt": 25.0
+            },
+            {
               "sym": "GDWS",
-              "usd": 0.01487177001,
+              "usd": 0.01452947536,
               "amt": 25.0
             },
             {
               "sym": "SOAS",
-              "usd": 0.011512875867500001,
+              "usd": 0.011259391544999999,
               "amt": 25.0
             },
             {
+              "sym": "USOS",
+              "usd": 0.0117588329775,
+              "amt": 25.0
+            },
+            {
+              "sym": "JUGGERNAUT",
+              "usd": 0.01822631139,
+              "amt": 15.0
+            },
+            {
               "sym": "USAS",
-              "usd": 0.01912510887,
+              "usd": 0.018881811869999997,
               "amt": 100.0
             },
             {
               "sym": "USDC",
-              "usd": 3.9759163686,
-              "amt": 3.976314
+              "usd": 0.2515136872,
+              "amt": 0.251564
+            },
+            {
+              "sym": "HOODIE",
+              "usd": 0.01054960793,
+              "amt": 10.0
             },
             {
               "sym": "USWR",
-              "usd": 0.0119532270775,
+              "usd": 0.011728230795,
               "amt": 25.0
             },
             {
-              "sym": "VIRTUAL",
-              "usd": 3.619098674097136,
-              "amt": 6.405424052309148
+              "sym": "BYCOCKET",
+              "usd": 0.017255201042000002,
+              "amt": 17.0
             },
             {
               "sym": "TRC",
-              "usd": 0.01195271532,
+              "usd": 0.01172933311,
               "amt": 25.0
             },
             {
               "sym": "ARRB",
-              "usd": 0.35174959079107676,
+              "usd": 0.34425742831995315,
               "amt": 15391.853508403863
+            },
+            {
+              "sym": "YOLO",
+              "usd": 0.014101154454999999,
+              "amt": 5.0
             }
           ]
         },
         {
           "agent": "Saint",
           "status": "\ud83d\udfe2",
-          "usd": 30.851922460779658,
-          "hl_usd": 26.191524,
+          "usd": 24.058544033245408,
+          "hl_usd": 19.904279,
           "hl_positions": 3,
-          "detail": "$30.85 (HL $26.19, 3 pos) [USDC $2.90, VIRTUAL $1.63, USAS $0.02]",
+          "detail": "$24.06 (HL $19.90, 3 pos) [ARRB $1.84, VIRTUAL $1.71, USDC $0.37]",
           "tokens": [
             {
               "sym": "VIRTUAL",
-              "usd": 1.630944,
-              "amt": 2.88
+              "usd": 1.7123437950337854,
+              "amt": 2.868728086838307
+            },
+            {
+              "sym": "LienFi",
+              "usd": 0.010797126945,
+              "amt": 25.0
             },
             {
               "sym": "TSFS",
-              "usd": 0.01197312805,
+              "usd": 0.011741874795,
+              "amt": 25.0
+            },
+            {
+              "sym": "USWR",
+              "usd": 0.0117283254625,
               "amt": 25.0
             },
             {
@@ -229,13 +304,18 @@
             },
             {
               "sym": "USAS",
-              "usd": 0.01912510887,
+              "usd": 0.018881811869999997,
               "amt": 100.0
             },
             {
               "sym": "USDC",
-              "usd": 2.897990172,
-              "amt": 2.89828
+              "usd": 0.371745636,
+              "amt": 0.37182
+            },
+            {
+              "sym": "XST",
+              "usd": 0.013994981750000001,
+              "amt": 25.0
             },
             {
               "sym": "XDGS",
@@ -243,9 +323,19 @@
               "amt": 50.0
             },
             {
+              "sym": "BYCOCKET",
+              "usd": 0.017255201042000002,
+              "amt": 17.0
+            },
+            {
               "sym": "TRC",
-              "usd": 0.01195271532,
+              "usd": 0.01172933311,
               "amt": 25.0
+            },
+            {
+              "sym": "ARRB",
+              "usd": 1.8416258334363285,
+              "amt": 82339.64676921745
             }
           ]
         }
@@ -253,18 +343,18 @@
     },
     {
       "check": "hl_positions",
-      "status": "\ud83d\udfe2",
-      "detail": "$26.19 | 3 pos | PnL $-0.21 | withdraw $6.17",
-      "account": 26.191524,
-      "withdrawable": 6.166231,
-      "total_pnl": -0.20931999999999998,
+      "status": "\ud83d\udfe1",
+      "detail": "$19.90 | 3 pos | PnL $-1.92 | withdraw $0.29",
+      "account": 19.904279,
+      "withdrawable": 0.291906,
+      "total_pnl": -1.9216799999999998,
       "positions": [
         {
           "coin": "BTC",
           "side": "long",
           "size": 0.001,
           "entry": 64949.0,
-          "pnl": -0.183,
+          "pnl": -1.367,
           "leverage": 5,
           "status": "\ud83d\udfe2",
           "near_sl": false,
@@ -275,7 +365,7 @@
           "side": "long",
           "size": 400.0,
           "entry": 0.026561,
-          "pnl": -0.0124,
+          "pnl": -0.3976,
           "leverage": 3,
           "status": "\ud83d\udfe2",
           "near_sl": false,
@@ -286,7 +376,7 @@
           "side": "long",
           "size": 120.0,
           "entry": 0.088485,
-          "pnl": -0.01392,
+          "pnl": -0.15708,
           "leverage": 3,
           "status": "\ud83d\udfe2",
           "near_sl": false,
@@ -296,19 +386,24 @@
     },
     {
       "check": "solana_wallet",
-      "status": "\ud83d\udd34",
-      "detail": "0.0000 SOL (~$0.00)",
-      "sol": 0.0
+      "status": "\ud83d\udfe2",
+      "detail": "0.1900 SOL (~$28.50)",
+      "sol": 0.19
     },
     {
       "check": "pumpfun_loop",
       "status": "\ud83d\udfe2",
-      "detail": "6/6 tokens valid (ARBA, ARMASA, BAI, DUECES, SLPN, YAGA)",
+      "detail": "11/11 tokens valid (3SC, ARBA, ARMASA, BAI, CSMC, DUECES, OEA, OGSAINT, PP2, SLPN, YAGA)",
       "tokens": [
+        "3SC",
         "ARBA",
         "ARMASA",
         "BAI",
+        "CSMC",
         "DUECES",
+        "OEA",
+        "OGSAINT",
+        "PP2",
         "SLPN",
         "YAGA"
       ]
@@ -316,11 +411,11 @@
     {
       "check": "revenue_flywheel",
       "status": "\ud83d\udfe1",
-      "detail": "revenue $0.00, buybacks 0, scout jobs 31(3 hired)",
+      "detail": "revenue $0.00, buybacks 0, scout jobs 2928(324 hired)",
       "revenue_total": 0,
       "buyback_cycles": 0,
-      "scout_jobs": 31,
-      "scout_hired": 3
+      "scout_jobs": 2928,
+      "scout_hired": 324
     },
     {
       "check": "learning_db",
@@ -354,12 +449,10 @@
       ]
     }
   ],
-  "actions": [
-    "\u26a0\ufe0f Solana: sniper wallet has 0.0000 SOL \u2014 user needs to send SOL to CT5Z79b1ie7A..."
-  ],
+  "actions": [],
   "summary": {
     "green": 6,
-    "yellow": 2,
-    "red": 1
+    "yellow": 3,
+    "red": 0
   }
 }

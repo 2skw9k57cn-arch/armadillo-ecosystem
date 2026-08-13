@@ -85,9 +85,41 @@
       "detected": "2026-08-09T05:51:33.700694",
       "sniped": true,
       "snipe_time": "2026-08-09T05:51:34.219531"
+    },
+    "68uoyR74oJAvxzMUmwAYHZVHL6hxBLZomvGJdg8fpump": {
+      "symbol": "FAMINE",
+      "name": "Global Famine",
+      "market_cap": 60760.19270130873,
+      "detected": "2026-08-11T13:07:23.016698",
+      "sniped": true,
+      "snipe_time": "2026-08-11T13:07:23.114980"
+    },
+    "8Avy61gNL7AcWpB79vQcVPD8HytEWHSbVA8JLeXjpump": {
+      "symbol": "FAMINE",
+      "name": "Global Famine",
+      "market_cap": 773.5353069298075,
+      "detected": "2026-08-11T19:05:27.177801",
+      "sniped": true,
+      "snipe_time": "2026-08-11T19:05:27.359992"
+    },
+    "HEy7asQ4gKsKPASJWU7JTVbtrmc99fqHqptqJyGipump": {
+      "symbol": "OEA",
+      "name": "Oranges eating Apples",
+      "market_cap": 5292.643985977345,
+      "detected": "2026-08-11T19:31:28.658674",
+      "sniped": true,
+      "snipe_time": "2026-08-11T19:31:28.861595"
+    },
+    "6keRuBBAX6PKm5BKj4c1drTALpdaooxjWPE44Gk5pump": {
+      "symbol": "PP2",
+      "name": "Pumping Pill",
+      "market_cap": 838.1754748721645,
+      "detected": "2026-08-12T22:11:54.362752",
+      "sniped": true,
+      "snipe_time": "2026-08-12T22:11:56.246808"
     }
   },
-  "last_checked_slot": 438130513,
-  "total_detected": 10,
-  "total_sniped": 7
+  "last_checked_slot": 438831186,
+  "total_detected": 14,
+  "total_sniped": 11
 }

@@ -1,6 +1,6 @@
 {
   "created": "2026-08-04T04:39:18.752931",
-  "cycles": 2,
+  "cycles": 110,
   "saint_hl_deposits": [],
   "saint_hl_withdrawals": [],
   "transfers_to_armabase": [
@@ -10,32 +10,905 @@
     }
   ],
   "armabase_buyback_cycles": 0,
-  "scout_jobs_found": 31,
-  "scout_jobs_hired": 3,
+  "scout_jobs_found": 2928,
+  "scout_jobs_hired": 324,
   "revenue_generated": 0.0,
   "profit_withdrawn": 0.0,
-  "last_run": "2026-08-04T19:40:36.842352",
+  "last_run": "2026-08-12T22:55:00.453717",
   "history": [
     {
-      "timestamp": "2026-08-04T04:40:42.792828",
-      "agent": "Saint",
-      "action": "transfer_failed",
+      "timestamp": "2026-08-11T15:01:41.233222",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
       "details": {
-        "to": "ArmaBase",
-        "amount": 7.991034000000001,
-        "error": "{\"error\":\"Invalid --to address: 0x833589fCD6edb6e08f4c7c32d4f71b54bda02913\",\"code\":\"VALIDATION_ERROR\",\"recovery\":\"Provide a 0x-prefixed 20-byte EVM address.\"}\n[acp-wrapper] Copied signer from 0x12b5d8"
+        "found": 49,
+        "hired": 3
       }
     },
     {
-      "timestamp": "2026-08-04T04:41:11.138361",
-      "agent": "Scout",
-      "action": "browse_jobs",
+      "timestamp": "2026-08-11T15:22:37.788733",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
       "details": {
-        "found": 5
+        "found": 26,
+        "hired": 3
       }
     },
     {
-      "timestamp": "2026-08-04T19:40:36.842243",
+      "timestamp": "2026-08-11T15:43:47.805923",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T16:06:29.940209",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T16:26:23.194524",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T16:49:18.435765",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T17:09:06.462583",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T17:30:25.162058",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 59,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T17:49:22.255251",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T18:08:50.969483",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T18:27:09.820065",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T18:46:05.456697",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T19:04:57.895332",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T19:23:05.810333",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T19:43:07.879235",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T20:03:59.696821",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T20:21:42.909206",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T20:40:43.932000",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T20:59:47.687158",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T21:18:27.912392",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T21:36:33.785002",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T21:54:44.141320",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T22:13:51.834292",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T22:32:26.246025",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T22:50:45.694917",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T23:09:47.759712",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-11T23:30:37.374550",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 69,
+        "hired": 1
+      }
+    },
+    {
+      "timestamp": "2026-08-11T23:48:37.846037",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T00:06:45.562992",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T00:25:58.615479",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T00:45:06.532025",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 16,
+        "hired": 2
+      }
+    },
+    {
+      "timestamp": "2026-08-12T01:03:31.777905",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T01:21:36.954080",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T01:39:25.277041",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T01:57:38.347192",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T02:16:11.429752",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T02:34:45.437505",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T02:53:36.255412",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T03:11:53.287279",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T03:31:16.283523",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T03:50:03.030747",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T04:08:45.595357",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T04:26:29.275261",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T04:44:52.960934",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T05:03:50.540079",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T05:22:49.195080",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T05:41:48.165107",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T06:01:04.784568",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T06:19:53.908685",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T06:39:06.356740",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T06:57:46.063113",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T07:16:25.080004",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T07:35:17.879678",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T07:53:50.398189",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T08:13:00.664631",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T08:31:58.220121",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T08:51:24.038354",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T09:09:46.570002",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T09:27:54.270992",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T09:46:44.168140",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T10:04:44.624018",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T10:23:14.329673",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T10:41:58.468548",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T11:00:45.655962",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T11:18:39.605788",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T11:37:58.032695",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T12:23:26.092766",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T12:42:36.298897",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T13:01:45.852393",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T13:20:38.432207",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T13:41:45.109331",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T14:02:28.341886",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T14:21:59.996523",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T14:41:32.690631",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T15:02:49.006469",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T15:22:34.344143",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T15:42:04.445671",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T16:01:01.261887",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T16:20:14.207405",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T16:39:54.369080",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T16:58:54.679515",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T17:18:15.804506",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T17:37:00.679110",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T17:55:36.066307",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T18:14:41.382851",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T18:33:31.556297",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T18:51:35.301009",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T19:10:41.863970",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T19:29:21.655396",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T19:47:31.464455",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T20:05:44.021533",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T20:24:42.803433",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T20:43:27.918527",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T21:01:28.109682",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T21:19:43.667063",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T21:38:38.779261",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T21:57:29.211299",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T22:16:33.010099",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T22:35:45.209415",
+      "agent": "ArmaBase",
+      "action": "browse_and_hire",
+      "details": {
+        "found": 26,
+        "hired": 3
+      }
+    },
+    {
+      "timestamp": "2026-08-12T22:55:00.453633",
       "agent": "ArmaBase",
       "action": "browse_and_hire",
       "details": {
@@ -62,6 +935,1932 @@
       "provider": "Otto AI - Market Alpha Agent",
       "offering": "crypto_news",
       "created_at": "2026-08-04T19:40:33.868816"
+    },
+    {
+      "job_id": "72219",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T12:21:37.361605"
+    },
+    {
+      "job_id": "72220",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T12:21:56.644006"
+    },
+    {
+      "job_id": "72221",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T12:22:24.501797"
+    },
+    {
+      "job_id": "72224",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T12:41:55.206803"
+    },
+    {
+      "job_id": "72225",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T12:42:13.573777"
+    },
+    {
+      "job_id": "72226",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T12:42:46.149133"
+    },
+    {
+      "job_id": "72227",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:00:23.712042"
+    },
+    {
+      "job_id": "72228",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T13:00:43.139187"
+    },
+    {
+      "job_id": "72229",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:01:09.809251"
+    },
+    {
+      "job_id": "72230",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:19:38.974939"
+    },
+    {
+      "job_id": "72231",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T13:20:09.668243"
+    },
+    {
+      "job_id": "72232",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:20:34.859242"
+    },
+    {
+      "job_id": "72234",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:38:11.639487"
+    },
+    {
+      "job_id": "72235",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T13:38:41.088879"
+    },
+    {
+      "job_id": "72236",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:39:03.106005"
+    },
+    {
+      "job_id": "72237",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T13:59:06.368048"
+    },
+    {
+      "job_id": "72238",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T13:59:34.003503"
+    },
+    {
+      "job_id": "72239",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:00:03.141730"
+    },
+    {
+      "job_id": "72240",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:18:39.322743"
+    },
+    {
+      "job_id": "72241",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T14:19:19.045541"
+    },
+    {
+      "job_id": "72242",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:19:46.992769"
+    },
+    {
+      "job_id": "72244",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:37:39.749922"
+    },
+    {
+      "job_id": "72245",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T14:38:01.934844"
+    },
+    {
+      "job_id": "72246",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:38:28.036425"
+    },
+    {
+      "job_id": "72247",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T14:56:54.355425"
+    },
+    {
+      "job_id": "72248",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T15:01:15.198973"
+    },
+    {
+      "job_id": "72250",
+      "provider": "AlienLabs",
+      "offering": "airdrop_check",
+      "created_at": "2026-08-11T15:01:38.320873"
+    },
+    {
+      "job_id": "72251",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T15:21:41.279616"
+    },
+    {
+      "job_id": "72252",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T15:22:07.023082"
+    },
+    {
+      "job_id": "72253",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T15:22:31.598363"
+    },
+    {
+      "job_id": "72255",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T15:42:46.555657"
+    },
+    {
+      "job_id": "72256",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T15:43:22.178927"
+    },
+    {
+      "job_id": "72257",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T15:43:44.723426"
+    },
+    {
+      "job_id": "72258",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:05:02.027721"
+    },
+    {
+      "job_id": "72259",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T16:05:30.558820"
+    },
+    {
+      "job_id": "72260",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:06:24.335708"
+    },
+    {
+      "job_id": "72262",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:25:23.325291"
+    },
+    {
+      "job_id": "72263",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T16:25:55.624661"
+    },
+    {
+      "job_id": "72264",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:26:19.800722"
+    },
+    {
+      "job_id": "72265",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:48:05.522941"
+    },
+    {
+      "job_id": "72266",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T16:48:23.642563"
+    },
+    {
+      "job_id": "72267",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T16:49:15.373170"
+    },
+    {
+      "job_id": "72270",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T17:08:05.192009"
+    },
+    {
+      "job_id": "72271",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T17:08:38.292721"
+    },
+    {
+      "job_id": "72272",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T17:09:03.656971"
+    },
+    {
+      "job_id": "72276",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T17:28:02.851915"
+    },
+    {
+      "job_id": "72280",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T17:29:45.210824"
+    },
+    {
+      "job_id": "72281",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T17:30:22.300577"
+    },
+    {
+      "job_id": "72282",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T17:48:32.538276"
+    },
+    {
+      "job_id": "72283",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T17:48:57.443731"
+    },
+    {
+      "job_id": "72284",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T17:49:19.274382"
+    },
+    {
+      "job_id": "72285",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:07:42.698042"
+    },
+    {
+      "job_id": "72286",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T18:08:13.519559"
+    },
+    {
+      "job_id": "72287",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:08:47.354923"
+    },
+    {
+      "job_id": "72290",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:26:27.979934"
+    },
+    {
+      "job_id": "72291",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T18:26:47.068743"
+    },
+    {
+      "job_id": "72292",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:27:07.120852"
+    },
+    {
+      "job_id": "72293",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:45:22.979479"
+    },
+    {
+      "job_id": "72294",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T18:45:40.720096"
+    },
+    {
+      "job_id": "72295",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T18:46:01.769488"
+    },
+    {
+      "job_id": "72296",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:04:15.524031"
+    },
+    {
+      "job_id": "72297",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T19:04:33.214541"
+    },
+    {
+      "job_id": "72298",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:04:55.113083"
+    },
+    {
+      "job_id": "72299",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:22:21.222484"
+    },
+    {
+      "job_id": "72300",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T19:22:42.790496"
+    },
+    {
+      "job_id": "72301",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:23:03.160220"
+    },
+    {
+      "job_id": "72306",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:42:23.789274"
+    },
+    {
+      "job_id": "72307",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T19:42:49.130055"
+    },
+    {
+      "job_id": "72308",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T19:43:05.162840"
+    },
+    {
+      "job_id": "72310",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:03:11.369433"
+    },
+    {
+      "job_id": "72311",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T20:03:33.206413"
+    },
+    {
+      "job_id": "72312",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:03:57.079092"
+    },
+    {
+      "job_id": "72313",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:21:11.151729"
+    },
+    {
+      "job_id": "72314",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T20:21:23.229791"
+    },
+    {
+      "job_id": "72315",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:21:40.300056"
+    },
+    {
+      "job_id": "72317",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:39:53.541940"
+    },
+    {
+      "job_id": "72318",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T20:40:15.094153"
+    },
+    {
+      "job_id": "72319",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:40:40.840179"
+    },
+    {
+      "job_id": "72321",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:59:11.302480"
+    },
+    {
+      "job_id": "72322",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T20:59:23.177979"
+    },
+    {
+      "job_id": "72323",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T20:59:45.005898"
+    },
+    {
+      "job_id": "72324",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:17:45.390815"
+    },
+    {
+      "job_id": "72325",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T21:18:02.790679"
+    },
+    {
+      "job_id": "72326",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:18:25.258617"
+    },
+    {
+      "job_id": "72328",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:35:49.875947"
+    },
+    {
+      "job_id": "72329",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T21:36:09.334280"
+    },
+    {
+      "job_id": "72330",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:36:31.172094"
+    },
+    {
+      "job_id": "72332",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:53:55.211872"
+    },
+    {
+      "job_id": "72333",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T21:54:17.461675"
+    },
+    {
+      "job_id": "72334",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T21:54:41.362122"
+    },
+    {
+      "job_id": "72336",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:13:12.692121"
+    },
+    {
+      "job_id": "72337",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T22:13:27.033044"
+    },
+    {
+      "job_id": "72338",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:13:49.063202"
+    },
+    {
+      "job_id": "72340",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:31:43.167769"
+    },
+    {
+      "job_id": "72341",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T22:32:00.738587"
+    },
+    {
+      "job_id": "72342",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:32:21.219181"
+    },
+    {
+      "job_id": "72343",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:49:55.002832"
+    },
+    {
+      "job_id": "72344",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T22:50:17.788085"
+    },
+    {
+      "job_id": "72345",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T22:50:43.052129"
+    },
+    {
+      "job_id": "72346",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T23:09:05.220635"
+    },
+    {
+      "job_id": "72347",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T23:09:23.129044"
+    },
+    {
+      "job_id": "72348",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T23:09:45.142528"
+    },
+    {
+      "job_id": "72350",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T23:27:51.003728"
+    },
+    {
+      "job_id": "72358",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T23:47:55.048284"
+    },
+    {
+      "job_id": "72359",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-11T23:48:12.830396"
+    },
+    {
+      "job_id": "72360",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-11T23:48:35.215110"
+    },
+    {
+      "job_id": "72361",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T00:06:02.946864"
+    },
+    {
+      "job_id": "72362",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T00:06:20.965511"
+    },
+    {
+      "job_id": "72363",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T00:06:42.924971"
+    },
+    {
+      "job_id": "72364",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T00:25:13.045224"
+    },
+    {
+      "job_id": "72365",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T00:25:32.699284"
+    },
+    {
+      "job_id": "72366",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T00:25:55.341653"
+    },
+    {
+      "job_id": "72368",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T00:44:21.417797"
+    },
+    {
+      "job_id": "72369",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T00:44:49.799489"
+    },
+    {
+      "job_id": "72370",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:02:52.618089"
+    },
+    {
+      "job_id": "72371",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T01:03:08.521055"
+    },
+    {
+      "job_id": "72372",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:03:28.995904"
+    },
+    {
+      "job_id": "72373",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:20:53.310366"
+    },
+    {
+      "job_id": "72374",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T01:21:13.718770"
+    },
+    {
+      "job_id": "72375",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:21:33.248495"
+    },
+    {
+      "job_id": "72377",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:38:46.687935"
+    },
+    {
+      "job_id": "72378",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T01:39:02.514022"
+    },
+    {
+      "job_id": "72379",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:39:22.690953"
+    },
+    {
+      "job_id": "72380",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:56:55.271432"
+    },
+    {
+      "job_id": "72381",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T01:57:13.292731"
+    },
+    {
+      "job_id": "72382",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T01:57:35.715121"
+    },
+    {
+      "job_id": "72383",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:15:11.708064"
+    },
+    {
+      "job_id": "72384",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T02:15:35.819371"
+    },
+    {
+      "job_id": "72385",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:16:08.081232"
+    },
+    {
+      "job_id": "72387",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:34:05.101245"
+    },
+    {
+      "job_id": "72388",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T02:34:21.697402"
+    },
+    {
+      "job_id": "72389",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:34:42.816869"
+    },
+    {
+      "job_id": "72390",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:52:49.370409"
+    },
+    {
+      "job_id": "72391",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T02:53:05.164915"
+    },
+    {
+      "job_id": "72392",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T02:53:33.582836"
+    },
+    {
+      "job_id": "72393",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:10:56.554044"
+    },
+    {
+      "job_id": "72395",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:11:34.936540"
+    },
+    {
+      "job_id": "72396",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T03:11:50.611059"
+    },
+    {
+      "job_id": "72398",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:30:29.388633"
+    },
+    {
+      "job_id": "72399",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T03:30:48.705417"
+    },
+    {
+      "job_id": "72400",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:31:13.514201"
+    },
+    {
+      "job_id": "72401",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:49:03.919983"
+    },
+    {
+      "job_id": "72402",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T03:49:31.462403"
+    },
+    {
+      "job_id": "72403",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T03:49:59.828350"
+    },
+    {
+      "job_id": "72404",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:08:05.121370"
+    },
+    {
+      "job_id": "72405",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T04:08:21.122248"
+    },
+    {
+      "job_id": "72406",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:08:42.897694"
+    },
+    {
+      "job_id": "72407",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:25:49.529100"
+    },
+    {
+      "job_id": "72408",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T04:26:06.810078"
+    },
+    {
+      "job_id": "72409",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:26:26.499796"
+    },
+    {
+      "job_id": "72411",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:44:05.749713"
+    },
+    {
+      "job_id": "72412",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T04:44:25.083567"
+    },
+    {
+      "job_id": "72413",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T04:44:49.349292"
+    },
+    {
+      "job_id": "72414",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:03:02.866759"
+    },
+    {
+      "job_id": "72415",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T05:03:24.401290"
+    },
+    {
+      "job_id": "72416",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:03:47.546483"
+    },
+    {
+      "job_id": "72417",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:22:01.289102"
+    },
+    {
+      "job_id": "72418",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T05:22:21.006007"
+    },
+    {
+      "job_id": "72419",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:22:46.589194"
+    },
+    {
+      "job_id": "72421",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:40:55.881232"
+    },
+    {
+      "job_id": "72422",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T05:41:19.447800"
+    },
+    {
+      "job_id": "72423",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T05:41:43.850803"
+    },
+    {
+      "job_id": "72424",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:00:15.527792"
+    },
+    {
+      "job_id": "72425",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T06:00:35.474220"
+    },
+    {
+      "job_id": "72426",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:01:01.438004"
+    },
+    {
+      "job_id": "72427",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:19:06.878207"
+    },
+    {
+      "job_id": "72428",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T06:19:29.117446"
+    },
+    {
+      "job_id": "72429",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:19:51.227592"
+    },
+    {
+      "job_id": "72431",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:38:21.078632"
+    },
+    {
+      "job_id": "72432",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T06:38:40.807600"
+    },
+    {
+      "job_id": "72433",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:39:03.597671"
+    },
+    {
+      "job_id": "72434",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:56:56.506124"
+    },
+    {
+      "job_id": "72435",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T06:57:14.749614"
+    },
+    {
+      "job_id": "72436",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T06:57:43.405858"
+    },
+    {
+      "job_id": "72437",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:15:31.058026"
+    },
+    {
+      "job_id": "72438",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T07:15:51.228442"
+    },
+    {
+      "job_id": "72439",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:16:20.923888"
+    },
+    {
+      "job_id": "72441",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:34:20.686074"
+    },
+    {
+      "job_id": "72442",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T07:34:50.015384"
+    },
+    {
+      "job_id": "72443",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:35:14.837726"
+    },
+    {
+      "job_id": "72444",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:52:57.741788"
+    },
+    {
+      "job_id": "72445",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T07:53:25.098480"
+    },
+    {
+      "job_id": "72446",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T07:53:46.979974"
+    },
+    {
+      "job_id": "72447",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:12:11.103171"
+    },
+    {
+      "job_id": "72448",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T08:12:32.814548"
+    },
+    {
+      "job_id": "72449",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:12:57.176172"
+    },
+    {
+      "job_id": "72451",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:31:09.126497"
+    },
+    {
+      "job_id": "72452",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T08:31:28.873437"
+    },
+    {
+      "job_id": "72453",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:31:55.094587"
+    },
+    {
+      "job_id": "72454",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:50:32.567972"
+    },
+    {
+      "job_id": "72455",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T08:50:52.646623"
+    },
+    {
+      "job_id": "72456",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T08:51:21.338221"
+    },
+    {
+      "job_id": "72457",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:08:59.267728"
+    },
+    {
+      "job_id": "72458",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T09:09:20.841908"
+    },
+    {
+      "job_id": "72459",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:09:43.009092"
+    },
+    {
+      "job_id": "72460",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:27:03.767477"
+    },
+    {
+      "job_id": "72461",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T09:27:21.325905"
+    },
+    {
+      "job_id": "72462",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:27:50.949837"
+    },
+    {
+      "job_id": "72464",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:46:08.791444"
+    },
+    {
+      "job_id": "72465",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T09:46:21.331954"
+    },
+    {
+      "job_id": "72466",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T09:46:41.162510"
+    },
+    {
+      "job_id": "72467",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:03:59.370402"
+    },
+    {
+      "job_id": "72468",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T10:04:19.130090"
+    },
+    {
+      "job_id": "72469",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:04:41.740280"
+    },
+    {
+      "job_id": "72470",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:22:08.794942"
+    },
+    {
+      "job_id": "72471",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T10:22:37.344831"
+    },
+    {
+      "job_id": "72472",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:23:11.244114"
+    },
+    {
+      "job_id": "72474",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:41:19.788061"
+    },
+    {
+      "job_id": "72475",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T10:41:38.793013"
+    },
+    {
+      "job_id": "72476",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:41:55.813924"
+    },
+    {
+      "job_id": "72477",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T10:59:59.667160"
+    },
+    {
+      "job_id": "72478",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T11:00:20.910812"
+    },
+    {
+      "job_id": "72479",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T11:00:43.006434"
+    },
+    {
+      "job_id": "72480",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T11:17:57.473116"
+    },
+    {
+      "job_id": "72481",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T11:18:17.278908"
+    },
+    {
+      "job_id": "72482",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T11:18:36.863769"
+    },
+    {
+      "job_id": "72484",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T11:36:58.911095"
+    },
+    {
+      "job_id": "72485",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T11:37:21.207346"
+    },
+    {
+      "job_id": "72486",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T11:37:53.231457"
+    },
+    {
+      "job_id": "72487",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T12:22:21.049072"
+    },
+    {
+      "job_id": "72488",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T12:22:49.735236"
+    },
+    {
+      "job_id": "72489",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T12:23:22.963430"
+    },
+    {
+      "job_id": "72491",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T12:41:52.653768"
+    },
+    {
+      "job_id": "72492",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T12:42:12.554682"
+    },
+    {
+      "job_id": "72493",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T12:42:33.582128"
+    },
+    {
+      "job_id": "72494",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:00:51.250950"
+    },
+    {
+      "job_id": "72495",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T13:01:11.422089"
+    },
+    {
+      "job_id": "72496",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:01:39.475935"
+    },
+    {
+      "job_id": "72508",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:19:21.162159"
+    },
+    {
+      "job_id": "72511",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T13:20:11.392480"
+    },
+    {
+      "job_id": "72514",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:20:35.505274"
+    },
+    {
+      "job_id": "72552",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:38:51.703530"
+    },
+    {
+      "job_id": "72555",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T13:40:57.671114"
+    },
+    {
+      "job_id": "72559",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T13:41:41.101911"
+    },
+    {
+      "job_id": "72598",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:01:12.881006"
+    },
+    {
+      "job_id": "72599",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T14:01:36.775303"
+    },
+    {
+      "job_id": "72600",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:02:17.314715"
+    },
+    {
+      "job_id": "72601",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:20:53.276088"
+    },
+    {
+      "job_id": "72602",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T14:21:33.378833"
+    },
+    {
+      "job_id": "72603",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:21:57.204412"
+    },
+    {
+      "job_id": "72605",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:40:35.280845"
+    },
+    {
+      "job_id": "72606",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T14:40:58.895506"
+    },
+    {
+      "job_id": "72607",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T14:41:29.848896"
+    },
+    {
+      "job_id": "72608",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:01:18.687597"
+    },
+    {
+      "job_id": "72609",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T15:02:14.777934"
+    },
+    {
+      "job_id": "72610",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:02:46.221825"
+    },
+    {
+      "job_id": "72611",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:21:19.258097"
+    },
+    {
+      "job_id": "72612",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T15:21:53.796567"
+    },
+    {
+      "job_id": "72613",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:22:31.565430"
+    },
+    {
+      "job_id": "72615",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:41:17.267614"
+    },
+    {
+      "job_id": "72616",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T15:41:36.728583"
+    },
+    {
+      "job_id": "72617",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:41:58.042524"
+    },
+    {
+      "job_id": "72618",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T15:59:53.290299"
+    },
+    {
+      "job_id": "72619",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T16:00:28.057087"
+    },
+    {
+      "job_id": "72620",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:00:57.336312"
+    },
+    {
+      "job_id": "72621",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:19:14.742585"
+    },
+    {
+      "job_id": "72622",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T16:19:35.884492"
+    },
+    {
+      "job_id": "72623",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:20:10.500052"
+    },
+    {
+      "job_id": "72625",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:38:33.513339"
+    },
+    {
+      "job_id": "72626",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T16:39:04.514281"
+    },
+    {
+      "job_id": "72627",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:39:46.561278"
+    },
+    {
+      "job_id": "72628",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:57:50.591487"
+    },
+    {
+      "job_id": "72629",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T16:58:26.678002"
+    },
+    {
+      "job_id": "72630",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T16:58:51.358051"
+    },
+    {
+      "job_id": "72631",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:17:15.547892"
+    },
+    {
+      "job_id": "72632",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T17:17:43.335155"
+    },
+    {
+      "job_id": "72633",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:18:11.251318"
+    },
+    {
+      "job_id": "72635",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:36:13.769486"
+    },
+    {
+      "job_id": "72636",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T17:36:33.077191"
+    },
+    {
+      "job_id": "72637",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:36:57.796411"
+    },
+    {
+      "job_id": "72638",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:54:53.872682"
+    },
+    {
+      "job_id": "72639",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T17:55:13.399732"
+    },
+    {
+      "job_id": "72640",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T17:55:32.800546"
+    },
+    {
+      "job_id": "72641",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:13:59.066579"
+    },
+    {
+      "job_id": "72642",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T18:14:12.258526"
+    },
+    {
+      "job_id": "72643",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:14:36.888634"
+    },
+    {
+      "job_id": "72646",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:32:45.241054"
+    },
+    {
+      "job_id": "72647",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T18:33:03.610382"
+    },
+    {
+      "job_id": "72648",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:33:28.599535"
+    },
+    {
+      "job_id": "72649",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:50:49.001291"
+    },
+    {
+      "job_id": "72650",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T18:51:08.617120"
+    },
+    {
+      "job_id": "72651",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T18:51:32.506514"
+    },
+    {
+      "job_id": "72652",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:09:59.540136"
+    },
+    {
+      "job_id": "72653",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T19:10:18.981473"
+    },
+    {
+      "job_id": "72654",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:10:38.539813"
+    },
+    {
+      "job_id": "72656",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:28:43.188391"
+    },
+    {
+      "job_id": "72657",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T19:28:59.218218"
+    },
+    {
+      "job_id": "72658",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:29:19.076054"
+    },
+    {
+      "job_id": "72659",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:46:43.154692"
+    },
+    {
+      "job_id": "72660",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T19:47:02.927615"
+    },
+    {
+      "job_id": "72661",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T19:47:28.449821"
+    },
+    {
+      "job_id": "72662",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:04:56.065731"
+    },
+    {
+      "job_id": "72663",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T20:05:16.618612"
+    },
+    {
+      "job_id": "72664",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:05:41.192245"
+    },
+    {
+      "job_id": "72665",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:23:58.840116"
+    },
+    {
+      "job_id": "72666",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T20:24:19.537377"
+    },
+    {
+      "job_id": "72667",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:24:39.248981"
+    },
+    {
+      "job_id": "72670",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:42:49.093517"
+    },
+    {
+      "job_id": "72671",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T20:43:04.740467"
+    },
+    {
+      "job_id": "72672",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T20:43:24.537379"
+    },
+    {
+      "job_id": "72674",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:00:45.386039"
+    },
+    {
+      "job_id": "72675",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T21:01:02.703553"
+    },
+    {
+      "job_id": "72676",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:01:25.221642"
+    },
+    {
+      "job_id": "72677",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:18:49.417879"
+    },
+    {
+      "job_id": "72678",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T21:19:14.197043"
+    },
+    {
+      "job_id": "72679",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:19:39.826930"
+    },
+    {
+      "job_id": "72681",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:37:57.331028"
+    },
+    {
+      "job_id": "72682",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T21:38:13.484335"
+    },
+    {
+      "job_id": "72683",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:38:35.836043"
+    },
+    {
+      "job_id": "72684",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:56:45.318685"
+    },
+    {
+      "job_id": "72685",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T21:57:02.905485"
+    },
+    {
+      "job_id": "72686",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T21:57:26.375053"
+    },
+    {
+      "job_id": "72689",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:15:31.918779"
+    },
+    {
+      "job_id": "72690",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T22:15:52.299490"
+    },
+    {
+      "job_id": "72691",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:16:27.188057"
+    },
+    {
+      "job_id": "72693",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:34:51.241744"
+    },
+    {
+      "job_id": "72694",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T22:35:11.098662"
+    },
+    {
+      "job_id": "72695",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:35:42.193791"
+    },
+    {
+      "job_id": "72696",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:54:18.220222"
+    },
+    {
+      "job_id": "72697",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "kol_alpha",
+      "created_at": "2026-08-12T22:54:37.500335"
+    },
+    {
+      "job_id": "72698",
+      "provider": "Otto AI - Market Alpha Agent",
+      "offering": "crypto_news",
+      "created_at": "2026-08-12T22:54:56.090351"
     }
   ],
   "deployer_alerts": [
@@ -104,6 +2903,38 @@
       "sniped": true,
       "snipe_details": "TX: 5cnuCDYyrgae2LuLhbyD... | out=24603253745 impact=1.42%",
       "time": "2026-08-09T05:51:34.220677"
+    },
+    {
+      "token": "FAMINE",
+      "mint": "68uoyR74oJAvxzMUmwAYHZVHL6hxBLZomvGJdg8fpump",
+      "market_cap": 60760.19270130873,
+      "sniped": true,
+      "snipe_details": "TX: 3NY5qhCxbvuXmULe5KjR... | out=1625452889 impact=1.24%",
+      "time": "2026-08-11T13:07:23.115958"
+    },
+    {
+      "token": "FAMINE",
+      "mint": "8Avy61gNL7AcWpB79vQcVPD8HytEWHSbVA8JLeXjpump",
+      "market_cap": 773.5353069298075,
+      "sniped": true,
+      "snipe_details": "TX: 5AVsryQV9KKH5arEhjL2... | out=135974920933 impact=0.00%",
+      "time": "2026-08-11T19:05:27.360997"
+    },
+    {
+      "token": "OEA",
+      "mint": "HEy7asQ4gKsKPASJWU7JTVbtrmc99fqHqptqJyGipump",
+      "market_cap": 5292.643985977345,
+      "sniped": true,
+      "snipe_details": "TX: ueVEXEnGNrWoVRmB6BpD... | out=18660102863 impact=1.23%",
+      "time": "2026-08-11T19:31:28.862863"
+    },
+    {
+      "token": "PP2",
+      "mint": "6keRuBBAX6PKm5BKj4c1drTALpdaooxjWPE44Gk5pump",
+      "market_cap": 838.1754748721645,
+      "sniped": true,
+      "snipe_details": "TX: 52kdXGya5fksz9BYfT36... | out=117817902466 impact=1.21%",
+      "time": "2026-08-12T22:11:56.248136"
     }
   ]
 }

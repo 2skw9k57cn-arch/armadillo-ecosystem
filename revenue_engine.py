@@ -158,45 +158,22 @@ def main():
         print(f"💰 New revenue detected: ${new_revenue:.2f} USDC")
         print(f"   (was ${last_usdc:.2f}, now ${usdc:.2f})")
         
-        # Split: 50% buyback+burn, 50% keep as profit
-        buyback_amount = new_revenue * 0.5
-        profit_amount = new_revenue * 0.5
-        
-        print(f"   Buyback: ${buyback_amount:.2f} -> ARBA -> burn")
+        # Buyback-burn disabled by user request — 100% kept as profit
+        profit_amount = new_revenue
         print(f"   Profit (keep): ${profit_amount:.2f}")
         
-        # Buyback if amount is >= $2 (ACP minimum)
-        if buyback_amount >= 2.0:
-            ok, arba_bought, tx = buyback_arba(round(buyback_amount, 2))
-            if ok:
-                print(f"   ✅ Bought {arba_bought:,.0f} ARBA | TX: {tx[:20]}...")
-                time.sleep(5)
-                
-                # Burn
-                total_arba = get_arba_balance()
-                if total_arba > 100:
-                    burn_ok, burn_result = burn_arba(total_arba)
-                    if burn_ok:
-                        print(f"   🔥 Burned {total_arba:,.0f} ARBA | TX: {burn_result[:20]}...")
-                    else:
-                        print(f"   ⚠️ Burn: {burn_result[:80]}")
-                
-                # Log
-                log_revenue({
-                    'timestamp': int(time.time()),
-                    'date': time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime()),
-                    'new_revenue': new_revenue,
-                    'buyback_usdc': buyback_amount,
-                    'profit_usdc': profit_amount,
-                    'arba_bought': arba_bought,
-                    'arba_burned': total_arba if total_arba > 100 else 0,
-                    'buyback_tx': tx,
-                    'burn_tx': burn_result if burn_ok else '',
-                })
-            else:
-                print(f"   ❌ Buyback failed: {str(arba_bought)[:100]}")
-        else:
-            print(f"   ⚠️ Buyback amount ${buyback_amount:.2f} below $2 minimum, accumulating")
+        # Log
+        log_revenue({
+            'timestamp': int(time.time()),
+            'date': time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime()),
+            'new_revenue': new_revenue,
+            'buyback_usdc': 0,
+            'profit_usdc': profit_amount,
+            'arba_bought': 0,
+            'arba_burned': 0,
+            'buyback_tx': '',
+            'burn_tx': '',
+        })
     else:
         print(f"No new revenue (balance: ${usdc:.2f}, was ${last_usdc:.2f})")
     

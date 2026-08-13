@@ -69,11 +69,11 @@ def load_dynamic_tokens():
                             merged[sym]["min_trade_usdc"] = min(merged[sym].get("min_trade_usdc", 0.05) * 1.5, 0.50)
                         elif "REDUCE" in rec:
                             merged[sym]["min_trade_usdc"] = max(merged[sym].get("min_trade_usdc", 0.05) * 0.5, 0.02)
-            except:
+            except Exception as e:
                 pass  # No learned params yet, use defaults
             
             return merged
-    except:
+    except Exception as e:
         return DEFAULT_TOKENS
 
 TOKENS = load_dynamic_tokens()
@@ -184,7 +184,7 @@ def load_trade_log():
             if isinstance(data, list):
                 return {"trades": data, "total_volume": 0, "total_pnl": 0}
             return data
-    except:
+    except Exception as e:
         return {"trades": [], "total_volume": 0, "total_pnl": 0}
 
 def save_trade_log(log):
@@ -214,7 +214,7 @@ def get_token_price(mint):
         pairs = data.get("pairs", [])
         if pairs:
             return float(pairs[0].get("priceUsd", 0) or 0)
-    except:
+    except Exception as e:
         pass
     return 0.0
 

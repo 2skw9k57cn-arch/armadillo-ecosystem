@@ -76,7 +76,7 @@ def check_graduation_progress():
         d = json.loads(out)
         active = d.get('chains', [{}])[0].get('active', False)
         offerings = len(d.get('offerings', []))
-    except:
+    except Exception as e:
         active = False
         offerings = 0
     
@@ -111,7 +111,7 @@ def self_buy_arba(amount_usdc):
             return True, received
         print(f"  ❌ {d.get('error', err)[:100]}")
         return False, 0
-    except:
+    except Exception as e:
         print(f"  ❌ {err[:100]}")
         return False, 0
 
@@ -184,7 +184,7 @@ def optimize_offerings():
                 print(f"  💡 Missing high-demand category: {category}")
         
         return offerings
-    except:
+    except Exception as e:
         return []
 
 # ============ PHASE 4: CROSS-CHAIN TRADING ============

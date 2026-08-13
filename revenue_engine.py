@@ -44,7 +44,7 @@ def get_usdc_balance():
                 bal = int(t['tokenBalance'], 16) if t['tokenBalance'] else 0
                 dec = t['tokenMetadata'].get('decimals') or 18
                 return bal / (10**dec)
-    except:
+    except Exception as e:
         pass
     return 0.0
 
@@ -58,7 +58,7 @@ def get_arba_balance():
                 bal = int(t['tokenBalance'], 16) if t['tokenBalance'] else 0
                 dec = t['tokenMetadata'].get('decimals') or 18
                 return bal / (10**dec)
-    except:
+    except Exception as e:
         pass
     return 0.0
 
@@ -82,7 +82,7 @@ def buyback_arba(usdc_amount):
             txs = [leg['txHash'] for leg in d.get('legs', []) if leg.get('txHash')]
             return True, received, txs[-1] if txs else ''
         return False, 0, d.get('error', err)
-    except:
+    except Exception as e:
         return False, 0, err or out
 
 def burn_arba(amount):
@@ -101,7 +101,7 @@ def burn_arba(amount):
         d = json.loads(out)
         tx = d.get('txHash') or d.get('hash', '')
         return True, tx if tx else str(d)
-    except:
+    except Exception as e:
         return False, out[:200]
 
 def withdraw_usdc(amount, to_address):
@@ -121,7 +121,7 @@ def withdraw_usdc(amount, to_address):
         d = json.loads(out)
         tx = d.get('txHash') or d.get('hash', '')
         return True, tx
-    except:
+    except Exception as e:
         return False, out[:200]
 
 def log_revenue(entry):
@@ -130,7 +130,7 @@ def log_revenue(entry):
         try:
             with open(REVENUE_LOG) as f:
                 log = json.load(f)
-        except:
+        except Exception as e:
             log = []
     log.append(entry)
     with open(REVENUE_LOG, 'w') as f:

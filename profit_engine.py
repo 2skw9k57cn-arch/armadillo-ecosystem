@@ -784,7 +784,7 @@ def cross_hire(hiring_agent, provider_agent):
         job_id = d.get("jobId", d.get("id", ""))
         if not job_id:
             return False, f"no job ID in response: {out[:100]}"
-    except:
+    except Exception as e:
         return False, f"parse error: {out[:100]}"
     
     # Fund the job with $0.25 USDC

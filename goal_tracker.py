@@ -63,11 +63,11 @@ def get_sol_price_usd():
         r = requests.get("https://price.jup.ag/v6/price?ids=SOL", timeout=10)
         data = r.json()
         return float(data["data"]["SOL"]["price"])
-    except:
+    except Exception as e:
         try:
             r = requests.get("https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd", timeout=10)
             return float(r.json()["solana"]["usd"])
-        except:
+        except Exception as e:
             return 200.0  # fallback
 
 
@@ -120,7 +120,7 @@ def get_acp_usdc_total():
                         bal = int(t.get("tokenBalance", "0x0"), 16)
                         dec = t.get("tokenMetadata", {}).get("decimals", 6)
                         total += bal / (10 ** dec)
-        except:
+        except Exception as e:
             pass
     return total
 
@@ -170,7 +170,7 @@ def halt_all_crons():
         for cid in ids:
             subprocess.run([HERMES, "cron", "delete", cid], capture_output=True, text=True, timeout=10)
         return len(ids)
-    except:
+    except Exception as e:
         return 0
 
 

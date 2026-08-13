@@ -84,7 +84,7 @@ def rpc_call(method, params):
             "jsonrpc": "2.0", "id": 1, "method": method, "params": params
         }, timeout=15)
         return resp.json()
-    except:
+    except Exception as e:
         return {}
 
 def get_sol_balance():
@@ -133,7 +133,7 @@ def get_token_price(mint, decimals):
         qd = q.json()
         if "outAmount" in qd:
             return int(qd["outAmount"]) / 1e6
-    except:
+    except Exception as e:
         pass
     return 0
 
@@ -185,7 +185,7 @@ def sell_partial(mint, amount, decimals, fraction, symbol="?"):
     if ok and "out=" in details:
         try:
             usd_out = int(details.split("out=")[1].split(" ")[0]) / 1e6
-        except:
+        except Exception as e:
             usd_out = 0
     return ok, sig, details, usd_out, sell_amount
 
@@ -195,7 +195,7 @@ def load_bags():
     try:
         with open(BAGS_FILE) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return {"bags": {}, "sells": [], "total_realized_pnl": 0.0}
 
 def save_bags(data):
@@ -206,7 +206,7 @@ def load_seen_tokens():
     try:
         with open(SEEN_TOKENS_FILE) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return {"tokens": {}}
 
 def get_entry_info(mint):
@@ -347,7 +347,7 @@ def evaluate_position(bag, current_price, current_value, current_amount):
         try:
             first_dt = datetime.fromisoformat(bag.get("first_seen", "").replace("Z", "+00:00"))
             hours_held = (datetime.now(timezone.utc) - first_dt).total_seconds() / 3600
-        except:
+        except Exception as e:
             hours_held = 0
         if hours_held >= DEAD_BAG_HOURS:
             return "sell_all", 1.0, f"dead bag (-{pnl_pct:.0f}%, {hours_held:.0f}h held)", "critical"
@@ -356,7 +356,7 @@ def evaluate_position(bag, current_price, current_value, current_amount):
     try:
         first_dt = datetime.fromisoformat(bag.get("first_seen", "").replace("Z", "+00:00"))
         hours_held = (datetime.now(timezone.utc) - first_dt).total_seconds() / 3600
-    except:
+    except Exception as e:
         hours_held = 0
     if hours_held >= STALE_HOURS and pnl_pct > 5:
         return "sell_partial", 0.50, f"stale ({hours_held:.0f}h, -{pnl_pct:.0f}%)", "medium"
@@ -401,7 +401,7 @@ def log_sell(bags_data, mint, symbol, tokens_sold, usd_received, entry_cost, rea
         log.setdefault("trades", []).append(sell_entry)
         with open(TRADE_LOG, "w") as f:
             json.dump(log, f, indent=2)
-    except:
+    except Exception as e:
         pass
 
     return sell_entry

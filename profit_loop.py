@@ -114,7 +114,7 @@ def evm_get_balance(symbol, chain=8453):
                 bal = int(t['tokenBalance'], 16) if t['tokenBalance'] else 0
                 dec = t['tokenMetadata'].get('decimals') or 18
                 return bal / (10**dec)
-    except:
+    except Exception as e:
         pass
     return 0
 
@@ -130,7 +130,7 @@ def evm_buy_arba_usdc(usdc_amount):
             txs = [leg['txHash'] for leg in d.get('legs', []) if leg.get('txHash')]
             return True, received, txs
         return False, 0, d.get('error', err)
-    except:
+    except Exception as e:
         return False, 0, err or out
 
 def evm_burn_arba(amount):
@@ -154,7 +154,7 @@ def evm_burn_arba(amount):
         if tx:
             return True, tx
         return False, str(d)
-    except:
+    except Exception as e:
         return False, out[:200]
 
 def get_arba_supply():
@@ -171,7 +171,7 @@ def log_profit(cycle, chain, action, amount_in, amount_out, tx, note=""):
         try:
             with open(PROFIT_LOG) as f:
                 log = json.load(f)
-        except:
+        except Exception as e:
             log = []
     log.append({
         'cycle': cycle, 'timestamp': int(time.time()),
@@ -318,7 +318,7 @@ def main():
                     total_volume += buy_v * 0.56
                 else:
                     print(f"  ❌ {d.get('error', '')[:100]}")
-            except:
+            except Exception as e:
                 print(f"  ❌ {err[:100]}")
         
         # Brief pause

@@ -151,12 +151,18 @@
           "price": 0,
           "value": 0.891461,
           "amount": 833695694.467991
+        },
+        {
+          "time": "2026-08-13T00:33:55.364062+00:00",
+          "price": 0,
+          "value": 0.891461,
+          "amount": 833695694.467991
         }
       ],
       "status": "sold",
       "current_price": 0,
       "current_value": 0.891461,
-      "last_checked": "2026-08-13T00:22:54.065464+00:00",
+      "last_checked": "2026-08-13T00:33:55.364054+00:00",
       "current_amount": 833695694.467991,
       "profit_stages_triggered": [
         1
@@ -173,12 +179,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:41.878438+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.775181+00:00",
-          "price": 0,
-          "value": 0.34292,
-          "amount": 322564726.06739
-        },
         {
           "time": "2026-08-11T17:32:00.986609+00:00",
           "price": 0,
@@ -352,12 +352,18 @@
           "price": 0,
           "value": 3.286704,
           "amount": 1134724440.868585
+        },
+        {
+          "time": "2026-08-13T00:33:55.405163+00:00",
+          "price": 0,
+          "value": 3.286704,
+          "amount": 1134724440.868585
         }
       ],
       "status": "dust",
       "current_price": 0,
       "current_value": 3.286704,
-      "last_checked": "2026-08-13T00:22:54.103230+00:00",
+      "last_checked": "2026-08-13T00:33:55.405155+00:00",
       "current_amount": 1134724440.868585
     },
     "2i7ZYS5thbQFtz42r5VSGX57krK243KvxkUmvBo5pump": {
@@ -365,12 +371,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:41.920261+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.816090+00:00",
-          "price": 0,
-          "value": 0.286919,
-          "amount": 461086658.08436
-        },
         {
           "time": "2026-08-11T17:32:01.031146+00:00",
           "price": 0,
@@ -544,12 +544,18 @@
           "price": 0,
           "value": 2.806858,
           "amount": 1363437156.163064
+        },
+        {
+          "time": "2026-08-13T00:33:55.443570+00:00",
+          "price": 0,
+          "value": 2.803023,
+          "amount": 1363437156.163064
         }
       ],
       "status": "holding",
       "current_price": 0,
-      "current_value": 2.806858,
-      "last_checked": "2026-08-13T00:22:54.142776+00:00",
+      "current_value": 2.803023,
+      "last_checked": "2026-08-13T00:33:55.443561+00:00",
       "current_amount": 1363437156.163064,
       "loss_stages_triggered": [
         1,
@@ -567,12 +573,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:41.961665+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.856517+00:00",
-          "price": 0,
-          "value": 0.000289,
-          "amount": 878764.660847
-        },
         {
           "time": "2026-08-11T17:32:01.090421+00:00",
           "price": 0,
@@ -746,12 +746,18 @@
           "price": 0,
           "value": 1.578106,
           "amount": 1321836608.034817
+        },
+        {
+          "time": "2026-08-13T00:33:55.484766+00:00",
+          "price": 0,
+          "value": 1.575966,
+          "amount": 1321836608.034817
         }
       ],
       "status": "dust",
       "current_price": 0,
-      "current_value": 1.578106,
-      "last_checked": "2026-08-13T00:22:54.182843+00:00",
+      "current_value": 1.575966,
+      "last_checked": "2026-08-13T00:33:55.484759+00:00",
       "current_amount": 1321836608.034817
     },
     "42cXQvAAr7hcPBPWAS4ocVtDyeJ4Fa6gRR2uG4gppump": {
@@ -779,12 +785,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:42.119855+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.894501+00:00",
-          "price": 2e-06,
-          "value": 4.185212,
-          "amount": 1052827.240267
-        },
         {
           "time": "2026-08-11T17:32:01.130647+00:00",
           "price": 2e-06,
@@ -958,12 +958,18 @@
           "price": 2e-06,
           "value": 4.202155,
           "amount": 1052827.240267
+        },
+        {
+          "time": "2026-08-13T00:33:55.521890+00:00",
+          "price": 2e-06,
+          "value": 4.202155,
+          "amount": 1052827.240267
         }
       ],
       "status": "sold",
       "current_price": 2e-06,
       "current_value": 4.202155,
-      "last_checked": "2026-08-13T00:22:54.220446+00:00",
+      "last_checked": "2026-08-13T00:33:55.521882+00:00",
       "sell_time": "2026-08-09T06:09:42.197168+00:00",
       "sell_price": 3.9639878940735606e-06,
       "sell_reason": "death spiral (-100%)",
@@ -996,12 +1002,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:42.350543+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.938866+00:00",
-          "price": 0,
-          "value": 0.000397,
-          "amount": 1248215.89522
-        },
         {
           "time": "2026-08-11T17:32:01.168495+00:00",
           "price": 0,
@@ -1175,12 +1175,18 @@
           "price": 0,
           "value": 0.000397,
           "amount": 1248215.89522
+        },
+        {
+          "time": "2026-08-13T00:33:55.599181+00:00",
+          "price": 0,
+          "value": 0.000397,
+          "amount": 1248215.89522
         }
       ],
       "status": "dust",
       "current_price": 0,
       "current_value": 0.000397,
-      "last_checked": "2026-08-13T00:22:54.294885+00:00",
+      "last_checked": "2026-08-13T00:33:55.599174+00:00",
       "current_amount": 1248215.89522,
       "loss_stages_triggered": [
         1,
@@ -1234,12 +1240,6 @@
       "entry_price": 0.1,
       "first_seen": "2026-08-09T06:09:42.432147+00:00",
       "price_history": [
-        {
-          "time": "2026-08-11T17:15:41.978947+00:00",
-          "price": 0,
-          "value": 0.657355,
-          "amount": 300715538.776561
-        },
         {
           "time": "2026-08-11T17:32:01.208751+00:00",
           "price": 0,
@@ -1413,12 +1413,18 @@
           "price": 0,
           "value": 4.358321,
           "amount": 1052490051.908601
+        },
+        {
+          "time": "2026-08-13T00:33:55.720604+00:00",
+          "price": 0,
+          "value": 4.352374,
+          "amount": 1052490051.908601
         }
       ],
       "status": "sold",
       "current_price": 0,
-      "current_value": 4.358321,
-      "last_checked": "2026-08-13T00:22:54.409856+00:00",
+      "current_value": 4.352374,
+      "last_checked": "2026-08-13T00:33:55.720598+00:00",
       "current_amount": 1052490051.908601,
       "loss_stages_triggered": [
         1,
@@ -1675,6 +1681,12 @@
           "price": 0,
           "value": 0.00048,
           "amount": 38033.036239
+        },
+        {
+          "time": "2026-08-13T00:33:55.641156+00:00",
+          "price": 0,
+          "value": 0.00048,
+          "amount": 38033.036239
         }
       ],
       "peak_price": 0,
@@ -1686,7 +1698,7 @@
       "current_price": 0,
       "current_value": 0.00048,
       "current_amount": 38033.036239,
-      "last_checked": "2026-08-13T00:22:54.332569+00:00",
+      "last_checked": "2026-08-13T00:33:55.641149+00:00",
       "last_sell_time": "2026-08-11T19:11:39.370557+00:00"
     },
     "HEy7asQ4gKsKPASJWU7JTVbtrmc99fqHqptqJyGipump": {
@@ -1808,6 +1820,12 @@
           "price": 0,
           "value": 0.000645,
           "amount": 4665.025716
+        },
+        {
+          "time": "2026-08-13T00:33:55.757504+00:00",
+          "price": 0,
+          "value": 0.000645,
+          "amount": 4665.025716
         }
       ],
       "peak_price": 3e-06,
@@ -1819,7 +1837,7 @@
       "current_price": 0,
       "current_value": 0.000645,
       "current_amount": 4665.025716,
-      "last_checked": "2026-08-13T00:22:54.449401+00:00",
+      "last_checked": "2026-08-13T00:33:55.757496+00:00",
       "last_sell_time": "2026-08-12T22:12:09.486133+00:00"
     },
     "6keRuBBAX6PKm5BKj4c1drTALpdaooxjWPE44Gk5pump": {
@@ -1905,6 +1923,12 @@
           "price": 0,
           "value": 0.097527,
           "amount": 117817.902466
+        },
+        {
+          "time": "2026-08-13T00:33:55.560174+00:00",
+          "price": 0,
+          "value": 0.097527,
+          "amount": 117817.902466
         }
       ],
       "peak_price": 0,
@@ -1914,7 +1938,7 @@
       "current_price": 0,
       "current_value": 0.097527,
       "current_amount": 117817.902466,
-      "last_checked": "2026-08-13T00:22:54.258054+00:00"
+      "last_checked": "2026-08-13T00:33:55.560167+00:00"
     },
     "Asx6N6wsEnrhQGhhnicimqsMTSnbiUgCT4PPhBHopump": {
       "symbol": "DUECES",
@@ -1963,6 +1987,12 @@
           "price": 0,
           "value": 2.007378,
           "amount": 1277189186.227359
+        },
+        {
+          "time": "2026-08-13T00:33:55.680018+00:00",
+          "price": 0,
+          "value": 2.004636,
+          "amount": 1277189186.227359
         }
       ],
       "peak_price": 0,
@@ -1974,9 +2004,9 @@
       "loss_stages_triggered": [],
       "status": "holding",
       "current_price": 0,
-      "current_value": 2.007378,
+      "current_value": 2.004636,
       "current_amount": 1277189186.227359,
-      "last_checked": "2026-08-13T00:22:54.370093+00:00",
+      "last_checked": "2026-08-13T00:33:55.680011+00:00",
       "last_sell_time": "2026-08-12T23:39:10.325255+00:00"
     },
     "8eZAq2XzRJJAXpXGX5QePABDCu2uMjpp6FJz4T6Vyray": {
@@ -2014,6 +2044,12 @@
           "price": 0,
           "value": 0.990784,
           "amount": 468771.800111
+        },
+        {
+          "time": "2026-08-13T00:33:55.326442+00:00",
+          "price": 2e-06,
+          "value": 0.989454,
+          "amount": 468771.800111
         }
       ],
       "peak_price": 2e-06,
@@ -2024,10 +2060,10 @@
       ],
       "loss_stages_triggered": [],
       "status": "holding",
-      "current_price": 0,
-      "current_value": 0.990784,
+      "current_price": 2e-06,
+      "current_value": 0.989454,
       "current_amount": 468771.800111,
-      "last_checked": "2026-08-13T00:22:53.987397+00:00",
+      "last_checked": "2026-08-13T00:33:55.326432+00:00",
       "last_sell_time": "2026-08-13T00:11:55.175872+00:00"
     },
     "VZHMHgp5NgSqqNE9DsUXLYBUBdvz6ZHFtv4enyMjups": {
@@ -2041,6 +2077,12 @@
           "price": 4e-06,
           "value": 0.742728,
           "amount": 149604.025286
+        },
+        {
+          "time": "2026-08-13T00:33:55.266317+00:00",
+          "price": 4e-06,
+          "value": 0.445612,
+          "amount": 89762.415172
         }
       ],
       "peak_price": 4e-06,
@@ -2050,9 +2092,9 @@
       "loss_stages_triggered": [],
       "status": "holding",
       "current_price": 4e-06,
-      "current_value": 0.742728,
-      "current_amount": 149604.025286,
-      "last_checked": "2026-08-13T00:22:53.680642+00:00",
+      "current_value": 0.445612,
+      "current_amount": 89762.415172,
+      "last_checked": "2026-08-13T00:33:55.266308+00:00",
       "last_sell_time": "2026-08-13T00:22:53.948396+00:00"
     }
   },
@@ -2467,5 +2509,5 @@
     }
   ],
   "total_realized_pnl": 12.587802635405207,
-  "last_run": "2026-08-13 00:22 UTC"
+  "last_run": "2026-08-13 00:33 UTC"
 }

@@ -51,7 +51,8 @@ def get_bal(sym, chain=8453):
                 b = int(t['tokenBalance'],16) if t['tokenBalance'] else 0
                 d = t['tokenMetadata'].get('decimals') or 18
                 return b / (10**d)
-    except: pass
+    except Exception:
+        pass
     return 0
 
 def log_growth(phase, action, details):
@@ -60,7 +61,8 @@ def log_growth(phase, action, details):
         try:
             with open(GROWTH_LOG) as f:
                 log = json.load(f)
-        except: log = []
+        except Exception:
+            log = []
     log.append({
         'timestamp': datetime.utcnow().isoformat(),
         'phase': phase, 'action': action, 'details': details,
@@ -277,7 +279,7 @@ try:
     # Check $1M goal — halt if achieved
     try:
         if check_goal():
-            sys.exit(0)
+            _sys.exit(0)
     except Exception as e:
         print(f"Goal check skipped: {e}")
     if _recreated:

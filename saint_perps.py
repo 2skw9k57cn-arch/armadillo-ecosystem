@@ -1036,7 +1036,7 @@ try:
     # Check $1M goal — halt if achieved
     try:
         if check_goal():
-            sys.exit(0)
+            _sys.exit(0)
     except Exception as e:
         print(f"Goal check skipped: {e}")
     if _recreated:

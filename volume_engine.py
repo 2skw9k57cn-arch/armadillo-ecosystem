@@ -36,9 +36,9 @@ PUMPFUN_TOKENS_FILE = "/workspace/pumpfun_loop_tokens.json"
 
 # Agent EVM tokens (Base chain 8453)
 EVM_TOKENS = {
-    "ARBA":    {"address": "0x5576adE0A8B66E0c0e62bE0c8B23B6c4043F00b2", "chain": "8453"},  # Base
-    "ARMAD":   {"address": "0x69e7a8B21E0c0e62bE0c8B23B6c4043F00b2aB", "chain": "8453"},  # Base
-    "ARRB":    {"address": "0xdA3C0eB62bE0c8B23B6c4043F00b2aB2e7a8",   "chain": "4663"},  # Robinhood
+    "ARBA":    {"address": "0x557642685ce68F3975458375B51553871807e1b5", "chain": "8453"},  # Base
+    "ARMAD":   {"address": "0x69e71ce955373d7117394b0c7aaee6ef42cf6d51", "chain": "8453"},  # Base
+    "ARRB":    {"address": "0xdA3C5b4d05c40a9244E534a966A1424C51055950",   "chain": "4663"},  # Robinhood
     "OGSAINT": {"address": "0xfde1f1255683772d48b12b082fd3140713d6e40d", "chain": "8453"},  # Base
 }
 

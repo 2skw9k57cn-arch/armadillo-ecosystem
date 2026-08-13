@@ -72,7 +72,7 @@ def load_seen_tokens():
     try:
         with open(SEEN_TOKENS_FILE) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return {"tokens": {}, "last_checked_slot": 0, "total_detected": 0, "total_sniped": 0}
 
 def save_seen_tokens(data):
@@ -83,7 +83,7 @@ def load_team_state():
     try:
         with open(TEAM_STATE_FILE) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return {}
 
 def save_team_state(state):
@@ -94,7 +94,7 @@ def load_loop_tokens():
     try:
         with open(LOOP_TOKENS_FILE) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return {}
 
 def save_loop_tokens(data):
@@ -166,7 +166,7 @@ def detect_new_tokens():
                             "detected": datetime.utcnow().isoformat(),
                             "sniped": False,
                         }
-                    except:
+                    except Exception as e:
                         pass
             
             # Also check inner instructions for pump.fun create instructions
@@ -205,9 +205,9 @@ def detect_new_tokens():
                                             "detected": datetime.utcnow().isoformat(),
                                             "sniped": False,
                                         }
-                                    except:
+                                    except Exception as e:
                                         pass
-        except:
+        except Exception as e:
             continue
     
     # Update last checked slot

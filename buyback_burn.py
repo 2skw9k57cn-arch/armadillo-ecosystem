@@ -74,7 +74,7 @@ def use_agent(agent_key):
         config["activeWallet"] = wallet
         with open(config_path, 'w') as f:
             json.dump(config, f, indent=2)
-    except:
+    except Exception as e:
         pass
 
 def get_usdc_balance(agent_key=None):
@@ -92,7 +92,7 @@ def get_usdc_balance(agent_key=None):
                 bal = int(t.get("tokenBalance", "0x0"), 16)
                 dec = t.get("tokenMetadata", {}).get("decimals", 6)
                 return bal / (10 ** dec)
-    except:
+    except Exception as e:
         pass
     return 0
 
@@ -114,7 +114,7 @@ def buy_token(symbol, usdc_amount, agent_key=None):
         try:
             d = json.loads(out)
             return False, d.get("error", err or out)
-        except:
+        except Exception as e:
             return False, err or out
     
     try:
@@ -125,7 +125,7 @@ def buy_token(symbol, usdc_amount, agent_key=None):
             return True, {"received": received, "txs": txs, "raw": d}
         else:
             return False, d.get("error", str(d))
-    except:
+    except Exception as e:
         return False, out[:200]
 
 def burn_token(symbol, amount, agent_key=None):
@@ -162,7 +162,7 @@ def burn_token(symbol, amount, agent_key=None):
         elif d.get("error"):
             return False, d["error"]
         return False, str(d)
-    except:
+    except Exception as e:
         return False, out[:200]
 
 def get_token_balance(symbol, agent_key=None):
@@ -181,7 +181,7 @@ def get_token_balance(symbol, agent_key=None):
                 bal = int(t.get("tokenBalance", "0x0"), 16)
                 dec = t.get("tokenMetadata", {}).get("decimals", token["decimals"])
                 return bal / (10 ** dec)
-    except:
+    except Exception as e:
         pass
     return 0
 
@@ -192,7 +192,7 @@ def log_burn(agent, symbol, usdc_spent, tokens_bought, tokens_burned, burn_tx, b
         try:
             with open(BURN_LOG) as f:
                 log = json.load(f)
-        except:
+        except Exception as e:
             log = []
     
     entry = {
@@ -258,7 +258,7 @@ def run_agent_cycle(agent_key, cycle_num):
         received_str = result.get("received", "0")
         try:
             received_val = float(received_str.split()[0].replace(",", ""))
-        except:
+        except Exception as e:
             received_val = 0
         
         print(f"     ✅ Bought {received_val:,.2f} {symbol}")
@@ -348,7 +348,7 @@ if __name__ == "__main__":
             print(f"   Previous burns: {len(log)} entries")
             for t, v in total_burned.items():
                 print(f"     {t}: {v:,.2f} burned")
-        except:
+        except Exception as e:
             pass
     
     # Check if we've reached 21 cycles

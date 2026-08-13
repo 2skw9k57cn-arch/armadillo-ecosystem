@@ -68,7 +68,7 @@ def use_agent(agent_id):
     try:
         d = json.loads(out.split('[acp-wrapper]')[0].strip())
         return d.get("success", False)
-    except:
+    except Exception as e:
         return False
 
 def get_balance(symbol, chain=BASE_CHAIN):
@@ -85,10 +85,10 @@ def get_balance(symbol, chain=BASE_CHAIN):
                 try:
                     val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith('0x') else int(bal_raw)
                     return val / (10**dec) if val > 0 else 0.0
-                except:
+                except Exception as e:
                     return 0.0
         return 0.0
-    except:
+    except Exception as e:
         return 0.0
 
 def get_compute_status():
@@ -103,7 +103,7 @@ def get_compute_status():
             'usage': float(d.get('usage', 0)),
             'auto_billing': d.get('hasComputeAutoBilling', False)
         }
-    except:
+    except Exception as e:
         return {'limit': 0, 'remaining': 0, 'usage': 0, 'auto_billing': False}
 
 def get_hl_status():
@@ -118,7 +118,7 @@ def get_hl_status():
             'positions': d.get('positions', []),
             'spot_balances': d.get('spotBalances', [])
         }
-    except:
+    except Exception as e:
         return {'account_value': 0, 'withdrawable': 0, 'positions': [], 'spot_balances': []}
 
 def load_state():
@@ -228,7 +228,7 @@ def transfer_usdc_to(from_agent_id, to_agent_name, to_wallet, amount, state, fro
                     print(f"  ✅ Routed {amount:.2f} USDC → VIRTUAL → {to_agent_name} ({received})")
                     log_action(state, from_name, 'transfer_via_virtual', {'to': to_agent_name, 'amount': amount, 'received': received})
                     return True
-            except:
+            except Exception as e:
                 pass
             print(f"  ❌ VIRTUAL relay also failed: {err2[:100]}")
             log_action(state, from_name, 'transfer_failed', {'to': to_agent_name, 'amount': amount, 'error': err2[:100]})
@@ -245,7 +245,7 @@ def transfer_usdc_to(from_agent_id, to_agent_name, to_wallet, amount, state, fro
                     'to': to_agent_name, 'amount': amount, 'tx': tx
                 })
                 return True
-        except:
+        except Exception as e:
             pass
 
     # Check for approval needed
@@ -433,7 +433,7 @@ def browse_jobs_for_armabase(state):
                                     'offering': off_name,
                                     'created_at': datetime.utcnow().isoformat()
                                 })
-                        except:
+                        except Exception as e:
                             pass
                     else:
                         print(f"    ❌ Failed: {err2[:100]}")
@@ -443,7 +443,7 @@ def browse_jobs_for_armabase(state):
                         break
                 if jobs_created >= 3:
                     break
-        except:
+        except Exception as e:
             pass
         if jobs_created >= 3:
             break
@@ -487,9 +487,9 @@ def check_completed_jobs(state):
                         exp_time = datetime.fromisoformat(expired.replace('Z', '+00:00'))
                         if datetime.utcnow().replace(tzinfo=exp_time.tzinfo) > exp_time:
                             print(f"    ⏰ Job #{job_id} expired (no provider response)")
-                    except:
+                    except Exception as e:
                         pass
-    except:
+    except Exception as e:
         pass
 
 def generate_team_report(state):

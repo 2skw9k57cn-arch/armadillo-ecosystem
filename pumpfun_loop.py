@@ -99,7 +99,7 @@ def check_mayhem():
         state = data.get("mayhem_state", "unknown")
         mc = float(data.get("usd_market_cap", 0))
         return state, mc
-    except:
+    except Exception as e:
         return "unknown", 0
 
 # Trading loop

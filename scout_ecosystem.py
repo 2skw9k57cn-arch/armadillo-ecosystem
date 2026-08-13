@@ -61,10 +61,10 @@ def get_balance(symbol, chain=BASE_CHAIN):
                 try:
                     val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith('0x') else int(bal_raw)
                     return val / (10**dec) if val > 0 else 0.0
-                except:
+                except Exception as e:
                     return 0.0
         return 0.0
-    except:
+    except Exception as e:
         return 0.0
 
 def log_action(action, details):
@@ -124,7 +124,7 @@ def browse_marketplace():
                                 'price': price,
                                 'query': query
                             })
-            except:
+            except Exception as e:
                 pass
         time.sleep(1)
 
@@ -162,7 +162,7 @@ def check_acp_jobs():
                     status = j.get('status', '?')
                     job_id = j.get('jobId', j.get('id', '?'))
                     print(f"    Job {str(job_id)[:12]}...: {status}")
-        except:
+        except Exception as e:
             pass
 
     # Check Saint jobs
@@ -179,7 +179,7 @@ def check_acp_jobs():
                     status = j.get('status', '?')
                     job_id = j.get('jobId', j.get('id', '?'))
                     print(f"    Job {str(job_id)[:12]}...: {status}")
-        except:
+        except Exception as e:
             pass
 
     # Check Scout jobs
@@ -196,7 +196,7 @@ def check_acp_jobs():
                     status = j.get('status', '?')
                     job_id = j.get('jobId', j.get('id', '?'))
                     print(f"    Job {str(job_id)[:12]}...: {status}")
-        except:
+        except Exception as e:
             pass
 
 def swap_virtual_to_usdc():
@@ -280,7 +280,7 @@ def check_arrb_status():
             agents = d.get('data', d) if isinstance(d, dict) else d
             if isinstance(agents, list) and agents:
                 print(f"     Found {len(agents)} agents interested in ARRB area")
-        except:
+        except Exception as e:
             pass
 
     log_action('arrb_check', {'balance': arrb, 'value_usd': arrb * 0.0000228})

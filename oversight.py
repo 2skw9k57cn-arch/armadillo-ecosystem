@@ -83,7 +83,7 @@ def acp_json(args, timeout=15):
     raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
     try:
         return json.loads(raw), True
-    except:
+    except Exception as e:
         return None, False
 
 def hermes(args, timeout=15):
@@ -91,14 +91,14 @@ def hermes(args, timeout=15):
     try:
         r = subprocess.run([HERMES] + args, capture_output=True, text=True, timeout=timeout)
         return r.stdout.strip()
-    except:
+    except Exception as e:
         return ""
 
 def load_json(path, default=None):
     try:
         with open(path) as f:
             return json.load(f)
-    except:
+    except Exception as e:
         return default if default is not None else {}
 
 def save_json(path, data):

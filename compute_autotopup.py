@@ -36,7 +36,7 @@ def log(msg):
         os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)
         with open(LOG_PATH, 'a') as f:
             f.write(line + '\n')
-    except:
+    except Exception as e:
         pass
 
 def write_active_wallet(evm_addr):
@@ -88,7 +88,7 @@ def get_compute_status(evm_addr):
     try:
         data = json.loads(clean)
         return data.get("limitRemaining", 0)
-    except:
+    except Exception as e:
         return 0
 
 def topup_compute(evm_addr, amount):
@@ -112,7 +112,7 @@ def topup_compute(evm_addr, amount):
         elif "error" in data:
             return False, data.get("error", "unknown error")
         return True, data
-    except:
+    except Exception as e:
         return False, f"Parse error: {raw[:200]}"
 
 def main():

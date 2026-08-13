@@ -78,7 +78,7 @@ def get_candles(symbol, interval="1h", hours=48):
         }, timeout=10)
         if r.status_code == 200:
             return r.json()
-    except:
+    except Exception as e:
         pass
     return []
 
@@ -172,7 +172,7 @@ def get_all_markets():
                 'only_isolated': m.get('onlyIsolated', False),
             }
         return markets
-    except:
+    except Exception as e:
         return {}
 
 def analyze_market(symbol, learning_db, market_info=None):
@@ -415,7 +415,7 @@ def load_learning_db():
                 if k not in data:
                     data[k] = v
             return data
-        except:
+        except Exception as e:
             pass
     return defaults
 
@@ -692,10 +692,10 @@ def get_balance(symbol, chain=BASE_CHAIN):
                 try:
                     val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith('0x') else int(bal_raw)
                     return val / (10**dec) if val > 0 else 0.0
-                except:
+                except Exception as e:
                     return 0.0
         return 0.0
-    except:
+    except Exception as e:
         return 0.0
 
 def get_hl_status():
@@ -709,7 +709,7 @@ def get_hl_status():
             'positions': d.get('positions', []),
             'spot_balances': d.get('spotBalances', [])
         }
-    except:
+    except Exception as e:
         return {'account_value': 0, 'withdrawable': 0, 'positions': [], 'spot_balances': []}
 
 def deposit_to_hl(amount):
@@ -812,7 +812,7 @@ def open_position(signal, learning_db):
                            signal.get('rsi', 0), signal.get('atr_pct', 0),
                            signal.get('vol_spike', 1), signal.get('reasons', []))
                 return True
-        except:
+        except Exception as e:
             pass
         print(f"  ✅ Position likely opened (check HL)")
         log_position(symbol, side, size, price, leverage,
@@ -919,7 +919,7 @@ def load_position_log():
         try:
             with open(POSITION_LOG) as f:
                 return json.load(f)
-        except:
+        except Exception as e:
             pass
     return []
 
@@ -949,7 +949,7 @@ def count_hold_cycles(pos_info):
         opened = datetime.fromisoformat(pos_info['opened'].replace('Z', ''))
         delta = datetime.utcnow() - opened
         return max(1, int(delta.total_seconds() / 1800))
-    except:
+    except Exception as e:
         return 1
 
 def log_hl_action(action, amount):

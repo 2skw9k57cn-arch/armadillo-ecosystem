@@ -44,6 +44,8 @@ ALL_JOBS = [
     ("every 15m", "treasury-engine",  "treasury_engine.py"),
     # Volume engine — swaps pump.fun + agent tokens for trading volume
     ("every 30m", "volume-engine",    "volume_engine.py"),
+    # Git auto-sync — commits + pushes any changes to GitHub
+    ("every 15m", "git-autosync",     "git_autosync.py"),
     # buyback-burn removed by user request — no longer burning tokens
     # ("every 1h",  "buyback-burn",     "buyback_burn.py"),
     # Paused — needs $3+ USDC to buy ARBA

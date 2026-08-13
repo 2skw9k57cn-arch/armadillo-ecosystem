@@ -55,7 +55,7 @@ EXPECTED_CRONS = {
     "sniper-guard": "10m",
     "saint-perps": "30m",
     "learning-engine": "1h",
-    "treasury-engine": "15m", "volume-engine": "30m",
+    "treasury-engine": "15m", "volume-engine": "30m", "git-autosync": "15m",
 }
 # Paused crons — not expected, won't be flagged as missing or recreated
 PAUSED_CRONS = {

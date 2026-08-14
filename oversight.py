@@ -23,6 +23,8 @@ Alerts: writes to /workspace/oversight_alerts.json for user review.
 import json, os, sys, subprocess, time, re
 from datetime import datetime, timezone
 
+from control_plane import evaluate_risk
+
 PATH = "/opt/hermes-agent/venv/bin:/opt/hermes-agent:" + os.environ.get("PATH", "")
 os.environ["PATH"] = PATH
 
@@ -475,6 +477,19 @@ def run():
     # 9. Compute
     print("📋 Checking compute balances...")
     checks.append(check_compute())
+
+    # 10. Risk gate
+    print("📋 Evaluating risk gate...")
+    risk_state = evaluate_risk(write_files=True)
+    checks.append({
+        "check": "risk_gate",
+        "status": risk_state["summary"]["emoji"],
+        "detail": (
+            f"{risk_state['summary']['blocking_actions']} blocked, "
+            f"{risk_state['summary']['degraded_actions']} constrained"
+        ),
+        "risk_state": risk_state["summary"],
+    })
 
     # Auto-heal
     print("\n📋 Running auto-heal analysis...")

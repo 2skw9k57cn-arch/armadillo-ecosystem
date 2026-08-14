@@ -32,6 +32,10 @@ __pycache__/
 **/sol_trade_log.json
 **/treasury_learning.json
 **/pumpfun_loop_tokens.json
+**/risk_state.json
+**/action_queue.json
+**/performance_scores.json
+**/launcher_state.json
 
 # Reports (regenerated)
 reports/

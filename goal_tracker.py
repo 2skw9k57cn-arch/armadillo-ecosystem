@@ -10,7 +10,7 @@ When total ecosystem value (USDC + SOL + tokens) reaches $1,000,000:
   3. Halts all crons
   4. Logs the achievement
 
-Until then, it's a no-op that just tracks progress.
+If /workspace/PAUSE_ALL exists, all cron scripts also halt early for maintenance.
 """
 import json, os, subprocess, time
 
@@ -22,6 +22,7 @@ GOAL_USD = 1_000_000
 
 # State file
 STATE_FILE = "/workspace/goal_state.json"
+MAINTENANCE_FILE = "/workspace/PAUSE_ALL"
 
 # Solana sniper wallet keypair
 SOL_KEYPAIR = os.path.expanduser("~/.config/solana/armabase-sol.json")
@@ -54,6 +55,19 @@ def load_state():
 def save_state(state):
     with open(STATE_FILE, 'w') as f:
         json.dump(state, f, indent=2)
+
+
+def maintenance_mode_enabled():
+    """Return True when a manual maintenance pause has been requested."""
+    return os.path.exists(MAINTENANCE_FILE)
+
+
+def check_maintenance_mode():
+    """Return True when maintenance mode is active so callers can exit early."""
+    if maintenance_mode_enabled():
+        print(f"🛠️ Maintenance mode active ({MAINTENANCE_FILE}) — skipping automated work.")
+        return True
+    return False
 
 
 def get_sol_price_usd():
@@ -179,6 +193,9 @@ def check_goal():
     Main entry point — called by EVERY cron script at startup.
     Returns True if goal achieved (scripts should stop), False to continue.
     """
+    if check_maintenance_mode():
+        return True
+
     state = load_state()
 
     if state.get("achieved"):

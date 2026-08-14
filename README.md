@@ -41,6 +41,42 @@ python volume_engine.py
 python buyback_burn.py
 ```
 
+## Control plane
+
+The repo now includes a lightweight control plane:
+
+- `control_plane.py` evaluates recent capital, losses, stale state, approval backlog, and route health
+- `strategy_launcher.py` gates live strategy execution and records launcher decisions
+- `operator_console.py` is a Streamlit operator dashboard for oversight, risk, trades, and learning state
+
+Run the dashboard with:
+
+```bash
+streamlit run operator_console.py
+```
+
+Risk state is written to:
+
+- `/workspace/risk_state.json`
+- `/workspace/action_queue.json`
+- `/workspace/performance_scores.json`
+- `/workspace/launcher_state.json`
+
+## Maintenance mode
+
+To pause automated runs for routine maintenance on Hermes, create this file:
+
+```bash
+touch /workspace/PAUSE_ALL
+```
+
+To resume automation, remove it and re-run the watchdog:
+
+```bash
+rm -f /workspace/PAUSE_ALL
+cd /workspace && python cron_watchdog.py
+```
+
 ## Architecture
 
 The system accumulates SOL profits toward a $1M USD goal tracked by `goal_tracker.py`. Revenue flows through `revenue_engine.py` → `treasury_engine.py`. Buyback/burn operations are managed by `buyback_burn.py` on a scheduled basis.

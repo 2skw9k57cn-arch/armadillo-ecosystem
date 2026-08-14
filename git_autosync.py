@@ -79,4 +79,12 @@ def main():
     commit_and_push()
 
 if __name__ == "__main__":
+    try:
+        sys.path.insert(0, REPO_DIR)
+        from goal_tracker import check_goal
+        if check_goal():
+            sys.exit(0)
+    except Exception as e:
+        print(f"Goal check skipped: {e}")
+
     main()

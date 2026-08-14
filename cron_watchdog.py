@@ -116,6 +116,13 @@ def ensure_all_crons():
     recreates any missing ones (including watchdog).
     Returns the set of jobs that were recreated.
     """
+    try:
+        from goal_tracker import check_maintenance_mode
+        if check_maintenance_mode():
+            return set()
+    except Exception:
+        pass
+
     sync_scripts()
     existing = get_existing_jobs()
     needed = {name for _, name, _ in ALL_JOBS}
@@ -265,6 +272,14 @@ def check_capital_and_resume():
 def run():
     from datetime import datetime
     now = datetime.utcnow().strftime('%Y-%m-%d %H:%M UTC')
+
+    try:
+        from goal_tracker import check_maintenance_mode
+        if check_maintenance_mode():
+            print(f"🛠️ Maintenance mode active — cron self-heal paused [{now}]")
+            return
+    except Exception:
+        pass
 
     existing = get_existing_jobs()
     needed = {name for _, name, _ in ALL_JOBS}

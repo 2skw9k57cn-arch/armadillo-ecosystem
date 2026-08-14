@@ -612,6 +612,13 @@ def main():
     print(f"✅ Treasury cycle complete")
 
 if __name__ == "__main__":
+    try:
+        from goal_tracker import check_goal
+        if check_goal():
+            sys.exit(0)
+    except Exception as e:
+        print(f"Goal check skipped: {e}")
+
     # Ensure crons are healthy
     try:
         sys.path.insert(0, "/workspace")

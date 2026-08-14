@@ -453,7 +453,7 @@ def log_volume(swap_type, token, amount, details, success):
 
 # ─── MAIN ──────────────────────────────────────────────────────────
 
-def run():
+def main():
     print(f"🔄 Volume Engine — {now_utc()}")
     print("=" * 60)
     
@@ -500,4 +500,4 @@ if __name__ == "__main__":
     except Exception:
         pass
     
-    run()
+    main()

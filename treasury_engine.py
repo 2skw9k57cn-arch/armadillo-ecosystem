@@ -523,7 +523,7 @@ def update_goal_state(sol_sent, sol_price):
 
 # ─── MAIN ──────────────────────────────────────────────────────────
 
-def run():
+def main():
     print(f"🏦 Treasury Engine — {now_utc()}")
     print("=" * 60)
     
@@ -620,4 +620,4 @@ if __name__ == "__main__":
     except Exception:
         pass
     
-    run()
+    main()

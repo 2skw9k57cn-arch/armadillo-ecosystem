@@ -28,28 +28,28 @@ SCRIPTS_DIR = os.path.expanduser("~/.hermes/scripts")
 # All 12 jobs: (schedule, name, script) — MUST use "every" prefix for recurring
 ALL_JOBS = [
     ("every 15m", "cron-watchdog",    "cron_watchdog.py"),
-    ("every 5m",  "deployer-watcher", "deployer_watcher.py"),
+    ("every 5m",  "deployer-watcher", "run_deployer_watcher.py"),
     ("every 30m", "oversight",        "oversight.py"),
-    ("every 10m", "sniper-guard",     "sniper_guard.py"),
+    ("every 10m", "sniper-guard",     "run_sniper_guard.py"),
     # Paused — no trading capital. Auto-resume when funded (see capital guard).
-    # ("every 20m", "pumpfun-loop",     "pumpfun_multi_loop.py"),
-    # ("every 15m", "team-coordinator", "team_coordinator.py"),
-    ("every 30m", "saint-perps",      "saint_perps.py"),
+    # ("every 20m", "pumpfun-loop",     "run_pumpfun_loop.py"),
+    # ("every 15m", "team-coordinator", "run_team_coordinator.py"),
+    ("every 30m", "saint-perps",      "run_saint_perps.py"),
     # Paused — needs $2.10+ USDC to trade
-    # ("every 30m", "profit-engine",    "profit_engine.py"),
-    # ("every 45m", "scout-ecosystem",  "scout_ecosystem.py"),
-    # ("every 30m", "revenue-engine",   "revenue_engine.py"),
+    # ("every 30m", "profit-engine",    "run_profit_engine.py"),
+    # ("every 45m", "scout-ecosystem",  "run_scout_ecosystem.py"),
+    # ("every 30m", "revenue-engine",   "run_revenue_engine.py"),
     ("every 1h",  "learning-engine",  "learning_engine.py"),
     # Treasury engine — consolidates all profits to SOL → user wallet, tracks $1M goal
     ("every 15m", "treasury-engine",  "treasury_engine.py"),
     # Volume engine — swaps pump.fun + agent tokens for trading volume
-    ("every 30m", "volume-engine",    "volume_engine.py"),
+    ("every 30m", "volume-engine",    "run_volume_engine.py"),
     # Git auto-sync — commits + pushes any changes to GitHub
     ("every 15m", "git-autosync",     "git_autosync.py"),
     # buyback-burn removed by user request — no longer burning tokens
     # ("every 1h",  "buyback-burn",     "buyback_burn.py"),
     # Paused — needs $3+ USDC to buy ARBA
-    # ("every 2h",  "growth-engine",    "growth_engine.py"),
+    # ("every 2h",  "growth-engine",    "run_growth_engine.py"),
 ]
 
 
@@ -59,13 +59,14 @@ def sync_scripts():
     import shutil
     try:
         os.makedirs(SCRIPTS_DIR, exist_ok=True)
-        for sched, name, script in ALL_JOBS:
+        for script in os.listdir(WORKDIR):
+            if not script.endswith(".py"):
+                continue
             src = os.path.join(WORKDIR, script)
             dst = os.path.join(SCRIPTS_DIR, script)
-            if os.path.exists(src):
+            if os.path.isfile(src):
                 shutil.copy2(src, dst)
-        # Also copy goal_tracker.py and any other imported scripts
-        for extra in ["goal_tracker.py", "cron_watchdog.py"]:
+        for extra in ["goal_tracker.py", "cron_watchdog.py", "control_plane.py", "strategy_launcher.py"]:
             src = os.path.join(WORKDIR, extra)
             dst = os.path.join(SCRIPTS_DIR, extra)
             if os.path.exists(src):
@@ -244,12 +245,12 @@ def check_capital_and_resume():
 
     # 4. Resume crons if total ecosystem has $3+ USDC
     PAUSED_CRONS = [
-        ("every 30m", "profit-engine",    "profit_engine.py"),
-        ("every 45m", "scout-ecosystem",  "scout_ecosystem.py"),
-        ("every 30m", "revenue-engine",   "revenue_engine.py"),
-        ("every 2h",  "growth-engine",    "growth_engine.py"),
-        ("every 15m", "team-coordinator", "team_coordinator.py"),
-        ("every 20m", "pumpfun-loop",     "pumpfun_multi_loop.py"),
+        ("every 30m", "profit-engine",    "run_profit_engine.py"),
+        ("every 45m", "scout-ecosystem",  "run_scout_ecosystem.py"),
+        ("every 30m", "revenue-engine",   "run_revenue_engine.py"),
+        ("every 2h",  "growth-engine",    "run_growth_engine.py"),
+        ("every 15m", "team-coordinator", "run_team_coordinator.py"),
+        ("every 20m", "pumpfun-loop",     "run_pumpfun_loop.py"),
     ]
 
     resumed = []

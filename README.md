@@ -44,3 +44,56 @@ python buyback_burn.py
 ## Architecture
 
 The system accumulates SOL profits toward a $1M USD goal tracked by `goal_tracker.py`. Revenue flows through `revenue_engine.py` → `treasury_engine.py`. Buyback/burn operations are managed by `buyback_burn.py` on a scheduled basis.
+
+## Hermes Virtual Mobile Bridge
+
+`hermes_virtual_bridge.py` provides a single callable workflow for running selected Armadillo actions from Hermes, including phone-triggered flows through Virtuals.
+
+### Runtime env
+
+Set these in the Hermes runtime:
+
+```bash
+export HERMES_VIRTUAL_RPC_URL="https://your-rpc-endpoint"
+# optional
+export HERMES_VIRTUAL_TARGET="virtual_mobile_ui"  # or hermes_backend_trigger
+export HERMES_VIRTUAL_TIMEOUT_SEC="120"
+```
+
+### Register capability version
+
+```bash
+python hermes_virtual_bridge.py register-capability --version v1 --activate
+python hermes_virtual_bridge.py list-capabilities
+```
+
+### Invoke from mobile/backend target
+
+```bash
+# explicit target confirmation
+python hermes_virtual_bridge.py invoke \
+  --target virtual_mobile_ui \
+  --action health_check
+
+# async execution + phone-safe status polling
+python hermes_virtual_bridge.py invoke \
+  --target hermes_backend_trigger \
+  --action watchdog_sync \
+  --async
+
+python hermes_virtual_bridge.py status --job-id <job_id>
+```
+
+### Actions exposed
+
+- `health_check`
+- `watchdog_sync`
+- `treasury_cycle`
+- `volume_cycle`
+- `learning_cycle`
+
+### Rollback / version switch
+
+```bash
+python hermes_virtual_bridge.py activate-version --version <previous_version>
+```

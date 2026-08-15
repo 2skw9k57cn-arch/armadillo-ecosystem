@@ -19,6 +19,7 @@ from solders.transaction import Transaction
 from solders.message import Message
 from solders.instruction import Instruction
 from solders.hash import Hash
+from solana.rpc.api import Client
 
 # Constants
 PUMP_FUN_PROGRAM = Pubkey.from_string("6EF8rrecthR5DkDom8osMJimQToPxrr1g2X1oFZr2JRk")
@@ -42,6 +43,9 @@ keypair = Keypair.from_bytes(bytes(secret))
 
 WALLET = keypair.pubkey()
 print(f"Agent Solana wallet: {WALLET}")
+
+# RPC client
+client = Client("https://api.mainnet-beta.solana.com")
 
 def get_bonding_curve_state():
     """Get current bonding curve state from pump.fun API"""

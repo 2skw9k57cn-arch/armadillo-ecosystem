@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": 1785994260,
+    "date": "2026-08-06 05:31:00 UTC",
+    "new_revenue": 9.67328,
+    "buyback_usdc": 4.83664,
+    "profit_usdc": 4.83664,
+    "arba_bought": 206821.86256,
+    "arba_burned": 206821.8625607709,
+    "buyback_tx": "0xd17e427e070df7d47b1f79dd6b3c7a60edf6b5b59eb2f2277194941543f710e0",
+    "burn_tx": "{'error': 'RPC Request failed.\\n\\nURL: https://api.acp.virtuals.io/wallets/alchemy-rpc-erc20\\nRequest body: {\"method\":\"wallet_prepareCalls\",\"params\":[{\"calls\":[{\"to\":\"0x557642685ce68F3975458375B51553871807e1b5\",\"data\":\"0xa9059cbb000000000000000000000000000000000000000000000000000000000000dead000000000000000000000000000000000000000000002bcbd5ec31d4740000000000000000000000000000000000000000000000000000000000000000000062635f716d6f35396c39730b0080218021802180218021802180218021\"}],\"capabilities\":{\"nonceOverride\":{\"nonceKey\":\"0xee7420039548868bc09b82edcc800aebe262a6\"}},\"chainId\":\"0x2105\",\"from\":\"0x73d1486635fe66b3fff1db69a289a3e3fa625f8d\"}]}\\n\\nDetails: An error occurred while executing user operation: execution reverted\\nVersion: viem@2.52.2'}"
+  },
+  {
+    "timestamp": 1786681659,
+    "date": "2026-08-14 04:27:39 UTC",
+    "new_revenue": 0.010000000000000009,
+    "buyback_usdc": 0,
+    "profit_usdc": 0.010000000000000009,
+    "arba_bought": 0,
+    "arba_burned": 0,
+    "buyback_tx": "",
+    "burn_tx": ""
+  }
+]

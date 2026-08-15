@@ -1,0 +1,23 @@
+{
+  "jobs": {
+    "4c90baae-746d-43cc-8073-7f513898bf70": {
+      "job_id": "4c90baae-746d-43cc-8073-7f513898bf70",
+      "status": "completed",
+      "action": "health_check",
+      "target": "virtual_mobile_ui",
+      "payload": {},
+      "result": {
+        "ok": true,
+        "message": "Hermes bridge is ready",
+        "workspace": "/home/runner/work/armadillo-ecosystem/armadillo-ecosystem",
+        "version": "unregistered"
+      },
+      "error": null,
+      "created_at": "2026-08-15T00:22:12.229227+00:00",
+      "updated_at": "2026-08-15T00:22:12.230124+00:00"
+    }
+  },
+  "idempotency": {
+    "94d8cb4ee5aef8eab52489e0aab814cf451832a0841beba752ad0f85950c6a3f": "4c90baae-746d-43cc-8073-7f513898bf70"
+  }
+}

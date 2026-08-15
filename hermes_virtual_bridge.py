@@ -350,14 +350,18 @@ def main() -> int:
             return 2
 
         req_id = args.request_id or str(uuid.uuid4())
-        resp = bridge.invoke(
-            action=args.action,
-            payload=payload,
-            target=args.target,
-            request_id=req_id,
-            async_mode=args.async_mode,
-            idempotency_key=args.idempotency_key,
-        )
+        try:
+            resp = bridge.invoke(
+                action=args.action,
+                payload=payload,
+                target=args.target,
+                request_id=req_id,
+                async_mode=args.async_mode,
+                idempotency_key=args.idempotency_key,
+            )
+        except Exception as exc:
+            print(json.dumps({"ok": False, "error": str(exc), "request_id": req_id}, indent=2))
+            return 1
         print(json.dumps(short_response(resp), indent=2))
         return 0 if resp.get("ok") else 1
 

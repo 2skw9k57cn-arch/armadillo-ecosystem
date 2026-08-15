@@ -40,3 +40,4 @@ reports/
 .DS_Store
 Thumbs.db
 config.json
+.backup_*/

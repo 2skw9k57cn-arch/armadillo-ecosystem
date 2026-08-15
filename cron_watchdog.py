@@ -158,27 +158,22 @@ def check_capital_and_resume():
     env["TS_KEYRING_BACKEND"] = "file"
 
     def get_usdc(wallet):
-        """Get USDC balance on Base for a wallet."""
+        """Get USDC balance on Base for a wallet — direct RPC, no ACP CLI."""
         try:
-            with open(config_path) as f:
-                cfg = _json.load(f)
-            cfg["activeWallet"] = wallet
-            with open(config_path, 'w') as f:
-                _json.dump(cfg, f, indent=2)
-            r = subprocess.run(
-                ["acp", "wallet", "balance", "--chain-id", "8453", "--json"],
-                capture_output=True, text=True, timeout=30, env=env
-            )
-            raw = r.stdout.strip()
-            clean = raw.split('\n[acp-wrapper]')[0].strip()
-            data = _json.loads(clean)
-            for chain in data.get("chains", []):
-                for t in chain.get("tokens", []):
-                    meta = t.get("tokenMetadata", {}) or {}
-                    if (meta.get("symbol", "") or "").upper() == "USDC":
-                        bal_raw = t.get("tokenBalance", "0x0")
-                        bal_val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith("0x") else int(bal_raw or 0)
-                        return bal_val / (10 ** meta.get("decimals", 6))
+            import requests as _req
+            USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+            # balanceOf(address) selector = 0x70a08231
+            data = "0x70a08231" + wallet[2:].lower().zfill(64)
+            payload = {
+                "jsonrpc": "2.0", "id": 1,
+                "method": "eth_call",
+                "params": [{"to": USDC_BASE, "data": data}, "latest"]
+            }
+            resp = _req.post("https://mainnet.base.org", json=payload, timeout=15)
+            result = resp.json().get("result", "0x")
+            if result == "0x":
+                return 0.0
+            return int(result, 16) / 1e6
         except Exception:
             pass
         return 0.0

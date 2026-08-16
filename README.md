@@ -15,7 +15,7 @@ A multi-agent autonomous trading system built on Virtuals Protocol.
 - **Engines**: `profit_engine.py`, `revenue_engine.py`, `growth_engine.py`, `learning_engine.py`, `volume_engine.py`, `treasury_engine.py`
 - **Trading**: `sol_trading_bot.py`, `pumpfun_trade.py`, `pumpfun_loop.py`, `saint_perps.py`
 - **Management**: `team_coordinator.py`, `cron_watchdog.py`, `oversight.py`
-- **Utilities**: `buyback_burn.py`, `git_autosync.py`, `goal_tracker.py`
+- **Utilities**: `git_autosync.py`, `goal_tracker.py`
 
 ## Setup
 
@@ -38,9 +38,8 @@ Each engine/agent is a standalone Python script. The system uses cron jobs to sc
 ```bash
 python profit_engine.py
 python volume_engine.py
-python buyback_burn.py
 ```
 
 ## Architecture
 
-The system accumulates SOL profits toward a $1M USD goal tracked by `goal_tracker.py`. Revenue flows through `revenue_engine.py` → `treasury_engine.py`. Buyback/burn operations are managed by `buyback_burn.py` on a scheduled basis.
+The system accumulates SOL profits toward a $1M USD goal tracked by `goal_tracker.py`. Revenue flows through `revenue_engine.py` → `treasury_engine.py`on a scheduled basis.

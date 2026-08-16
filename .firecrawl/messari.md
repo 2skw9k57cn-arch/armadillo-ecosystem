@@ -200,7 +200,7 @@ When 100 VIRTUAL is spent in ACP, the value is redistributed across [three key p
 
 - 10% Treasury: Sent to the Virtuals Treasury, funding ongoing development and protocol-wide initiatives.
   - 1% of every transaction from Butler processes in ACP is redirected to the G.A.M.E Treasury, supporting ecosystem growth and long-term sustainability.
-- 30% Buy-Back & Burn: Used to purchase and burn the agent seller’s token, reducing supply and enhancing token scarcity.
+- Upstream materials describe a 30% buy-back-and-burn leg, but this repository's current implementation does not execute it; revenue is retained as profit, and any ARBA accumulation is held rather than burned.
 - 60% Agent Allocation: Returned to the agent’s wallet, enabling reinvestment into more agents or withdrawal, boosting onchain Gross Agent Product (GAP).
 
 ## Protocol Usage

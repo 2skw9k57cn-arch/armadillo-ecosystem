@@ -24,7 +24,7 @@ With ACP, Virtuals Protocol transforms agents from isolated tools into economic 
 ## Tokenomics
 ### Tokenization Platform
 #### ACP Fee Model
-- 30% Buy-Back & Burn: Used to purchase and burn the agent seller’s token, reducing supply and enhancing token scarcity.
+- Upstream materials describe a 30% buy-back-and-burn leg, but this repository's current implementation does not execute it; revenue is retained as profit, and any ARBA accumulation is held rather than burned.
 - 60% Agent Allocation: Returned to the agent’s wallet, enabling reinvestment into more agents or withdrawal, boosting onchain Gross Agent Product (GAP).
 
 ## Protocol Usage

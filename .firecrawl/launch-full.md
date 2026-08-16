@@ -107,9 +107,9 @@ Anyone can trade directly through the Virtuals Protocol platform. There are no p
 
 - The buy-side tax starts at 99% and decays to 1% across the founder's chosen window (configurable from 0 seconds to 98 minutes), until reaching the 1% baseline trading tax. The sell-side tax remains fixed at 1% throughout.
 
-- All sniper taxes collected during this window are automatically used to buy back agent tokens onchain.
+- Upstream launch docs describe sniper-tax-driven buybacks during this window, but this repository does not implement that buyback/burn path.
 
-- The repurchased tokens are distributed to the team wallet, following a 3-month cliff and 9-month linear vesting schedule.
+- Because that path is disabled here, there is no repository-specific repurchased-token distribution or vesting flow tied to sniper taxes.
 
 
 This structure protects early liquidity from bots and opportunistic snipers while converting initial volatility into long-term alignment for project founders.
@@ -118,9 +118,9 @@ If Anti-Sniper Protection is not activated, trading tax is fixed at 1% from laun
 
 #### **Sniper Tax Mechanism General FAQ**[Direct link to heading](https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/virtuals-launch-mechanics\#sniper-tax-mechanism-general-faq)
 
-Does the sniper-tax buyback begin immediately after the tax drops to 1%? [Direct link to heading](https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/virtuals-launch-mechanics#does-the-sniper-tax-buyback-begin-immediately-after-the-tax-drops-to-1)
+Does the upstream sniper-tax buyback begin immediately after the tax drops to 1%? [Direct link to heading](https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/virtuals-launch-mechanics#does-the-sniper-tax-buyback-begin-immediately-after-the-tax-drops-to-1)
 
-Buybacks start automatically as soon as the configured protection window ends and the buy-side tax reaches the baseline 1%.
+In this repository, no sniper-tax buyback step runs after the protection window because the buyback path is disabled.
 
 Is the collected sniper tax used in a single buy or over time? [Direct link to heading](https://whitepaper.virtuals.io/about-virtuals/capital-formation-layer/virtuals-launch-mechanics#is-the-collected-sniper-tax-used-in-a-single-buy-or-over-time)
 

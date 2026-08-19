@@ -18,7 +18,8 @@
       "MACD histogram positive"
     ],
     "opened": "2026-08-09T05:34:01.080684",
-    "status": "open"
+    "status": "open",
+    "peak_pnl_pct": 1.0306831666384133
   },
   {
     "symbol": "KAS",

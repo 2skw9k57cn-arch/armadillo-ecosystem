@@ -403,5 +403,23 @@
       "opportunities_found": 0,
       "opportunities": []
     }
+  },
+  {
+    "timestamp": "2026-08-20T21:20:24.006173+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 8.16075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-20T21:30:29.440283+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 8.18075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
   }
 ]

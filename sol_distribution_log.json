@@ -209,5 +209,41 @@
         "Sniper kept: 0.249366 SOL"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-20T12:39:05.016721+00:00",
+    "action": "distribution_complete",
+    "details": {
+      "initial_sol": 0.26936642,
+      "initial_usdc": 0.011,
+      "distributable_sol": 0.24936642,
+      "sniper_sol": 0.24936642,
+      "bridge_sol": 0.0,
+      "hl_sol": 0.0,
+      "final_sol": 0.26936642,
+      "final_usdc": 0.011,
+      "sol_price": 86.7,
+      "actions": [
+        "Sniper kept: 0.249366 SOL"
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-08-20T12:50:18.644282+00:00",
+    "action": "distribution_complete",
+    "details": {
+      "initial_sol": 0.26936642,
+      "initial_usdc": 0.011,
+      "distributable_sol": 0.24936642,
+      "sniper_sol": 0.24936642,
+      "bridge_sol": 0.0,
+      "hl_sol": 0.0,
+      "final_sol": 0.26936642,
+      "final_usdc": 0.011,
+      "sol_price": 86.59,
+      "actions": [
+        "Sniper kept: 0.249366 SOL"
+      ]
+    }
   }
 ]

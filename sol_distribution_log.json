@@ -488,5 +488,23 @@
       "distributable": 0.015344670000000001,
       "reason": "below_threshold"
     }
+  },
+  {
+    "timestamp": "2026-08-20T15:43:21.298973+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.005143715,
+      "distributable": -0.014856285,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T15:46:47.874708+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.005143715,
+      "distributable": -0.014856285,
+      "reason": "below_threshold"
+    }
   }
 ]

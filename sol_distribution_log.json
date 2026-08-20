@@ -65,5 +65,41 @@
       "distributable": -0.009621459,
       "reason": "below_threshold"
     }
+  },
+  {
+    "timestamp": "2026-08-20T11:27:12.976275+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.020054987,
+      "distributable": 5.49869999999994e-05,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T11:27:31.267416+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.020054987,
+      "distributable": 5.49869999999994e-05,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T11:38:01.843658+00:00",
+    "action": "distribution_complete",
+    "details": {
+      "initial_sol": 0.358025164,
+      "initial_usdc": 0.011,
+      "distributable_sol": 0.338025164,
+      "sniper_sol": 0.338025164,
+      "bridge_sol": 0.0,
+      "hl_sol": 0.0,
+      "final_sol": 0.358025164,
+      "final_usdc": 0.011,
+      "sol_price": 87.84,
+      "actions": [
+        "Sniper kept: 0.338025 SOL"
+      ]
+    }
   }
 ]

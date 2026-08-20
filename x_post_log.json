@@ -12,5 +12,20 @@
     "details": {
       "error": "\u001b[31mError: Auth Error: NoAuthMethod (cause: no authentication method available)\u001b[0m"
     }
+  },
+  {
+    "timestamp": "2026-08-20T11:10:35.867795+00:00",
+    "action": "auth_needed",
+    "details": {
+      "error": "\u001b[31mError: Auth Error: NoAuthMethod (cause: no authentication method available)\u001b[0m"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T11:11:10.913648+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
   }
 ]

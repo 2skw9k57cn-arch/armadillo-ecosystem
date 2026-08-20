@@ -217,18 +217,18 @@ def scan_arbitrage():
 
     # Scan HL spot vs on-chain for BTC/ETH
     try:
-        # Get HL BTC spot price
+        # Get HL BTC orderbook
         r = requests.post("https://api.hyperliquid.xyz/info", json={
             "type": "l2Book",
             "coin": "BTC"
         }, timeout=10)
         if r.status_code == 200:
             book = r.json()
-            # Get mid price from orderbook
             levels = book.get("levels", [])
-            if levels:
-                best_bid = float(levels[0].get("px", 0))
-                best_ask = float(levels[0].get("px", 0))
+            if levels and len(levels) >= 2:
+                # HL format: levels = [[bids], [asks]]
+                best_bid = float(levels[0][0].get("px", 0))
+                best_ask = float(levels[1][0].get("px", 0))
                 hl_btc_price = (best_bid + best_ask) / 2
                 
                 # Get on-chain BTC price via DexScreener (WBTC on Base)

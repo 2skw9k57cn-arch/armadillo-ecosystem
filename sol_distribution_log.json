@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2026-08-20T04:37:00.293371+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.010831609,
+      "distributable": -0.009168391,
+      "reason": "below_threshold"
+    }
+  }
+]

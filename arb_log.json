@@ -7,5 +7,23 @@
       "opportunities_found": 0,
       "opportunities": []
     }
+  },
+  {
+    "timestamp": "2026-08-20T04:27:17.868947+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 0.0,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-20T04:27:42.200250+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 0.0,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
   }
 ]

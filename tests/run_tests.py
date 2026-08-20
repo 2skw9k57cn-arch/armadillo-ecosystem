@@ -69,6 +69,26 @@ def run_cmd(cmd, timeout=30):
     except Exception as e:
         return "", str(e), -1
 
+def run_cmd_retry(cmd, timeout=30, retries=3, delay=5):
+    """Run command with retries — ACP API is flaky under rapid calls"""
+    out, err, rc = "", "", -1
+    for attempt in range(retries):
+        out, err, rc = run_cmd(cmd, timeout)
+        if rc == 0 and out:
+            return out, err, rc
+        if attempt < retries - 1:
+            time.sleep(delay)
+    return out, err, rc
+
+def acp_json(cmd, timeout=30, retries=3):
+    """Run ACP command and parse JSON, stripping wrapper, with retries"""
+    out, _, _ = run_cmd_retry(cmd, timeout=timeout, retries=retries)
+    raw = out.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out else out
+    try:
+        return json.loads(raw), None
+    except Exception as e:
+        return None, str(e)
+
 def rpc_solana(method, params):
     data = json.dumps({"jsonrpc": "2.0", "id": 1, "method": method, "params": params}).encode()
     req = urllib.request.Request(SOL_RPC, data=data, headers={"Content-Type": "application/json"})
@@ -76,6 +96,7 @@ def rpc_solana(method, params):
 
 def use_agent(agent_id):
     run_cmd(f"acp agent use --agent-id {agent_id}")
+    time.sleep(2)  # Let ACP backend settle after agent switch
 
 def py_compile_check(filepath):
     """Check a Python file compiles without syntax errors"""
@@ -137,10 +158,11 @@ def test_saint_hl_positions():
     """Verify Saint has active HL positions and positive PnL"""
     print("\n--- Saint HL Perps ---")
     use_agent(SAINT_ID)
-    out, _, _ = run_cmd("acp wallet balance --json 2>&1", timeout=15)
-    raw = out.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out else out
+    d, err = acp_json("acp wallet balance --json 2>&1", timeout=15, retries=3)
+    if d is None:
+        record("saint:hl_balance", False, f"ACP API error: {err}")
+        return
     try:
-        d = json.loads(raw)
         hl = d.get("hyperliquid", {})
         hl_bal = float(hl.get("balanceUsd", 0))
         positions = hl.get("positions", [])
@@ -169,47 +191,39 @@ def test_acp_marketplace():
     print("\n--- ACP Marketplace ---")
     # Check ArmaBase offerings
     use_agent(ARMABASE_ID)
-    out, _, _ = run_cmd("acp offering list --json 2>&1", timeout=15)
-    raw = out.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out else out
-    try:
-        d = json.loads(raw)
+    d, err = acp_json("acp offering list --json 2>&1", timeout=15, retries=3)
+    if d is not None:
         offerings = d if isinstance(d, list) else d.get("offerings", d.get("data", []))
         record("armabase:has_offerings", len(offerings) > 0, f"{len(offerings)} offerings")
-    except:
-        record("armabase:offerings", False, "parse error")
+    else:
+        record("armabase:has_offerings", False, f"ACP API error: {err}")
 
     # Check active jobs
-    out2, _, _ = run_cmd("acp job list --json 2>&1", timeout=15)
-    raw2 = out2.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out2 else out2
-    try:
-        d2 = json.loads(raw2)
+    d2, err2 = acp_json("acp job list --json 2>&1", timeout=15, retries=3)
+    if d2 is not None:
         jobs = d2.get("jobs", d2 if isinstance(d2, list) else [])
         active = [j for j in jobs if j.get("jobStatus") == "SUBMITTED"]
         record("armabase:active_jobs", len(active) > 0, f"{len(active)} active jobs")
-    except:
-        record("armabase:jobs", False, "parse error")
+    else:
+        record("armabase:active_jobs", False, f"ACP API error: {err2}")
 
     # Check Saint offerings
     use_agent(SAINT_ID)
-    out3, _, _ = run_cmd("acp offering list --json 2>&1", timeout=15)
-    raw3 = out3.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out3 else out3
-    try:
-        d3 = json.loads(raw3)
+    d3, err3 = acp_json("acp offering list --json 2>&1", timeout=15, retries=3)
+    if d3 is not None:
         offerings3 = d3 if isinstance(d3, list) else d3.get("offerings", d3.get("data", []))
         record("saint:has_offerings", len(offerings3) > 0, f"{len(offerings3)} offerings")
-    except:
-        record("saint:offerings", False, "parse error")
+    else:
+        record("saint:has_offerings", False, f"ACP API error: {err3}")
 
     # Check Scout offerings
     use_agent(SCOUT_ID)
-    out4, _, _ = run_cmd("acp offering list --json 2>&1", timeout=15)
-    raw4 = out4.split("[acp-wrapper]")[0].strip() if "[acp-wrapper]" in out4 else out4
-    try:
-        d4 = json.loads(raw4)
+    d4, err4 = acp_json("acp offering list --json 2>&1", timeout=15, retries=3)
+    if d4 is not None:
         offerings4 = d4 if isinstance(d4, list) else d4.get("offerings", d4.get("data", []))
         record("scout:has_offerings", len(offerings4) > 0, f"{len(offerings4)} offerings")
-    except:
-        record("scout:offerings", False, "parse error")
+    else:
+        record("scout:has_offerings", False, f"ACP API error: {err4}")
 
 def test_treasury_profit():
     """Verify treasury and profit engines are tracking revenue correctly"""

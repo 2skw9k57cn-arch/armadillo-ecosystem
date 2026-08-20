@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-20T11:45:28.085384+00:00",
-  "passed": 52,
-  "failed": 7,
-  "total": 59,
-  "all_passed": false,
+  "timestamp": "2026-08-20T11:59:13.330139+00:00",
+  "passed": 62,
+  "failed": 0,
+  "total": 62,
+  "all_passed": true,
   "tests": [
     {
       "test": "syntax:saint_perps.py",
@@ -142,48 +142,63 @@
     },
     {
       "test": "saint:hl_balance",
-      "passed": false,
-      "detail": "$0.00"
+      "passed": true,
+      "detail": "$23.67"
     },
     {
       "test": "saint:has_positions",
-      "passed": false,
-      "detail": "0 open"
+      "passed": true,
+      "detail": "3 open"
     },
     {
       "test": "saint:positive_pnl",
-      "passed": false,
-      "detail": "+$0.00 unrealized"
+      "passed": true,
+      "detail": "+$9.01 unrealized"
     },
     {
-      "test": "armabase:offerings",
-      "passed": false,
-      "detail": "parse error"
+      "test": "saint:pos_BTC",
+      "passed": true,
+      "detail": "size=0.001 entry=64949.0"
+    },
+    {
+      "test": "saint:pos_KAS",
+      "passed": true,
+      "detail": "size=400.0 entry=0.026561"
+    },
+    {
+      "test": "saint:pos_ENA",
+      "passed": true,
+      "detail": "size=120.0 entry=0.088485"
+    },
+    {
+      "test": "armabase:has_offerings",
+      "passed": true,
+      "detail": "35 offerings"
     },
     {
       "test": "armabase:active_jobs",
-      "passed": false,
-      "detail": "0 active jobs"
+      "passed": true,
+      "detail": "2 active jobs"
     },
     {
-      "test": "saint:offerings",
-      "passed": false,
-      "detail": "parse error"
+      "test": "saint:has_offerings",
+      "passed": true,
+      "detail": "12 offerings"
     },
     {
-      "test": "scout:offerings",
-      "passed": false,
-      "detail": "parse error"
+      "test": "scout:has_offerings",
+      "passed": true,
+      "detail": "11 offerings"
     },
     {
       "test": "goal:tracking",
       "passed": true,
-      "detail": "$48.05 / $1,000,000"
+      "detail": "$44.39 / $1,000,000"
     },
     {
       "test": "goal:progress_pct",
       "passed": true,
-      "detail": "0.0048%"
+      "detail": "0.0044%"
     },
     {
       "test": "profit:total_collected",
@@ -238,7 +253,7 @@
     {
       "test": "token_util:has_log",
       "passed": true,
-      "detail": "13 entries"
+      "detail": "15 entries"
     },
     {
       "test": "sol_dist:syntax",

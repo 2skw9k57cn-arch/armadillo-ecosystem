@@ -40,10 +40,11 @@ ARMABASE_EVM = "0x12b5d81cdbe234de287cf45061f5e56f3ceb37dc"
 # Saint wallet on Base (for HL deposits)
 SAINT_EVM = "0x73d1486635fe66b3fff1db69a289a3e3fa625f8d"
 
-# Distribution split
-SNIPER_KEEP_PCT = 40   # Keep as SOL for pump.fun sniper
-BRIDGE_PCT = 35        # SOL→USDC→bridge to Base (ArmaBase distributes)
-HL_DEPOSIT_PCT = 25    # SOL→USDC→deposit to Hyperliquid (Saint)
+# Distribution split — ALL stays as SOL for pump.fun sniper
+# (No working API bridge from Solana → Base. ACP trade only supports EVM chain-in.)
+SNIPER_KEEP_PCT = 100  # Keep all SOL for pump.fun sniper (best ROI strategy)
+BRIDGE_PCT = 0
+HL_DEPOSIT_PCT = 0
 
 # Thresholds
 GAS_RESERVE_SOL = 0.02         # Keep at least this much SOL for gas

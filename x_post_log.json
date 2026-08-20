@@ -5,5 +5,12 @@
     "details": {
       "error": "\u001b[31mError: Auth Error: NoAuthMethod (cause: no authentication method available)\u001b[0m"
     }
+  },
+  {
+    "timestamp": "2026-08-20T11:08:06.552015+00:00",
+    "action": "auth_needed",
+    "details": {
+      "error": "\u001b[31mError: Auth Error: NoAuthMethod (cause: no authentication method available)\u001b[0m"
+    }
   }
 ]

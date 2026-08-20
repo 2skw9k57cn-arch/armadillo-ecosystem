@@ -29,5 +29,14 @@
         "HL deposit failed: ACP response: {\"error\": \"400 Bad Request: Wallet needs 13.792265 usdc on chain 1151111081099710 but holds less, and no other chain covers it (wallet stables: 4.54 usdc@42161, 1.36 usdc@8453).\", \"code\": \"API_ERROR\","
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-20T11:08:06.891162+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.010378541,
+      "distributable": -0.009621459,
+      "reason": "below_threshold"
+    }
   }
 ]

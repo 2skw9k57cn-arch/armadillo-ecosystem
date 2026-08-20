@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2026-08-20T04:48:42.432092+00:00",
+    "action": "token_gated_offerings",
+    "details": {
+      "created": 6
+    }
+  },
+  {
+    "timestamp": "2026-08-20T04:48:42.454231+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T04:48:44.388943+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  }
+]

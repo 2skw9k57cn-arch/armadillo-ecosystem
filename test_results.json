@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-20T15:43:22.034733+00:00",
+  "timestamp": "2026-08-20T17:47:16.769747+00:00",
   "total_scripts": 19,
-  "total_pass": 62,
-  "total_fail": 0,
-  "all_passed": true,
+  "total_pass": 61,
+  "total_fail": 1,
+  "all_passed": false,
   "scripts": [
     {
       "name": "cron_watchdog",
@@ -335,7 +335,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-20 15:43 UTC\n   USDC available: $8.16\n   VIRTUAL on Base: $0.634200 (liq: $3,2"
+          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-20 17:47 UTC\n   USDC available: $8.21\n   VIRTUAL on Base: $0.643700 (liq: $3,2"
         }
       ],
       "all_passed": true
@@ -362,7 +362,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-20 15:43 UTC\n   HL USDC available: $1.92\n   \u23ed\ufe0f Insufficient HL balance (need $2.0)\n[2"
+          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-20 17:47 UTC\n   HL USDC available: $0.70\n   \u23ed\ufe0f Insufficient HL balance (need $2.0)\n[2"
         }
       ],
       "all_passed": true
@@ -389,7 +389,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-20 15:43 UTC\n   Selected: trade_win\n   Content: \ud83c\udfaf Another hit for the Armadillo ecosystem: 66%"
+          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-20 17:47 UTC\n   Selected: trade_win\n   Content: \ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14"
         }
       ],
       "all_passed": true
@@ -415,11 +415,11 @@
         },
         {
           "check": "end_to_end",
-          "passed": true,
-          "detail": "\ud83d\udcb8 SOL Auto-Distributor \u2014 2026-08-20 15:43:21 UTC\n   Wallet: CT5Z79b1ie7AaeRzEsn1uQjMz3p33xTJST7Na49UDoSL\n   SOL: 0.00514"
+          "passed": false,
+          "detail": "exit=1 Traceback (most recent call last):\n  File \"/workspace/sol_distributor.py\", line 24, in <module>\n    from solders.keypair"
         }
       ],
-      "all_passed": true
+      "all_passed": false
     },
     {
       "name": "token_utility_engine",
@@ -443,7 +443,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-20 15:43:21 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
+          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-20 17:47:16 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
         }
       ],
       "all_passed": true

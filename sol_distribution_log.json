@@ -353,5 +353,23 @@
         "Sniper kept: 0.156056 SOL"
       ]
     }
+  },
+  {
+    "timestamp": "2026-08-20T13:48:16.792764+00:00",
+    "action": "distribution_complete",
+    "details": {
+      "initial_sol": 0.176055686,
+      "initial_usdc": 0.011,
+      "distributable_sol": 0.156055686,
+      "sniper_sol": 0.156055686,
+      "bridge_sol": 0.0,
+      "hl_sol": 0.0,
+      "final_sol": 0.176055686,
+      "final_usdc": 0.011,
+      "sol_price": 86.55,
+      "actions": [
+        "Sniper kept: 0.156056 SOL"
+      ]
+    }
   }
 ]

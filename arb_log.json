@@ -1,0 +1,11 @@
+[
+  {
+    "timestamp": "2026-08-20T04:16:08.296666+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 18.38075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  }
+]

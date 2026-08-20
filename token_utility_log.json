@@ -155,5 +155,36 @@
     "details": {
       "checked": 4
     }
+  },
+  {
+    "timestamp": "2026-08-20T13:29:26.868696+00:00",
+    "action": "buyback_executed",
+    "details": {
+      "usdc_spent": 2.0421500000000004,
+      "arba_bought": 78772.922852,
+      "new_revenue": 10.21075
+    }
+  },
+  {
+    "timestamp": "2026-08-20T13:29:29.193917+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-20T13:35:54.759375+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-20T13:35:56.050260+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
   }
 ]

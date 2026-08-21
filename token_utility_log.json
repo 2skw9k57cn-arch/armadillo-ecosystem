@@ -1,12 +1,5 @@
 [
   {
-    "timestamp": "2026-08-20T04:48:42.432092+00:00",
-    "action": "token_gated_offerings",
-    "details": {
-      "created": 6
-    }
-  },
-  {
     "timestamp": "2026-08-20T04:48:42.454231+00:00",
     "action": "buyback_skip",
     "details": {
@@ -1483,6 +1476,21 @@
   },
   {
     "timestamp": "2026-08-21T22:30:25.320444+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-21T22:43:57.193826+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T22:43:57.922243+00:00",
     "action": "liquidity_check",
     "details": {
       "checked": 4

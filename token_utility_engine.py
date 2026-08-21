@@ -104,7 +104,7 @@ def log(action, details):
         try:
             with open(TOKEN_UTILITY_LOG) as f:
                 log_data = json.load(f)
-        except:
+        except Exception:
             pass
     log_data.append(entry)
     log_data = log_data[-200:]
@@ -135,7 +135,7 @@ def get_usdc_balance_base(wallet):
         if result == "0x" or "error" in resp:
             return 0.0
         return int(result, 16) / 1e6
-    except:
+    except Exception:
         return 0.0
 
 def get_token_balance_base(token_addr, wallet):
@@ -158,7 +158,7 @@ def get_token_balance_base(token_addr, wallet):
             return 0.0
         # Assume 18 decimals for ecosystem tokens
         return int(result, 16) / 1e18
-    except:
+    except Exception:
         return 0.0
 
 # ============ PILLAR 1: TOKEN-GATED OFFERINGS ============
@@ -269,7 +269,7 @@ def execute_revenue_buyback():
         try:
             with open(REVENUE_BASELINE_FILE) as f:
                 baseline = json.load(f).get("last_usdc", 0)
-        except:
+        except Exception:
             pass
 
     new_revenue = usdc - baseline

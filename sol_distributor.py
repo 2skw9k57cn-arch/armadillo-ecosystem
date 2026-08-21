@@ -77,7 +77,7 @@ def log(action, details):
         try:
             with open(DISTRIBUTION_LOG) as f:
                 log_data = json.load(f)
-        except:
+        except Exception:
             pass
     log_data.append(entry)
     log_data = log_data[-200:]
@@ -114,7 +114,7 @@ def get_sol_price():
             for p in pairs:
                 if p.get("chainId") == "solana" and p.get("quoteToken", {}).get("symbol") == "USDC":
                     return float(p.get("priceUsd", 0))
-    except:
+    except Exception:
         pass
     return 85.0  # fallback
 
@@ -138,7 +138,7 @@ def get_usdc_balance_solana(pubkey_str):
             info = a["account"]["data"]["parsed"]["info"]
             total += float(info["tokenAmount"]["uiAmountString"])
         return total
-    except:
+    except Exception:
         return 0.0
 
 # ============ JUPITER SWAP ============
@@ -298,7 +298,7 @@ def deposit_to_hl(usdc_amount):
         if data.get("success") or data.get("finalReceived"):
             return True, f"Deposited {usdc_amount:.2f} USDC to HL"
         return False, f"ACP response: {json.dumps(data)[:200]}"
-    except:
+    except Exception:
         return False, f"ACP trade failed: {out[:200]}"
 
 # ============ MAIN ============

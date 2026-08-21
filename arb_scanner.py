@@ -71,7 +71,7 @@ def log(action, details):
         try:
             with open(ARB_LOG) as f:
                 log_data = json.load(f)
-        except:
+        except Exception:
             pass
     log_data.append(entry)
     log_data = log_data[-200:]  # Keep last 200
@@ -111,7 +111,7 @@ def get_acp_swap_quote(token_in, chain_in, token_out, chain_out, amount_in):
         raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
         data = json.loads(raw)
         return data
-    except:
+    except Exception:
         return None
 
 def use_armabase():
@@ -130,7 +130,7 @@ def get_usdc_balance():
                 dec = t.get("tokenMetadata", {}).get("decimals", 18)
                 val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith("0x") else int(bal_raw)
                 return val / (10 ** dec)
-    except:
+    except Exception:
         pass
     return 0.0
 
@@ -162,7 +162,7 @@ def scan_arbitrage():
             try:
                 raw = json.dumps(quote_base)
                 print(f"   Quote USDC→VIRTUAL on Base: {raw[:200]}")
-            except:
+            except Exception:
                 pass
 
     # Scan ecosystem tokens for cross-chain spreads

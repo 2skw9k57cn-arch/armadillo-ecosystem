@@ -44,7 +44,7 @@ def log(action, details):
         try:
             with open(POST_LOG) as f:
                 log_data = json.load(f)
-        except:
+        except Exception:
             pass
     log_data.append(entry)
     log_data = log_data[-100:]
@@ -61,7 +61,7 @@ def can_post():
         last = datetime.fromisoformat(data["timestamp"].replace("Z", "+00:00"))
         hours_since = (datetime.now(timezone.utc) - last).total_seconds() / 3600
         return hours_since >= MIN_HOURS_BETWEEN_POSTS
-    except:
+    except Exception:
         return True
 
 def post_to_x(text):
@@ -103,7 +103,7 @@ def get_trade_wins():
                         pnl_pct = data.get("pnl_pct", 0)
                         token_name = data.get("symbol", token[:8])
                         wins.append(("sniper", token_name, pnl_pct))
-    except:
+    except Exception:
         pass
     
     # Check saint positions for profitable ones
@@ -115,7 +115,7 @@ def get_trade_wins():
                 pnl = float(pos.get("pnl", 0))
                 if pnl > 1.0:
                     wins.append(("perps", pos.get("coin", "?"), pnl))
-    except:
+    except Exception:
         pass
     
     # Check treasury learning for cumulative stats
@@ -127,7 +127,7 @@ def get_trade_wins():
         win_rate = sniper.get("wins", 0) / max(1, sniper.get("wins", 0) + sniper.get("losses", 0)) * 100
         if total_pnl > 0:
             wins.append(("stats", f"{win_rate:.0f}% WR", total_pnl))
-    except:
+    except Exception:
         pass
     
     return wins
@@ -141,7 +141,7 @@ def get_goal_progress():
         goal = state.get("goal_usd", 1000000)
         pct = earned / goal * 100
         return earned, pct
-    except:
+    except Exception:
         return 0, 0
 
 def generate_trade_win_post(wins):

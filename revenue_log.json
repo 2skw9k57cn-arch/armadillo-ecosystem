@@ -42,5 +42,16 @@
     "arba_burned": 0,
     "buyback_tx": "",
     "burn_tx": ""
+  },
+  {
+    "timestamp": 1787284482,
+    "date": "2026-08-21 03:54:42 UTC",
+    "new_revenue": 0.039999999999999994,
+    "buyback_usdc": 0,
+    "profit_usdc": 0.039999999999999994,
+    "arba_bought": 0,
+    "arba_burned": 0,
+    "buyback_tx": "",
+    "burn_tx": ""
   }
 ]

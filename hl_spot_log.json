@@ -406,5 +406,21 @@
       "reason": "insufficient_hl_balance",
       "balance": 0.0
     }
+  },
+  {
+    "timestamp": "2026-08-21T00:40:19.890619+00:00",
+    "action": "skip",
+    "details": {
+      "reason": "insufficient_hl_balance",
+      "balance": 0.365536
+    }
+  },
+  {
+    "timestamp": "2026-08-21T00:41:59.909849+00:00",
+    "action": "skip",
+    "details": {
+      "reason": "insufficient_hl_balance",
+      "balance": 0.347669
+    }
   }
 ]

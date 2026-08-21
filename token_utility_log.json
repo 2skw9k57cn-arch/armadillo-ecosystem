@@ -828,5 +828,35 @@
     "details": {
       "checked": 4
     }
+  },
+  {
+    "timestamp": "2026-08-21T07:05:53.965429+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T07:05:55.562019+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-21T07:07:00.191603+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T07:07:00.753412+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
   }
 ]

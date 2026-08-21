@@ -71,7 +71,7 @@ def log(action, details):
         try:
             with open(SPOT_LOG) as f:
                 log_data = json.load(f)
-        except:
+        except Exception:
             pass
     log_data.append(entry)
     log_data = log_data[-200:]
@@ -84,7 +84,7 @@ def load_positions():
         try:
             with open(SPOT_POSITIONS_FILE) as f:
                 return json.load(f)
-        except:
+        except Exception:
             pass
     return {}
 
@@ -99,7 +99,7 @@ def hl_get_meta():
         r = requests.post(HL_API, json={"type": "meta"}, timeout=10)
         if r.status_code == 200:
             return r.json()
-    except:
+    except Exception:
         pass
     return None
 
@@ -109,7 +109,7 @@ def hl_get_spot_meta():
         r = requests.post(HL_API, json={"type": "spotMeta"}, timeout=10)
         if r.status_code == 200:
             return r.json()
-    except:
+    except Exception:
         pass
     return None
 
@@ -122,7 +122,7 @@ def hl_get_orderbook(coin):
         }, timeout=10)
         if r.status_code == 200:
             return r.json()
-    except:
+    except Exception:
         pass
     return None
 
@@ -137,7 +137,7 @@ def hl_get_candles(coin, interval="1h", hours=24):
         }, timeout=10)
         if r.status_code == 200:
             return r.json()
-    except:
+    except Exception:
         pass
     return []
 
@@ -148,7 +148,7 @@ def hl_get_account_state():
     try:
         raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
         return json.loads(raw)
-    except:
+    except Exception:
         return None
 
 # ============ INDICATORS ============
@@ -223,7 +223,7 @@ def get_hl_usdc_balance():
                 return float(state["withdrawable"])
             elif "accountValue" in state:
                 return float(state["accountValue"])
-    except:
+    except Exception:
         pass
     
     # Fallback: use oversight state which has HL balance
@@ -233,7 +233,7 @@ def get_hl_usdc_balance():
         for check in oversight.get("checks", []):
             if check.get("check") == "hl_positions":
                 return float(check.get("withdrawable", 0))
-    except:
+    except Exception:
         pass
     return 0.0
 
@@ -360,7 +360,7 @@ def scan_and_trade():
                     raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
                     result = json.loads(raw)
                     amount_received = float(result.get("amountOut", 0))
-                except:
+                except Exception:
                     amount_received = trade_usdc / mid_price  # Estimate
 
                 positions[token] = {

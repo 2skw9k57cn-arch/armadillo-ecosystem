@@ -46,7 +46,7 @@ try:
             val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith("0x") else int(bal_raw)
             dec = t.get("tokenMetadata", {}).get("decimals", 18)
             amt = val / (10**dec)
-        except:
+        except Exception:
             amt = 0
         usd = t.get("usdValue", 0)
         if isinstance(usd, str):
@@ -71,7 +71,7 @@ try:
             val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith("0x") else int(bal_raw)
             dec = t.get("tokenMetadata", {}).get("decimals", 18)
             amt = val / (10**dec)
-        except:
+        except Exception:
             amt = 0
         usd = t.get("usdValue", 0)
         if isinstance(usd, str):
@@ -109,7 +109,7 @@ try:
             val = int(bal_raw, 16) if isinstance(bal_raw, str) and bal_raw.startswith("0x") else int(bal_raw)
             dec = t.get("tokenMetadata", {}).get("decimals", 18)
             amt = val / (10**dec)
-        except:
+        except Exception:
             amt = 0
         usd = t.get("usdValue", 0)
         if isinstance(usd, str):

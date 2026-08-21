@@ -747,5 +747,20 @@
     "details": {
       "checked": 4
     }
+  },
+  {
+    "timestamp": "2026-08-21T04:59:16.854262+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 1.95075,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T04:59:17.380495+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
   }
 ]

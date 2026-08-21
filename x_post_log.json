@@ -361,5 +361,13 @@
       "text": "\ud83c\udfaf Another hit for the Armadillo ecosystem: 66% WR with 14.5 SOL total gains. Texas degen energy. #VirtualsProtocol",
       "error": "{\n  \"detail\":\"credits depleted\",\n  \"status\":402,\n  \"title\":\"Payment Required\",\n  \"type\":\"https://api.x.com/2/problems/credits-depleted\"\n}"
     }
+  },
+  {
+    "timestamp": "2026-08-21T02:54:16.761793+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
   }
 ]

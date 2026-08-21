@@ -610,5 +610,23 @@
       "opportunities_found": 0,
       "opportunities": []
     }
+  },
+  {
+    "timestamp": "2026-08-21T02:16:35.364728+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 3.08075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-21T02:18:30.456547+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 3.08075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
   }
 ]

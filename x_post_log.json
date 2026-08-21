@@ -337,5 +337,13 @@
       "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
       "error": "/bin/sh: 1: xurl: not found"
     }
+  },
+  {
+    "timestamp": "2026-08-21T02:16:40.271944+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
   }
 ]

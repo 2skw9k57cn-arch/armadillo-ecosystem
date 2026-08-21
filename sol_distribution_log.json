@@ -1280,5 +1280,32 @@
       "distributable": -0.016621837,
       "reason": "below_threshold"
     }
+  },
+  {
+    "timestamp": "2026-08-21T14:32:14.338159+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.003378163,
+      "distributable": -0.016621837,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T14:41:06.446523+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.003378163,
+      "distributable": -0.016621837,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T14:45:03.278976+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.003378163,
+      "distributable": -0.016621837,
+      "reason": "below_threshold"
+    }
   }
 ]

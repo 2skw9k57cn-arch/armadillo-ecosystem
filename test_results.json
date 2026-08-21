@@ -1,452 +1,319 @@
 {
-  "timestamp": "2026-08-21T02:16:41.205297+00:00",
-  "total_scripts": 19,
-  "total_pass": 61,
-  "total_fail": 1,
-  "all_passed": false,
-  "scripts": [
+  "timestamp": "2026-08-21T02:52:07.503104+00:00",
+  "passed": 62,
+  "failed": 0,
+  "total": 62,
+  "all_passed": true,
+  "tests": [
     {
-      "name": "cron_watchdog",
-      "file": "cron_watchdog.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:saint_perps.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "deployer_watcher",
-      "file": "deployer_watcher.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:treasury_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "sniper_guard",
-      "file": "sniper_guard.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:profit_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "saint_perps",
-      "file": "saint_perps.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:revenue_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "learning_engine",
-      "file": "learning_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:volume_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "treasury_engine",
-      "file": "treasury_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:growth_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "volume_engine",
-      "file": "volume_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:oversight.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "profit_engine",
-      "file": "profit_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:cron_watchdog.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "revenue_engine",
-      "file": "revenue_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:deployer_watcher.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "growth_engine",
-      "file": "growth_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:sniper_guard.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "team_coordinator",
-      "file": "team_coordinator.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:learning_engine.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "scout_ecosystem",
-      "file": "scout_ecosystem.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:team_coordinator.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "git_autosync",
-      "file": "git_autosync.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:scout_ecosystem.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "pumpfun_multi_loop",
-      "file": "pumpfun_multi_loop.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:git_autosync.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "arb_scanner",
-      "file": "arb_scanner.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        },
-        {
-          "check": "end_to_end",
-          "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-21 02:16 UTC\n   USDC available: $3.08\n   VIRTUAL on Base: $0.649900 (liq: $3,1"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:pumpfun_multi_loop.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "hl_spot_trader",
-      "file": "hl_spot_trader.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        },
-        {
-          "check": "end_to_end",
-          "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-21 02:16 UTC\n   HL USDC available: $0.00\n   \u23ed\ufe0f Insufficient HL balance (need $2.0)\n[2"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:arb_scanner.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "x_poster",
-      "file": "x_poster.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        },
-        {
-          "check": "end_to_end",
-          "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-21 02:16 UTC\n   Selected: trade_win\n   Content: \ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SO"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:hl_spot_trader.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "sol_distributor",
-      "file": "sol_distributor.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        },
-        {
-          "check": "end_to_end",
-          "passed": false,
-          "detail": "exit=1 Traceback (most recent call last):\n  File \"/workspace/sol_distributor.py\", line 24, in <module>\n    from solders.keypair"
-        }
-      ],
-      "all_passed": false
+      "test": "syntax:x_poster.py",
+      "passed": true,
+      "detail": "ok"
     },
     {
-      "name": "token_utility_engine",
-      "file": "token_utility_engine.py",
-      "checks": [
-        {
-          "check": "py_compile",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "import",
-          "passed": true,
-          "detail": "ok"
-        },
-        {
-          "check": "in_cron_dir",
-          "passed": true,
-          "detail": "exists"
-        },
-        {
-          "check": "end_to_end",
-          "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-21 02:16:40 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
-        }
-      ],
-      "all_passed": true
+      "test": "syntax:sol_distributor.py",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "syntax:token_utility_engine.py",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "syntax:test_suite.py",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "cron:all_active",
+      "passed": true,
+      "detail": "21 active jobs"
+    },
+    {
+      "test": "cron:no_errors",
+      "passed": true,
+      "detail": "0 errors"
+    },
+    {
+      "test": "cron:saint-perps",
+      "passed": true,
+      "detail": "present"
+    },
+    {
+      "test": "cron:profit-engine",
+      "passed": true,
+      "detail": "present"
+    },
+    {
+      "test": "cron:revenue-engine",
+      "passed": true,
+      "detail": "present"
+    },
+    {
+      "test": "cron:treasury-engine",
+      "passed": true,
+      "detail": "present"
+    },
+    {
+      "test": "saint:hl_balance",
+      "passed": true,
+      "detail": "$23.17"
+    },
+    {
+      "test": "saint:has_positions",
+      "passed": true,
+      "detail": "3 open"
+    },
+    {
+      "test": "saint:positive_pnl",
+      "passed": true,
+      "detail": "+$14.76 unrealized"
+    },
+    {
+      "test": "saint:pos_BTC",
+      "passed": true,
+      "detail": "size=0.001 entry=64949.0"
+    },
+    {
+      "test": "saint:pos_KAS",
+      "passed": true,
+      "detail": "size=400.0 entry=0.026561"
+    },
+    {
+      "test": "saint:pos_ENA",
+      "passed": true,
+      "detail": "size=120.0 entry=0.088485"
+    },
+    {
+      "test": "armabase:has_offerings",
+      "passed": true,
+      "detail": "35 offerings"
+    },
+    {
+      "test": "armabase:active_jobs",
+      "passed": true,
+      "detail": "1 active jobs"
+    },
+    {
+      "test": "saint:has_offerings",
+      "passed": true,
+      "detail": "12 offerings"
+    },
+    {
+      "test": "scout:has_offerings",
+      "passed": true,
+      "detail": "11 offerings"
+    },
+    {
+      "test": "goal:tracking",
+      "passed": true,
+      "detail": "$15.13 / $1,000,000"
+    },
+    {
+      "test": "goal:progress_pct",
+      "passed": true,
+      "detail": "0.0015%"
+    },
+    {
+      "test": "profit:total_collected",
+      "passed": true,
+      "detail": "$66.77"
+    },
+    {
+      "test": "revenue:has_entries",
+      "passed": true,
+      "detail": "4 entries"
+    },
+    {
+      "test": "hl_spot:syntax",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "hl_spot:in_cron_dir",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "hl_spot:saint_id",
+      "passed": true,
+      "detail": "Saint ID present"
+    },
+    {
+      "test": "arb:syntax",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "arb:in_cron_dir",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "arb:hl_orderbook",
+      "passed": true,
+      "detail": "bids=20 asks=20"
+    },
+    {
+      "test": "token_util:syntax",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "token_util:in_cron_dir",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "token_util:has_log",
+      "passed": true,
+      "detail": "91 entries"
+    },
+    {
+      "test": "sol_dist:syntax",
+      "passed": true,
+      "detail": "ok"
+    },
+    {
+      "test": "sol_dist:in_cron_dir",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "sol_dist:keep_100",
+      "passed": true,
+      "detail": "100% keep SOL"
+    },
+    {
+      "test": "cron_dir:saint_perps.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:treasury_engine.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:profit_engine.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:revenue_engine.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:arb_scanner.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:hl_spot_trader.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:sol_distributor.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:token_utility_engine.py",
+      "passed": true,
+      "detail": "exists"
+    },
+    {
+      "test": "cron_dir:test_suite.py",
+      "passed": true,
+      "detail": "exists"
     }
   ]
 }

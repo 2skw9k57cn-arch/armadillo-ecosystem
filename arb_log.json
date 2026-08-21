@@ -718,5 +718,14 @@
       "opportunities_found": 0,
       "opportunities": []
     }
+  },
+  {
+    "timestamp": "2026-08-21T04:28:13.545579+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 1.96075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
   }
 ]

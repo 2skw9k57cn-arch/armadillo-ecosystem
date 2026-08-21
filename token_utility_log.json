@@ -792,5 +792,34 @@
     "details": {
       "checked": 4
     }
+  },
+  {
+    "timestamp": "2026-08-21T06:03:38.067997+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T06:03:39.962575+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-21T06:04:07.584205+00:00",
+    "action": "buyback_failed",
+    "details": {
+      "error": "Command failed: /home/hermes/.hermes/skills/acp-cli/bin/acp-cli-signer-linux sign --public-key MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEaiPk0iIWWYHpwtpWJp9"
+    }
+  },
+  {
+    "timestamp": "2026-08-21T06:04:07.797794+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
   }
 ]

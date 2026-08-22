@@ -1,23 +1,5 @@
 [
   {
-    "timestamp": "2026-08-20T11:10:27.947654+00:00",
-    "action": "scan_complete",
-    "details": {
-      "usdc_available": 10.18075,
-      "opportunities_found": 0,
-      "opportunities": []
-    }
-  },
-  {
-    "timestamp": "2026-08-20T11:11:05.869030+00:00",
-    "action": "scan_complete",
-    "details": {
-      "usdc_available": 0.0,
-      "opportunities_found": 0,
-      "opportunities": []
-    }
-  },
-  {
     "timestamp": "2026-08-20T11:27:05.549544+00:00",
     "action": "scan_complete",
     "details": {
@@ -1792,6 +1774,24 @@
   },
   {
     "timestamp": "2026-08-22T06:57:53.487253+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 21.89075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-22T07:17:27.370449+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 21.89075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-22T07:18:56.611830+00:00",
     "action": "scan_complete",
     "details": {
       "usdc_available": 21.89075,

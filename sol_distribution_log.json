@@ -1,59 +1,5 @@
 [
   {
-    "timestamp": "2026-08-20T11:38:01.843658+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.358025164,
-      "initial_usdc": 0.011,
-      "distributable_sol": 0.338025164,
-      "sniper_sol": 0.338025164,
-      "bridge_sol": 0.0,
-      "hl_sol": 0.0,
-      "final_sol": 0.358025164,
-      "final_usdc": 0.011,
-      "sol_price": 87.84,
-      "actions": [
-        "Sniper kept: 0.338025 SOL"
-      ]
-    }
-  },
-  {
-    "timestamp": "2026-08-20T11:50:20.360870+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.358025164,
-      "initial_usdc": 0.011,
-      "distributable_sol": 0.338025164,
-      "sniper_sol": 0.338025164,
-      "bridge_sol": 0.0,
-      "hl_sol": 0.0,
-      "final_sol": 0.358025164,
-      "final_usdc": 0.011,
-      "sol_price": 87.78,
-      "actions": [
-        "Sniper kept: 0.338025 SOL"
-      ]
-    }
-  },
-  {
-    "timestamp": "2026-08-20T11:58:25.256101+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.31783411,
-      "initial_usdc": 0.011,
-      "distributable_sol": 0.29783411,
-      "sniper_sol": 0.29783411,
-      "bridge_sol": 0.0,
-      "hl_sol": 0.0,
-      "final_sol": 0.31783411,
-      "final_usdc": 0.011,
-      "sol_price": 87.34,
-      "actions": [
-        "Sniper kept: 0.297834 SOL"
-      ]
-    }
-  },
-  {
     "timestamp": "2026-08-20T12:03:26.739711+00:00",
     "action": "distribution_complete",
     "details": {
@@ -1945,6 +1891,33 @@
   },
   {
     "timestamp": "2026-08-22T02:15:25.500073+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013708482,
+      "distributable": -0.006291518000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T02:26:59.796538+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013708482,
+      "distributable": -0.006291518000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T02:27:18.373648+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013708482,
+      "distributable": -0.006291518000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T02:40:10.635450+00:00",
     "action": "skip",
     "details": {
       "sol_balance": 0.013708482,

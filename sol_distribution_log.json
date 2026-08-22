@@ -1,45 +1,5 @@
 [
   {
-    "timestamp": "2026-08-20T04:37:00.293371+00:00",
-    "action": "skip",
-    "details": {
-      "sol_balance": 0.010831609,
-      "distributable": -0.009168391,
-      "reason": "below_threshold"
-    }
-  },
-  {
-    "timestamp": "2026-08-20T04:51:52.525678+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.670831609,
-      "initial_usdc": 0.050206,
-      "distributable_sol": 0.650831609,
-      "sniper_sol": 0.2603326436,
-      "bridge_sol": 0.22779106315,
-      "hl_sol": 0.16270790225,
-      "final_sol": 0.670831609,
-      "final_usdc": 0.050206,
-      "sol_price": 84.67,
-      "actions": [
-        "Sniper kept: 0.260333 SOL",
-        "Swapped 0.227791 SOL \u2192 19.310031 USDC",
-        "Bridge failed: Order creation failed: 404 {\"message\":\"Cannot POST /v1.0/dln/order/create\",\"error\":\"Not Found\",\"statusCode\":404}",
-        "Swapped 0.162708 SOL \u2192 13.792265 USDC for HL",
-        "HL deposit failed: ACP response: {\"error\": \"400 Bad Request: Wallet needs 13.792265 usdc on chain 1151111081099710 but holds less, and no other chain covers it (wallet stables: 4.54 usdc@42161, 1.36 usdc@8453).\", \"code\": \"API_ERROR\","
-      ]
-    }
-  },
-  {
-    "timestamp": "2026-08-20T11:08:06.891162+00:00",
-    "action": "skip",
-    "details": {
-      "sol_balance": 0.010378541,
-      "distributable": -0.009621459,
-      "reason": "below_threshold"
-    }
-  },
-  {
     "timestamp": "2026-08-20T11:08:38.136160+00:00",
     "action": "skip",
     "details": {
@@ -1962,6 +1922,33 @@
     "details": {
       "sol_balance": 0.013784751,
       "distributable": -0.006215249000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T01:18:12.018087+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013768206,
+      "distributable": -0.006231794000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T01:23:27.033881+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013768206,
+      "distributable": -0.006231794000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T01:28:58.615556+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013768206,
+      "distributable": -0.006231794000000001,
       "reason": "below_threshold"
     }
   }

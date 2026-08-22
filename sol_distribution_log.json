@@ -1,41 +1,5 @@
 [
   {
-    "timestamp": "2026-08-20T13:35:54.552946+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.176055686,
-      "initial_usdc": 0.011,
-      "distributable_sol": 0.156055686,
-      "sniper_sol": 0.156055686,
-      "bridge_sol": 0.0,
-      "hl_sol": 0.0,
-      "final_sol": 0.176055686,
-      "final_usdc": 0.011,
-      "sol_price": 86.46,
-      "actions": [
-        "Sniper kept: 0.156056 SOL"
-      ]
-    }
-  },
-  {
-    "timestamp": "2026-08-20T13:37:21.292362+00:00",
-    "action": "distribution_complete",
-    "details": {
-      "initial_sol": 0.176055686,
-      "initial_usdc": 0.0,
-      "distributable_sol": 0.156055686,
-      "sniper_sol": 0.156055686,
-      "bridge_sol": 0.0,
-      "hl_sol": 0.0,
-      "final_sol": 0.176055686,
-      "final_usdc": 0.0,
-      "sol_price": 86.54,
-      "actions": [
-        "Sniper kept: 0.156056 SOL"
-      ]
-    }
-  },
-  {
     "timestamp": "2026-08-20T13:48:16.792764+00:00",
     "action": "distribution_complete",
     "details": {
@@ -1832,6 +1796,24 @@
     "details": {
       "sol_balance": 0.013720472,
       "distributable": -0.006279528000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T04:12:40.472609+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013720472,
+      "distributable": -0.006279528000000001,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-22T04:23:29.039654+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.013734984,
+      "distributable": -0.006265016,
       "reason": "below_threshold"
     }
   }

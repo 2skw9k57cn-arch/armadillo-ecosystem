@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-21T15:12:34.846315+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83c\udfaf Another hit for the Armadillo ecosystem: 66% WR with 14.5 SOL total gains. Texas degen energy. #VirtualsProtocol",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-21T15:44:08.835310+00:00",
     "action": "post_failed",
     "details": {
@@ -796,6 +788,14 @@
     "action": "post_failed",
     "details": {
       "text": "\ud83c\udfaf Another hit for the Armadillo ecosystem: 66% WR with 14.5 SOL total gains. Texas degen energy. #VirtualsProtocol",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-23T02:36:27.163553+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
       "error": "/bin/sh: 1: xurl: not found"
     }
   }

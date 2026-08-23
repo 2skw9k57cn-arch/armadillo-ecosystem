@@ -1,21 +1,5 @@
 [
   {
-    "timestamp": "2026-08-21T17:25:27.416757+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
-    "timestamp": "2026-08-21T17:56:53.695626+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-21T18:18:35.302840+00:00",
     "action": "post_failed",
     "details": {
@@ -796,6 +780,22 @@
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-23T04:45:28.548590+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-23T04:54:07.093372+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
       "error": "/bin/sh: 1: xurl: not found"
     }
   }

@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-22T13:10:17.362661+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total realized. Armadillos don't fold, we scale out. #SolanaSummer",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-22T13:40:30.342162+00:00",
     "action": "post_failed",
     "details": {
@@ -796,6 +788,14 @@
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-24T00:13:30.518556+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
       "error": "/bin/sh: 1: xurl: not found"
     }
   }

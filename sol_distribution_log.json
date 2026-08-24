@@ -1,14 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T02:05:23.207395+00:00",
-    "action": "skip",
-    "details": {
-      "sol_balance": 0.015707621,
-      "distributable": -0.004292378999999999,
-      "reason": "below_threshold"
-    }
-  },
-  {
     "timestamp": "2026-08-23T02:13:07.830958+00:00",
     "action": "skip",
     "details": {
@@ -1792,6 +1783,15 @@
   },
   {
     "timestamp": "2026-08-24T05:59:06.210123+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.015494627,
+      "distributable": -0.004505373,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-24T06:09:22.801811+00:00",
     "action": "skip",
     "details": {
       "sol_balance": 0.015494627,

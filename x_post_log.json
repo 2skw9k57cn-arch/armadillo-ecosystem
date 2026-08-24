@@ -1,21 +1,5 @@
 [
   {
-    "timestamp": "2026-08-22T18:00:53.042318+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
-    "timestamp": "2026-08-22T18:35:18.506245+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total realized. Armadillos don't fold, we scale out. #SolanaSummer",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-22T18:43:43.591288+00:00",
     "action": "post_failed",
     "details": {
@@ -793,6 +777,22 @@
   },
   {
     "timestamp": "2026-08-24T04:54:39.636187+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-24T05:19:26.691837+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83c\udfaf Another hit for the Armadillo ecosystem: 66% WR with 14.5 SOL total gains. Texas degen energy. #VirtualsProtocol",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-24T05:25:40.364678+00:00",
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",

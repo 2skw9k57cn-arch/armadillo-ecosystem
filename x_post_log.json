@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T02:36:27.163553+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-23T02:52:52.404124+00:00",
     "action": "post_failed",
     "details": {
@@ -793,6 +785,14 @@
   },
   {
     "timestamp": "2026-08-24T13:32:34.858820+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total realized. Armadillos don't fold, we scale out. #SolanaSummer",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-24T13:36:45.507851+00:00",
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total realized. Armadillos don't fold, we scale out. #SolanaSummer",

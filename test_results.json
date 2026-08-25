@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-25T21:11:37.697755+00:00",
+  "timestamp": "2026-08-25T21:42:46.428195+00:00",
   "total_scripts": 19,
   "total_pass": 61,
   "total_fail": 1,
@@ -335,7 +335,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-25 21:11 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.728700 (liq: $4,"
+          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-25 21:42 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.734500 (liq: $4,"
         }
       ],
       "all_passed": true
@@ -362,7 +362,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-25 21:11 UTC\n   HL USDC available: $3.16\n   Open spot positions: 0\n   Position size t"
+          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-25 21:42 UTC\n   HL USDC available: $3.73\n   Open spot positions: 0\n   Position size t"
         }
       ],
       "all_passed": true
@@ -389,7 +389,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-25 21:11 UTC\n   Selected: trade_win\n   Content: \ud83c\udfaf Another hit for the Armadillo ecosystem: 66%"
+          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-25 21:42 UTC\n   Selected: trade_win\n   Content: \ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total rea"
         }
       ],
       "all_passed": true
@@ -443,7 +443,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-25 21:11:37 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
+          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-25 21:42:45 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
         }
       ],
       "all_passed": true

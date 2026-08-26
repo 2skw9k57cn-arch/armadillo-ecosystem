@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T17:07:08.142491+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-23T17:36:44.543214+00:00",
     "action": "post_failed",
     "details": {
@@ -793,6 +785,14 @@
   },
   {
     "timestamp": "2026-08-26T08:57:16.115787+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-26T09:32:18.238110+00:00",
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",

@@ -1,14 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T21:43:26.118738+00:00",
-    "action": "scan_complete",
-    "details": {
-      "usdc_available": 21.89075,
-      "opportunities_found": 0,
-      "opportunities": []
-    }
-  },
-  {
     "timestamp": "2026-08-23T21:54:27.008584+00:00",
     "action": "scan_complete",
     "details": {
@@ -1792,6 +1783,15 @@
   },
   {
     "timestamp": "2026-08-26T21:37:41.074241+00:00",
+    "action": "scan_complete",
+    "details": {
+      "usdc_available": 16.79075,
+      "opportunities_found": 0,
+      "opportunities": []
+    }
+  },
+  {
+    "timestamp": "2026-08-26T21:48:58.762078+00:00",
     "action": "scan_complete",
     "details": {
       "usdc_available": 16.79075,

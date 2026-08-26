@@ -1,9 +1,9 @@
 {
-  "timestamp": "2026-08-26T20:14:41.754078+00:00",
+  "timestamp": "2026-08-26T20:46:02.194590+00:00",
   "total_scripts": 19,
-  "total_pass": 61,
-  "total_fail": 1,
-  "all_passed": false,
+  "total_pass": 62,
+  "total_fail": 0,
+  "all_passed": true,
   "scripts": [
     {
       "name": "cron_watchdog",
@@ -335,7 +335,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-26 20:14 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.721700 (liq: $4,"
+          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-26 20:45 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.720000 (liq: $4,"
         }
       ],
       "all_passed": true
@@ -362,7 +362,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-26 20:14 UTC\n   HL USDC available: $2.98\n   Open spot positions: 0\n   Position size t"
+          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-26 20:45 UTC\n   HL USDC available: $2.98\n   Open spot positions: 0\n   Position size t"
         }
       ],
       "all_passed": true
@@ -389,7 +389,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-26 20:14 UTC\n   Selected: trade_win\n   Content: \ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total rea"
+          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-26 20:46 UTC\n   Selected: trade_win\n   Content: \ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total rea"
         }
       ],
       "all_passed": true
@@ -415,11 +415,11 @@
         },
         {
           "check": "end_to_end",
-          "passed": false,
-          "detail": "exit=1 Traceback (most recent call last):\n  File \"/workspace/sol_distributor.py\", line 24, in <module>\n    from solders.keypair"
+          "passed": true,
+          "detail": "\ud83d\udcb8 SOL Auto-Distributor \u2014 2026-08-26 20:46:00 UTC\n   Wallet: CT5Z79b1ie7AaeRzEsn1uQjMz3p33xTJST7Na49UDoSL\n   SOL: 0.01549"
         }
       ],
-      "all_passed": false
+      "all_passed": true
     },
     {
       "name": "token_utility_engine",
@@ -443,7 +443,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-26 20:14:41 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
+          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-26 20:46:01 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
         }
       ],
       "all_passed": true

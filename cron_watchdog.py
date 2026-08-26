@@ -31,6 +31,7 @@ ALL_JOBS = [
     ("every 5m",  "deployer-watcher", "deployer_watcher.py"),
     ("every 30m", "oversight",        "oversight.py"),
     ("every 10m", "sniper-guard",     "sniper_guard.py"),
+    ("every 10m", "compute-autotopup","compute_autotopup.py"),
     # Paused — no trading capital. Auto-resume when funded (see capital guard).
     # ("every 20m", "pumpfun-loop",     "pumpfun_multi_loop.py"),
     # ("every 15m", "team-coordinator", "team_coordinator.py"),

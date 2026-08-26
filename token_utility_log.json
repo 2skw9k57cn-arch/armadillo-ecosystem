@@ -1,20 +1,5 @@
 [
   {
-    "timestamp": "2026-08-24T03:15:56.760476+00:00",
-    "action": "buyback_skip",
-    "details": {
-      "usdc": 0.0,
-      "reason": "insufficient"
-    }
-  },
-  {
-    "timestamp": "2026-08-24T03:15:57.511928+00:00",
-    "action": "liquidity_check",
-    "details": {
-      "checked": 4
-    }
-  },
-  {
     "timestamp": "2026-08-24T03:49:47.736963+00:00",
     "action": "buyback_skip",
     "details": {
@@ -1490,6 +1475,21 @@
   },
   {
     "timestamp": "2026-08-26T20:14:41.737361+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-26T20:46:01.754740+00:00",
+    "action": "buyback_skip",
+    "details": {
+      "usdc": 0.0,
+      "reason": "insufficient"
+    }
+  },
+  {
+    "timestamp": "2026-08-26T20:46:02.178034+00:00",
     "action": "liquidity_check",
     "details": {
       "checked": 4

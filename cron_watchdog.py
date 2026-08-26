@@ -180,21 +180,71 @@ def check_capital_and_resume():
         return 0.0
 
     def send_usdc(from_wallet, to_wallet, amount):
-        """Send USDC on Base from one agent to another."""
+        """Send USDC on Base from one agent to another via acp wallet send-transaction."""
         try:
+            # Properly switch active agent using agent use
+            # Find the agent ID for this wallet
             with open(config_path) as f:
                 cfg = _json.load(f)
+            agents_data = cfg.get("agents", {})
+            if isinstance(agents_data, dict):
+                # agents keyed by wallet address
+                agent_id = agents_data.get(from_wallet.lower(), {}).get("id", "")
+                if not agent_id:
+                    # try case-insensitive match
+                    for w, a in agents_data.items():
+                        if w.lower() == from_wallet.lower() and isinstance(a, dict):
+                            agent_id = a.get("id", "")
+                            break
+                if agent_id:
+                    subprocess.run(
+                        ["acp", "agent", "use", "--agent-id", agent_id, "--json"],
+                        capture_output=True, text=True, timeout=15, env=env
+                    )
+            elif isinstance(agents_data, list):
+                for a in agents_data:
+                    if isinstance(a, dict) and a.get("walletAddress", "").lower() == from_wallet.lower():
+                        agent_id = a.get("id", "")
+                        if agent_id:
+                            subprocess.run(
+                                ["acp", "agent", "use", "--agent-id", agent_id, "--json"],
+                                capture_output=True, text=True, timeout=15, env=env
+                            )
+                        break
             cfg["activeWallet"] = from_wallet
             with open(config_path, 'w') as f:
                 _json.dump(cfg, f, indent=2)
+
+            # Encode USDC transfer: transfer(address,uint256)
+            # selector = 0xa9059cbb
+            USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+            amount_raw = int(round(amount, 2) * 1e6)  # USDC has 6 decimals
+            # Pad recipient address to 32 bytes and amount to 32 bytes
+            recipient_padded = to_wallet[2:].lower().zfill(64)
+            amount_hex = format(amount_raw, '064x')
+            call_data = "0xa9059cbb" + recipient_padded + amount_hex
+
             r = subprocess.run(
-                ["acp", "wallet", "transfer", "--to", to_wallet,
-                 "--token", "usdc", "--chain-id", "8453",
-                 "--amount", str(round(amount, 2)), "--json"],
+                ["acp", "wallet", "send-transaction",
+                 "--chain-id", "8453",
+                 "--to", USDC_BASE,
+                 "--data", call_data, "--json"],
                 capture_output=True, text=True, timeout=60, env=env
             )
+            raw = r.stdout.strip()
+            clean = raw.split('\n[acp-wrapper]')[0].strip()
+            try:
+                data = _json.loads(clean)
+                if "transactionHash" in data:
+                    return True
+                if "error" in data:
+                    print(f"     ⚠️ send-transaction error: {data.get('error','')[:80]}")
+                    return False
+            except Exception:
+                pass
             return r.returncode == 0
-        except Exception:
+        except Exception as e:
+            print(f"     ⚠️ send_usdc exception: {e}")
             return False
 
     # 1. Check master (ArmaBase) balance

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-26T16:59:07.580313+00:00",
+  "timestamp": "2026-08-26T17:31:04.702831+00:00",
   "total_scripts": 19,
   "total_pass": 61,
   "total_fail": 1,
@@ -335,7 +335,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-26 16:58 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.721100 (liq: $4,"
+          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-26 17:30 UTC\n   USDC available: $21.89\n   VIRTUAL on Base: $0.724800 (liq: $4,"
         }
       ],
       "all_passed": true
@@ -362,7 +362,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-26 16:59 UTC\n   HL USDC available: $2.39\n   Open spot positions: 0\n   Position size t"
+          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-26 17:30 UTC\n   HL USDC available: $3.00\n   Open spot positions: 0\n   Position size t"
         }
       ],
       "all_passed": true
@@ -389,7 +389,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-26 16:59 UTC\n   Selected: trade_win\n   Content: \ud83c\udfaf Another hit for the Armadillo ecosystem: 66%"
+          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-26 17:31 UTC\n   Selected: trade_win\n   Content: \ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14"
         }
       ],
       "all_passed": true
@@ -443,7 +443,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-26 16:59:06 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
+          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-26 17:31:04 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
         }
       ],
       "all_passed": true

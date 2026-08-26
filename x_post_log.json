@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T20:47:05.219791+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-23T21:12:40.029118+00:00",
     "action": "post_failed",
     "details": {
@@ -793,6 +785,14 @@
   },
   {
     "timestamp": "2026-08-26T12:43:00.933126+00:00",
+    "action": "post_failed",
+    "details": {
+      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
+      "error": "/bin/sh: 1: xurl: not found"
+    }
+  },
+  {
+    "timestamp": "2026-08-26T12:52:42.267819+00:00",
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",

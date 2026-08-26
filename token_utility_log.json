@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T14:27:05.415905+00:00",
-    "action": "buyback_skip",
-    "details": {
-      "usdc": 0.0,
-      "reason": "insufficient"
-    }
-  },
-  {
     "timestamp": "2026-08-23T14:27:06.714257+00:00",
     "action": "liquidity_check",
     "details": {
@@ -1489,6 +1481,13 @@
   },
   {
     "timestamp": "2026-08-26T07:53:50.680109+00:00",
+    "action": "liquidity_check",
+    "details": {
+      "checked": 4
+    }
+  },
+  {
+    "timestamp": "2026-08-26T08:25:05.758878+00:00",
     "action": "liquidity_check",
     "details": {
       "checked": 4

@@ -25,32 +25,31 @@ HERMES = "/opt/hermes-agent/venv/bin/hermes"
 WORKDIR = "/workspace"
 SCRIPTS_DIR = os.path.expanduser("~/.hermes/scripts")
 
-# All 12 jobs: (schedule, name, script) — MUST use "every" prefix for recurring
+# All 22 active cron jobs: (schedule, name, script)
+# Synced with actual Hermes cron list — no paused entries.
 ALL_JOBS = [
-    ("every 15m", "cron-watchdog",    "cron_watchdog.py"),
-    ("every 5m",  "deployer-watcher", "deployer_watcher.py"),
-    ("every 30m", "oversight",        "oversight.py"),
-    ("every 10m", "sniper-guard",     "sniper_guard.py"),
-    ("every 10m", "compute-autotopup","compute_autotopup.py"),
-    # Paused — no trading capital. Auto-resume when funded (see capital guard).
-    # ("every 20m", "pumpfun-loop",     "pumpfun_multi_loop.py"),
-    # ("every 15m", "team-coordinator", "team_coordinator.py"),
-    ("every 30m", "saint-perps",      "saint_perps.py"),
-    # Paused — needs $2.10+ USDC to trade
-    # ("every 30m", "profit-engine",    "profit_engine.py"),
-    # ("every 45m", "scout-ecosystem",  "scout_ecosystem.py"),
-    # ("every 30m", "revenue-engine",   "revenue_engine.py"),
-    ("every 1h",  "learning-engine",  "learning_engine.py"),
-    # Treasury engine — consolidates all profits to SOL → user wallet, tracks $1M goal
-    ("every 15m", "treasury-engine",  "treasury_engine.py"),
-    # Volume engine — swaps pump.fun + agent tokens for trading volume
-    ("every 30m", "volume-engine",    "volume_engine.py"),
-    # Git auto-sync — commits + pushes any changes to GitHub
-    ("every 15m", "git-autosync",     "git_autosync.py"),
-    # buyback-burn removed by user request — no longer burning tokens
-    # ("every 1h",  "buyback-burn",     "buyback_burn.py"),
-    # Paused — needs $3+ USDC to buy ARBA
-    # ("every 2h",  "growth-engine",    "growth_engine.py"),
+    ("every 15m", "cron-watchdog",     "cron_watchdog.py"),
+    ("every 5m",  "deployer-watcher",  "deployer_watcher.py"),
+    ("every 30m", "oversight",         "oversight.py"),
+    ("every 10m", "sniper-guard",      "sniper_guard.py"),
+    ("every 10m", "compute-autotopup", "compute_autotopup.py"),
+    ("every 30m", "saint-perps",       "saint_perps.py"),
+    ("every 60m", "learning-engine",   "learning_engine.py"),
+    ("every 15m", "treasury-engine",   "treasury_engine.py"),
+    ("every 30m", "volume-engine",     "volume_engine.py"),
+    ("every 15m", "git-autosync",      "git_autosync.py"),
+    ("every 30m", "profit-engine",     "profit_engine.py"),
+    ("every 45m", "scout-ecosystem",   "scout_ecosystem.py"),
+    ("every 30m", "revenue-engine",    "revenue_engine.py"),
+    ("every 120m","growth-engine",     "growth_engine.py"),
+    ("every 15m", "team-coordinator",  "team_coordinator.py"),
+    ("every 20m", "pumpfun-loop",      "pumpfun_multi_loop.py"),
+    ("every 20m", "arb-scanner",       "arb_scanner.py"),
+    ("every 30m", "hl-spot-trader",    "hl_spot_trader.py"),
+    ("every 60m", "x-poster",          "x_poster.py"),
+    ("every 10m", "sol-distributor",   "sol_distributor.py"),
+    ("every 60m", "token-utility",     "token_utility_engine.py"),
+    ("every 30m", "test-suite",        "test_suite.py"),
 ]
 
 
@@ -281,26 +280,9 @@ def check_capital_and_resume():
                     else:
                         print(f"     ❌ Transfer failed")
 
-    # 4. Resume crons if total ecosystem has $3+ USDC
-    PAUSED_CRONS = [
-        ("every 30m", "profit-engine",    "profit_engine.py"),
-        ("every 45m", "scout-ecosystem",  "scout_ecosystem.py"),
-        ("every 30m", "revenue-engine",   "revenue_engine.py"),
-        ("every 2h",  "growth-engine",    "growth_engine.py"),
-        ("every 15m", "team-coordinator", "team_coordinator.py"),
-        ("every 20m", "pumpfun-loop",     "pumpfun_multi_loop.py"),
-    ]
-
+    # 4. All crons are now permanently active — no pause/resume logic needed.
+    # The self-sustaining loop keeps everything running 24/7.
     resumed = []
-    if total_usdc >= 3.0:
-        existing = get_existing_jobs()
-        for sched, name, script in PAUSED_CRONS:
-            if name not in existing:
-                ok = create_job(sched, name, script)
-                if ok:
-                    resumed.append(name)
-        if resumed:
-            print(f"💰 Capital detected (${total_usdc:.2f} USDC) — resumed: {', '.join(resumed)}")
 
     if distributions:
         print(f"📤 Distributed to: {', '.join(distributions)}")
@@ -333,11 +315,11 @@ def run():
         else:
             print(f"   ✅ All {len(needed)} jobs now active")
 
-    # Capital-efficiency guard: resume paused trading crons if USDC detected
+    # Capital distribution: move USDC from ArmaBase to sub-agents as needed
     try:
         usdc, resumed = check_capital_and_resume()
-        if usdc < 3.0 and not resumed:
-            print(f"💤 Idle mode: ${usdc:.2f} USDC across ecosystem — trading crons paused")
+        if usdc < 3.0:
+            print(f"💤 Low capital: ${usdc:.2f} USDC across ecosystem — agents running on fumes")
     except Exception as e:
         print(f"Capital check skipped: {e}")
 

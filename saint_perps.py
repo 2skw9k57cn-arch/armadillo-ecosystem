@@ -42,10 +42,24 @@ MAX_POSITIONS = 3             # Max concurrent positions (raised from 2 for dive
 DEFAULT_LEVERAGE = 3
 MIN_HL_BALANCE = 3.0
 MIN_DEPOSIT = 5.0
-STOP_LOSS_PCT = -0.05         # Base: -5%
-TAKE_PROFIT_PCT = 0.10        # Base: +10%
-TRAILING_STOP_ACTIVATE = 0.04 # Activate trailing stop at +4% profit
+STOP_LOSS_PCT = -0.05         # Base: -5% price move
+TAKE_PROFIT_PCT = 0.10        # Base: +10% price move (kept for learning reference)
+TRAILING_STOP_ACTIVATE = 0.04 # Activate trailing stop at +4% price move
 TRAILING_STOP_DISTANCE = 0.02 # Trail by 2% from peak
+
+# ── Tiered Take Profit Algo ──────────────────────────────────────────
+# Closes portions of position at successive price-move milestones.
+# Based on PRICE MOVE % (not margin PnL), so leverage-independent.
+# TP1: close 40% at +3% price move (locks in early profit)
+# TP2: close 30% at +6% price move (capture momentum)
+# TP3: close 30% at +10% price move or trailing stop (ride the trend)
+TIERED_TP = [
+    {"pct_of_pos": 0.40, "price_move": 0.03, "label": "TP1"},
+    {"pct_of_pos": 0.30, "price_move": 0.06, "label": "TP2"},
+    {"pct_of_pos": 0.30, "price_move": 0.10, "label": "TP3"},
+]
+TRAILING_STOP_ACTIVATE_PRICE = 0.04  # Activate trailing at +4% price move
+TRAILING_STOP_DISTANCE_PRICE = 0.015 # Trail by 1.5% from peak price move
 POSITION_LOG = "/workspace/saint_positions.json"
 HL_DEPOSIT_LOG = "/workspace/saint_hl_log.json"
 LEARNING_DB = "/workspace/saint_learning.json"
@@ -843,8 +857,34 @@ def close_position(position):
         print(f"  ❌ Close failed: {err[:150]}")
         return False
 
+def close_partial_position(position, close_size):
+    """Close a portion of a position (for tiered TP). Returns True on success."""
+    coin = position.get('token', position.get('coin', ''))
+    close_side = "short" if float(position.get('size', 0)) > 0 else "long"
+    print(f"  Closing {close_size} {coin} (partial)...")
+    out, err, rc = run(
+        f"acp trade --side {close_side} --token {coin} --size {close_size} "
+        f"--reduce-only --json"
+    )
+    if rc == 0:
+        print(f"  ✅ Partial close successful")
+        return True
+    else:
+        print(f"  ❌ Partial close failed: {err[:150]}")
+        return False
+
 def check_positions(learning_db):
-    """Check open positions, close on SL/TP/trailing stop, record outcomes for learning"""
+    """Check open positions, execute tiered TP / SL / trailing stop, record outcomes.
+
+    Take Profit Algo (tiered, based on PRICE MOVE %):
+      TP1: close 40% at +3% price move
+      TP2: close 30% at +6% price move
+      TP3: close remaining 30% at +10% OR trailing stop (1.5% from peak)
+
+    Stop Loss: close entire position at -5% price move (adjusted by learning)
+
+    Trailing Stop: activates at +4% price move, trails 1.5% from peak
+    """
     hl = get_hl_status()
     positions = hl['positions']
 
@@ -857,49 +897,111 @@ def check_positions(learning_db):
     adaptive = get_adaptive_params(learning_db)
 
     for pos in positions:
-        coin = pos.get('coin', pos.get('token', '?'))
-        size = float(pos.get('szi', pos.get('size', 0)))
+        coin = pos.get('token', pos.get('coin', '?'))
+        size = float(pos.get('size', 0))
         entry = float(pos.get('entryPx', 0))
         pnl = float(pos.get('unrealizedPnl', 0))
+        margin = float(pos.get('marginUsed', 0))
         lev_raw = pos.get('leverage', 1)
         leverage = lev_raw.get('value', 1) if isinstance(lev_raw, dict) else lev_raw
         side = "long" if size > 0 else "short"
 
-        pnl_pct = (pnl / (abs(size) * entry)) * 100 if entry > 0 else 0
+        # Calculate PRICE MOVE % (leverage-independent)
+        notional = abs(size) * entry
+        price_move_pct = (pnl / notional * 100) if notional > 0 else 0
+        pnl_on_margin = (pnl / margin * 100) if margin > 0 else 0
 
-        print(f"    {coin}: {side} {size} @ ${entry:,.4f} | PnL: ${pnl:+.2f} ({pnl_pct:+.2f}%) | {leverage}x")
+        print(f"    {coin}: {side} {abs(size)} @ ${entry:.6f} | PnL: ${pnl:+.2f} ({pnl_on_margin:+.1f}% margin) | price: {price_move_pct:+.2f}% | {leverage}x")
 
-        sl_threshold = (STOP_LOSS_PCT + adaptive["sl_tightening"]) * 100 * leverage
-        tp_threshold = (TAKE_PROFIT_PCT + adaptive["tp_extension"]) * 100 * leverage
-
-        # ── Trailing stop: if position is profitable, trail the stop ──
-        # Get peak PnL from position log
+        # ── Track peak price move for trailing stop ──
         pos_info = find_position_log_entry(pos_log, coin)
-        peak_pnl_pct = pos_info.get('peak_pnl_pct', 0) if pos_info else 0
-        current_pnl_pct = pnl_pct
-        if current_pnl_pct > peak_pnl_pct:
-            peak_pnl_pct = current_pnl_pct
-            # Update peak in log
-            update_peak_pnl(coin, peak_pnl_pct)
+        peak_price_move = pos_info.get('peak_price_move', 0) if pos_info else 0
+        if price_move_pct > peak_price_move:
+            peak_price_move = price_move_pct
+            update_peak_pnl(coin, peak_price_move)
 
-        trailing_sl_trigger = TRAILING_STOP_ACTIVATE * 100 * leverage
-        trailing_sl_distance = TRAILING_STOP_DISTANCE * 100 * leverage
+        # ── Track which TP tiers have been executed ──
+        executed_tiers = pos_info.get('executed_tiers', []) if pos_info else []
 
-        should_close = False
+        # ── Stop Loss: close entire position ──
+        sl_price_threshold = (STOP_LOSS_PCT + adaptive["sl_tightening"]) * 100
+
+        should_close_all = False
         close_reason = ""
+        partial_closes = []
 
-        if pnl_pct <= sl_threshold:
-            should_close = True
-            close_reason = f"STOP LOSS ({pnl_pct:.2f}% ≤ {sl_threshold:.2f}%)"
-        elif pnl_pct >= tp_threshold:
-            should_close = True
-            close_reason = f"TAKE PROFIT ({pnl_pct:.2f}% ≥ {tp_threshold:.2f}%)"
-        elif peak_pnl_pct >= trailing_sl_trigger and pnl_pct <= peak_pnl_pct - trailing_sl_distance:
-            should_close = True
-            close_reason = f"TRAILING STOP (peak {peak_pnl_pct:.2f}%, now {pnl_pct:.2f}%, dropped {trailing_sl_distance:.1f}%)"
+        if price_move_pct <= sl_price_threshold:
+            should_close_all = True
+            close_reason = f"STOP LOSS (price {price_move_pct:.2f}% ≤ {sl_price_threshold:.2f}%)"
 
-        if should_close:
-            print(f"    🛑 {close_reason} — closing")
+        # ── Tiered Take Profit ──
+        if not should_close_all and price_move_pct > 0:
+            all_markets = get_all_markets()
+            for tier in TIERED_TP:
+                tier_label = tier["label"]
+                tier_price_target = tier["price_move"] * 100
+                if tier_label not in executed_tiers and price_move_pct >= tier_price_target:
+                    close_pct = tier["pct_of_pos"]
+                    close_size = abs(size) * close_pct
+                    # Round to appropriate decimals
+                    m_info = all_markets.get(coin, {})
+                    decimals = m_info.get('sz_decimals', 4)
+                    if decimals == 0:
+                        close_size = round(close_size)
+                    elif decimals == 1:
+                        close_size = round(close_size, 1)
+                    elif decimals == 2:
+                        close_size = round(close_size, 2)
+                    elif decimals == 3:
+                        close_size = round(close_size, 3)
+                    else:
+                        close_size = round(close_size, 4)
+
+                    # Check if partial close meets HL $10 minimum notional
+                    current_price = entry * (1 + price_move_pct / 100) if side == "long" else entry * (1 - price_move_pct / 100)
+                    notional = close_size * current_price
+                    if notional < 10.50 and tier_label != "TP3":
+                        # Partial too small — if this is the last unexecuted tier before remaining,
+                        # just close the entire remaining position instead
+                        print(f"    ⚠️ {tier_label} partial (${notional:.2f}) below HL $10 min — closing full remaining position")
+                        should_close_all = True
+                        close_reason = f"{tier_label} FULL CLOSE (partial below $10 min notional)"
+                        break
+                    elif close_size > 0:
+                        partial_closes.append((tier_label, close_size, tier_price_target))
+
+        # ── Trailing Stop (activates after +4% price move) ──
+        if not should_close_all and peak_price_move >= TRAILING_STOP_ACTIVATE_PRICE * 100:
+            trailing_distance = TRAILING_STOP_DISTANCE_PRICE * 100
+            if price_move_pct <= peak_price_move - trailing_distance:
+                # Check if TP3 hasn't been executed yet — if so, close remaining
+                if "TP3" not in executed_tiers:
+                    should_close_all = True
+                    close_reason = f"TRAILING STOP (peak {peak_price_move:.2f}%, now {price_move_pct:.2f}%, dropped {trailing_distance:.1f}%)"
+
+        # ── Execute partial closes (tiered TP) ──
+        for tier_label, close_size, tier_target in partial_closes:
+            print(f"    🎯 {tier_label} triggered (price {price_move_pct:.2f}% ≥ {tier_target:.1f}%) — closing {close_size} {coin}")
+            if close_partial_position(pos, close_size):
+                mark_tier_executed(coin, tier_label)
+                # Record partial profit
+                partial_pnl = pnl * (close_size / abs(size)) if abs(size) > 0 else 0
+                print(f"    💰 {tier_label} filled — ~${partial_pnl:+.2f} profit locked")
+                # If TP3 executed, close is complete
+                if tier_label == "TP3":
+                    should_close_all = False  # Already closed remaining
+                    log_position_close(coin, size)
+                    hold_cycles = count_hold_cycles(pos_info)
+                    record_trade(learning_db, coin, side, abs(size), entry, leverage,
+                               0, 0, pos_info.get('signal_type', 'unknown'),
+                               pos_info.get('confidence', 50), 0, 0, pnl, hold_cycles,
+                               pos_info.get('rsi', 0), pos_info.get('atr_pct', 0),
+                               pos_info.get('vol_spike', 1), pos_info.get('reasons', []))
+                    print(f"    📝 Trade recorded: PnL ${pnl:+.2f} on {coin} ({tier_label})")
+
+        # ── Execute full close (SL or trailing stop) ──
+        if should_close_all:
+            print(f"    🛑 {close_reason} — closing entire position")
             if close_position(pos):
                 hold_cycles = count_hold_cycles(pos_info)
                 record_trade(learning_db, coin, side, abs(size), entry, leverage,
@@ -907,7 +1009,7 @@ def check_positions(learning_db):
                            pos_info.get('confidence', 50), 0, 0, pnl, hold_cycles,
                            pos_info.get('rsi', 0), pos_info.get('atr_pct', 0),
                            pos_info.get('vol_spike', 1), pos_info.get('reasons', []))
-                print(f"    📝 Learned: PnL ${pnl:+.2f} on {coin} {side} ({close_reason.split('(')[0].strip()})")
+                print(f"    📝 Trade recorded: PnL ${pnl:+.2f} on {coin} ({close_reason.split('(')[0].strip()})")
 
     return len(positions)
 
@@ -935,6 +1037,23 @@ def update_peak_pnl(coin, peak_pnl_pct):
     for p in reversed(log):
         if p.get('symbol') == coin and p.get('status') == 'open':
             p['peak_pnl_pct'] = peak_pnl_pct
+            p['peak_price_move'] = peak_pnl_pct  # renamed field, keep both for compat
+            break
+    try:
+        with open(POSITION_LOG, 'w') as f:
+            json.dump(log, f, indent=2)
+    except Exception:
+        pass
+
+def mark_tier_executed(coin, tier_label):
+    """Mark a TP tier as executed for an open position in the log."""
+    log = load_position_log()
+    for p in reversed(log):
+        if p.get('symbol') == coin and p.get('status') == 'open':
+            if 'executed_tiers' not in p:
+                p['executed_tiers'] = []
+            if tier_label not in p['executed_tiers']:
+                p['executed_tiers'].append(tier_label)
             break
     try:
         with open(POSITION_LOG, 'w') as f:

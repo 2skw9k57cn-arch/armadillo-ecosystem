@@ -169,17 +169,17 @@ def browse_marketplace():
         if api_down:
             break
 
-        # Try v2 API first, then legacy
+        # Try v2 API — single attempt, 8s timeout
         out, err, rc = run_with_retry(
             f'acp browse "{query}" --top-k 3 --json',
-            max_retries=3, base_timeout=10
+            max_retries=1, base_timeout=8
         )
 
         if rc != 0:
-            # Try legacy
+            # Try legacy — single attempt, 8s timeout
             out, err, rc = run_with_retry(
                 f'acp browse "{query}" --top-k 3 --legacy --json',
-                max_retries=2, base_timeout=10
+                max_retries=1, base_timeout=8
             )
 
         if rc == 0:
@@ -238,7 +238,6 @@ def browse_marketplace():
 def check_acp_jobs():
     """Check for incoming jobs for Scout only (other agents check their own)."""
     print("\n  📋 Checking Scout jobs...")
-    use_agent(SCOUT_ID)
     out, _, rc = run("acp job list --json", timeout=10)
     if rc == 0:
         try:
@@ -262,7 +261,6 @@ def check_acp_jobs():
 
 def check_arrb_status():
     """Check ARRB token status on Robinhood Chain — fast, no browse call."""
-    use_agent(SCOUT_ID)
     # Only check ARRB balance every 3rd cycle (7s call)
     cycle_file = "/workspace/scout_cycle_count.txt"
     cycle = 1
@@ -285,8 +283,20 @@ def check_arrb_status():
 # ============ SWAPS & ROUTING ============
 
 def swap_virtual_to_usdc():
-    """If Scout has excess VIRTUAL on Robinhood Chain, swap to USDC on Base"""
-    use_agent(SCOUT_ID)
+    """If Scout has excess VIRTUAL on Robinhood Chain, swap to USDC on Base.
+    Only checks VIRTUAL balance every 3rd cycle (7s RPC call)."""
+    cycle_file = "/workspace/scout_cycle_count.txt"
+    cycle = 1
+    try:
+        with open(cycle_file) as f:
+            cycle = int(f.read().strip())
+    except Exception:
+        pass
+
+    if cycle % 3 != 0:
+        print(f"\n  💱 VIRTUAL swap: skipped (checked every 3rd cycle)")
+        return False
+
     virtual_rh = get_balance('VIRTUAL', ROBINHOOD_CHAIN)
 
     if virtual_rh > 4:
@@ -316,7 +326,6 @@ def swap_virtual_to_usdc():
 
 def route_usdc_to_armabase():
     """Route excess USDC from Scout to ArmaBase for distribution"""
-    use_agent(SCOUT_ID)
     usdc = get_balance('USDC')
 
     if usdc > 1.5:
@@ -351,7 +360,6 @@ def route_usdc_to_armabase():
 
 def generate_scout_report():
     """Generate Scout's ecosystem report — uses fast RPC for USDC, skips slow calls."""
-    use_agent(SCOUT_ID)
     usdc = get_balance('USDC')  # Fast via direct RPC
 
     # ARRB and VIRTUAL on RH chain are slow (7s each) — only check if needed

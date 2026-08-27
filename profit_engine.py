@@ -46,7 +46,7 @@ TOKENS = {
     },
     "ARRB": {
         "contract":  "0xdA3C5b4d05c40a9244E534a966A1424C51055950",
-        "chain_out": "2025",   # Robinhood Chain
+        "chain_out": "4663",   # Robinhood Chain (correct chain ID)
         "decimals":  18,
     },
     "OGSAINT": {
@@ -100,11 +100,13 @@ def run(cmd):
 
 def use_agent(agent_key):
     """Switch ACP context by writing activeWallet to config.json.
-    This persists for subprocess calls (unlike `acp agent use`)."""
+    Skips if already active to avoid redundant 5s acp agent use calls."""
     wallet = WALLETS.get(agent_key, agent_key)
     try:
         with open(CONFIG_PATH) as f:
             config = json.load(f)
+        if config.get("activeWallet") == wallet:
+            return True  # Already active, skip
         config["activeWallet"] = wallet
         with open(CONFIG_PATH, 'w') as f:
             json.dump(config, f, indent=2)
@@ -809,35 +811,11 @@ def cross_hire(hiring_agent, provider_agent):
 
 
 def run_cross_hiring_cycle():
-    """Agents cross-hire each other to generate economic velocity."""
-    print(f"\n  💼 Cross-hiring cycle (agents hiring each other)...")
-    hires = []
-    
-    # ArmaBase hires Scout
-    ok, msg = cross_hire("armabase", "scout")
-    if ok:
-        print(f"     ✅ {msg}")
-        hires.append(msg)
-    else:
-        print(f"     ⚠️ {msg}")
-    
-    # Scout hires Saint
-    ok, msg = cross_hire("scout", "saint")
-    if ok:
-        print(f"     ✅ {msg}")
-        hires.append(msg)
-    else:
-        print(f"     ⚠️ {msg}")
-    
-    # Saint hires ArmaBase
-    ok, msg = cross_hire("saint", "armabase")
-    if ok:
-        print(f"     ✅ {msg}")
-        hires.append(msg)
-    else:
-        print(f"     ⚠️ {msg}")
-    
-    return hires
+    """Agents cross-hire each other to generate economic velocity.
+    Currently disabled — acp client create-job requires --requirements flag
+    that changes between CLI versions. Re-enable when API stabilizes."""
+    print(f"\n  💼 Cross-hiring: disabled (create-job API unstable)")
+    return []
 
 
 # ════════════════════════════════════════════════════════════════════════

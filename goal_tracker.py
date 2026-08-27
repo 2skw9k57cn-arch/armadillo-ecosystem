@@ -97,31 +97,25 @@ def get_sol_balance():
 
 
 def get_acp_usdc_total():
-    """Get total USDC across all 3 agent wallets on Base"""
+    """Get total USDC across all 3 agent wallets on Base — fast direct RPC."""
     total = 0.0
-    config_path = "/workspace/config.json"
-    for agent_key, wallet in WALLETS.items():
-        try:
-            with open(config_path) as f:
-                config = json.load(f)
-            config["activeWallet"] = wallet
-            with open(config_path, 'w') as f:
-                json.dump(config, f, indent=2)
-
-            result = subprocess.run(
-                "acp wallet balance --json 2>&1",
-                shell=True, capture_output=True, text=True, timeout=15
-            )
-            if result.returncode == 0:
-                d = json.loads(result.stdout)
-                for t in d.get("tokens", []):
-                    sym = t.get("tokenMetadata", {}).get("symbol", "")
-                    if sym and sym.upper() == "USDC":
-                        bal = int(t.get("tokenBalance", "0x0"), 16)
-                        dec = t.get("tokenMetadata", {}).get("decimals", 6)
-                        total += bal / (10 ** dec)
-        except Exception as e:
-            pass
+    try:
+        import requests as _req
+        USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+        RPC = "https://mainnet.base.org"
+        for agent_key, wallet in WALLETS.items():
+            try:
+                data = "0x70a08231" + wallet[2:].lower().zfill(64)
+                payload = {"jsonrpc": "2.0", "id": 1, "method": "eth_call",
+                           "params": [{"to": USDC_BASE, "data": data}, "latest"]}
+                resp = _req.post(RPC, json=payload, timeout=5)
+                result = resp.json().get("result", "0x")
+                bal = int(result, 16) / 1e6 if result != "0x" else 0.0
+                total += bal
+            except Exception:
+                pass
+    except Exception:
+        pass
     return total
 
 

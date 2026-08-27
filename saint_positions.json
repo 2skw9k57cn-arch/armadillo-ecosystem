@@ -65,5 +65,26 @@
     ],
     "opened": "2026-08-27T01:51:26.999683",
     "status": "open"
+  },
+  {
+    "symbol": "PUMP",
+    "side": "long",
+    "size": 2163,
+    "entry": 0.004854,
+    "leverage": 4,
+    "sl": 0.004659839999999999,
+    "tp": 0.005630639999999999,
+    "signal_type": "ema_bull",
+    "confidence": 68,
+    "rsi": 54.56410256410254,
+    "atr_pct": 3.0446171051857105,
+    "vol_spike": 0.6886750600875637,
+    "reasons": [
+      "EMA9>EMA21 bullish cross",
+      "MACD histogram positive",
+      "24h +5.1% strong momentum"
+    ],
+    "opened": "2026-08-27T01:57:28.569042",
+    "status": "open"
   }
 ]

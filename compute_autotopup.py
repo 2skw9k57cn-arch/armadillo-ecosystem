@@ -114,16 +114,24 @@ def main():
     log("=" * 50)
     log("Compute auto-top-up check starting")
     log("=" * 50)
-    
+
+    # Check if API is known broken (skip all top-ups to save time)
+    api_broken = False
+
     for agent in AGENTS:
         name = agent["name"]
         evm = agent["evm"]
-        
+
         usdc = get_usdc_balance(evm)
         compute_remaining = get_compute_status(evm)
-        
+
         log(f"{name}: USDC=${usdc:.4f} | Compute remaining={compute_remaining:.2f}")
-        
+
+        # Skip if API is known broken
+        if api_broken:
+            log(f"  -> Skip (compute API known broken)")
+            continue
+
         # If USDC >= $1, top up compute
         topup_amount = usdc - RESERVE_USDC
         if topup_amount >= MIN_TOPUP:
@@ -134,9 +142,13 @@ def main():
                 log(f"  ✅ Top-up success! TX: {tx}")
             else:
                 log(f"  ❌ Top-up failed: {result}")
+                # If API is broken, skip remaining agents
+                if "404" in str(result) or "broken" in str(result).lower():
+                    api_broken = True
+                    log(f"  ⚠️ Compute API broken — skipping remaining agents")
         else:
             log(f"  -> Skip (USDC ${usdc:.4f} < minimum ${MIN_TOPUP})")
-    
+
     log("Done.")
 
 if __name__ == "__main__":

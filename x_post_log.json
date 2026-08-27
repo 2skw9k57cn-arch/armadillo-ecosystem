@@ -1,13 +1,5 @@
 [
   {
-    "timestamp": "2026-08-24T11:55:28.319297+00:00",
-    "action": "post_failed",
-    "details": {
-      "text": "\ud83d\udcc8 66% WR \u2014 Armadillo Saint called it right. 14.5 SOL total in the bag. Saints don't miss. #Hyperliquid #Perps",
-      "error": "/bin/sh: 1: xurl: not found"
-    }
-  },
-  {
     "timestamp": "2026-08-24T12:27:39.908321+00:00",
     "action": "post_failed",
     "details": {
@@ -796,6 +788,13 @@
     "action": "post_failed",
     "details": {
       "text": "\ud83d\udee1\ufe0f Armadillo sniper locked in 66% WR \u2014 14.5 SOL total profit! The armor holds strong. #ArmaBase #Solana",
+      "error": "{\n  \"detail\":\"credits depleted\",\n  \"status\":402,\n  \"title\":\"Payment Required\",\n  \"type\":\"https://api.x.com/2/problems/credits-depleted\"\n}"
+    }
+  },
+  {
+    "timestamp": "2026-08-27T02:49:38.555604+00:00",
+    "action": "credits_depleted",
+    "details": {
       "error": "{\n  \"detail\":\"credits depleted\",\n  \"status\":402,\n  \"title\":\"Payment Required\",\n  \"type\":\"https://api.x.com/2/problems/credits-depleted\"\n}"
     }
   }

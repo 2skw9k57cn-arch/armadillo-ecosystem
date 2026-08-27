@@ -44,5 +44,26 @@
     "status": "open",
     "peak_pnl_pct": 4.947102895222318,
     "peak_price_move": 4.947102895222318
+  },
+  {
+    "symbol": "PUMP",
+    "side": "long",
+    "size": 2160,
+    "entry": 0.00486,
+    "leverage": 4,
+    "sl": 0.0046656,
+    "tp": 0.0056375999999999996,
+    "signal_type": "ema_bull",
+    "confidence": 68,
+    "rsi": 54.841997961264,
+    "atr_pct": 3.040858318636099,
+    "vol_spike": 0.6869793343872695,
+    "reasons": [
+      "EMA9>EMA21 bullish cross",
+      "MACD histogram positive",
+      "24h +5.0% strong momentum"
+    ],
+    "opened": "2026-08-27T01:51:26.999683",
+    "status": "open"
   }
 ]

@@ -37,7 +37,7 @@ ROBINHOOD_CHAIN = 4663
 SCOUT_LOG = "/workspace/scout_log.json"
 MAX_HIRE_BUDGET = 2.0  # Max USDC to spend hiring other agents per cycle
 
-def run(cmd, timeout=300):
+def run(cmd, timeout=30):
     try:
         r = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
         return r.stdout.strip(), r.stderr.strip(), r.returncode
@@ -126,7 +126,9 @@ def browse_marketplace():
                             })
             except Exception as e:
                 pass
-        time.sleep(1)
+        else:
+            print(f"    ⚠️ Browse failed for query (API may be down), skipping")
+            break  # If first query fails, the API is likely down — skip remaining
 
     # Dedupe by agent+offering
     seen = set()
@@ -272,7 +274,7 @@ def check_arrb_status():
     print(f"     Value: ~${arrb * 0.0000228:.2f}")
 
     # Check if there are ARRB-related jobs or interest
-    out, err, rc = run('acp browse "ARRB ArmaRobin token" --top-k 3 --json')
+    out, err, rc = run('acp browse "ARRB ArmaRobin token" --top-k 3 --json', timeout=15)
     if rc == 0:
         try:
             raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out

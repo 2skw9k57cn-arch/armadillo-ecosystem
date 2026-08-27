@@ -691,6 +691,17 @@ def run(cmd, timeout=300):
 
 def use_saint():
     run(f"acp agent use --agent-id {SAINT_ID} --json")
+    # Also update config.json activeWallet so acp trade hl-status reads the right wallet
+    try:
+        import json as _json
+        config_path = os.path.expanduser("~/.config/acp/config.json")
+        with open(config_path) as f:
+            cfg = _json.load(f)
+        cfg["activeWallet"] = SAINT_WALLET
+        with open(config_path, 'w') as f:
+            _json.dump(cfg, f, indent=2)
+    except Exception:
+        pass
     return True
 
 def get_balance(symbol, chain=BASE_CHAIN):
@@ -713,18 +724,58 @@ def get_balance(symbol, chain=BASE_CHAIN):
         return 0.0
 
 def get_hl_status():
-    out, _, _ = run("acp trade hl-status --json")
+    # Query HL API directly for Saint's wallet — don't rely on acp trade hl-status
+    # which may read the wrong activeWallet from config.json
     try:
-        raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
-        d = json.loads(raw)
+        r = requests.post(HL_API, json={
+            "type": "clearinghouseState",
+            "user": SAINT_WALLET
+        }, timeout=15)
+        d = r.json()
+        margin = d.get("marginSummary", {})
+        # HL returns assetPositions as [{"position": {...}}, ...] — unwrap to flat dicts
+        raw_positions = d.get("assetPositions", [])
+        positions = []
+        for ap in raw_positions:
+            p = ap.get("position", ap) if isinstance(ap, dict) else {}
+            positions.append(p)
+        hl_balance = float(margin.get("accountValue", 0))
+        
+        # Also check on-chain USDC — ACP can trade from on-chain USDC directly
+        # (it bridges to HL automatically when opening a perp position)
+        onchain_usdc = get_balance('USDC')  # Base chain
+        arb_usdc = get_balance('USDC', 42161)  # Arbitrum chain
+        total_usdc = onchain_usdc + arb_usdc
+        
+        # Effective trading capital = HL balance + on-chain USDC
+        # ACP handles the bridge+deposit+trade in one step
+        effective_balance = hl_balance + total_usdc
+        
         return {
-            'account_value': float(d.get('accountValue', 0)),
-            'withdrawable': float(d.get('withdrawable', 0)),
-            'positions': d.get('positions', []),
-            'spot_balances': d.get('spotBalances', [])
+            'account_value': effective_balance,
+            'hl_balance': hl_balance,
+            'onchain_usdc': total_usdc,
+            'withdrawable': float(d.get("withdrawable", 0)),
+            'positions': positions,
+            'spot_balances': []
         }
     except Exception as e:
-        return {'account_value': 0, 'withdrawable': 0, 'positions': [], 'spot_balances': []}
+        # Fallback to acp trade hl-status
+        out, _, _ = run("acp trade hl-status --json")
+        try:
+            raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
+            d = json.loads(raw)
+            return {
+                'account_value': float(d.get('accountValue', 0)),
+                'hl_balance': float(d.get('accountValue', 0)),
+                'onchain_usdc': 0,
+                'withdrawable': float(d.get('withdrawable', 0)),
+                'positions': d.get('positions', []),
+                'spot_balances': d.get('spotBalances', [])
+            }
+        except Exception:
+            return {'account_value': 0, 'hl_balance': 0, 'onchain_usdc': 0, 
+                    'withdrawable': 0, 'positions': [], 'spot_balances': []}
 
 def deposit_to_hl(amount):
     print(f"  Depositing ${amount:.2f} USDC to Hyperliquid...")
@@ -757,13 +808,16 @@ def open_position(signal, learning_db):
     leverage = signal['leverage']
 
     hl = get_hl_status()
-    account_value = hl['account_value']
+    account_value = hl['account_value']  # Now includes on-chain USDC
 
     if account_value < MIN_HL_BALANCE:
-        print(f"  ⚠️ HL balance too low (${account_value:.2f})")
+        print(f"  ⚠️ Trading capital too low (${account_value:.2f})")
         return False
 
-    base_usd = account_value * MAX_POSITION_PCT
+    # Use HL balance for sizing if available, otherwise on-chain USDC
+    # ACP will auto-bridge from on-chain to HL when opening the position
+    sizing_balance = max(hl.get('hl_balance', 0), account_value * 0.5)
+    base_usd = sizing_balance * MAX_POSITION_PCT
     conf_factor = min(1.0, signal['confidence'] / 80)
     adjusted_usd = base_usd * signal['size_multiplier'] * conf_factor
     
@@ -1173,19 +1227,16 @@ if __name__ == "__main__":
 
     use_saint()
 
-    # 1. Check Base USDC — deposit to HL if available
-    usdc = get_balance('USDC')
-    print(f"\n  Saint USDC on Base: ${usdc:.2f}")
+    # 1. Check on-chain USDC (Base + Arbitrum)
+    usdc_base = get_balance('USDC')
+    usdc_arb = get_balance('USDC', 42161)
+    total_onchain = usdc_base + usdc_arb
+    print(f"\n  Saint USDC: ${usdc_base:.2f} Base + ${usdc_arb:.2f} Arb = ${total_onchain:.2f}")
 
-    if usdc >= MIN_DEPOSIT:
-        deposit_amount = min(usdc - 2, usdc * 0.7)
-        if deposit_amount >= MIN_DEPOSIT:
-            deposit_to_hl(round(deposit_amount, 2))
-            time.sleep(5)
-
-    # 2. Check HL status
+    # 2. Check HL status (includes on-chain USDC as effective trading capital)
     hl = get_hl_status()
-    print(f"\n  HL Account: ${hl['account_value']:.2f} (withdrawable: ${hl['withdrawable']:.2f})")
+    print(f"\n  HL Balance: ${hl.get('hl_balance', 0):.2f} | On-chain USDC: ${hl.get('onchain_usdc', 0):.2f}")
+    print(f"  Effective trading capital: ${hl['account_value']:.2f}")
 
     # 3. Manage existing positions (with learning)
     open_count = check_positions(learning_db)

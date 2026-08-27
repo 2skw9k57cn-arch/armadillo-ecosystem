@@ -51,30 +51,19 @@ def write_active_wallet(evm_addr):
         log(f"  ERROR writing config: {e}")
 
 def get_usdc_balance(evm_addr):
-    """Get USDC balance on Base for the given agent wallet."""
-    write_active_wallet(evm_addr)
-    r = subprocess.run(
-        ["acp", "wallet", "balance", "--chain-id", str(CHAIN_ID), "--json"],
-        capture_output=True, text=True, timeout=30, env=ENV
-    )
-    raw = r.stdout.strip()
-    clean = raw.split('\n[acp-wrapper]')[0].strip()
+    """Get USDC balance on Base via direct RPC (fast, no acp call)."""
     try:
-        data = json.loads(clean)
-        for t in data.get("tokens", []):
-            meta = t.get("tokenMetadata", {}) or {}
-            sym = (meta.get("symbol") or "").upper()
-            if sym == "USDC":
-                bal_raw = t.get("tokenBalance", "0x0")
-                if isinstance(bal_raw, str) and bal_raw.startswith("0x"):
-                    bal_val = int(bal_raw, 16)
-                else:
-                    bal_val = int(bal_raw) if bal_raw else 0
-                decimals = meta.get("decimals", 6)
-                return bal_val / (10 ** decimals)
+        import requests as _req
+        USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+        data = "0x70a08231" + evm_addr[2:].lower().zfill(64)
+        payload = {"jsonrpc": "2.0", "id": 1, "method": "eth_call",
+                   "params": [{"to": USDC_BASE, "data": data}, "latest"]}
+        resp = _req.post("https://mainnet.base.org", json=payload, timeout=5)
+        result = resp.json().get("result", "0x")
+        return int(result, 16) / 1e6 if result != "0x" else 0.0
     except Exception as e:
-        log(f"  ERROR parsing balance: {e}")
-    return 0.0
+        log(f"  ERROR getting USDC balance: {e}")
+        return 0.0
 
 def get_compute_status(evm_addr):
     """Get compute limitRemaining for the agent."""
@@ -92,17 +81,20 @@ def get_compute_status(evm_addr):
         return 0
 
 def topup_compute(evm_addr, amount):
-    """Run compute top-up for the agent."""
+    """Run compute top-up for the agent. Gracefully handles API 404."""
     write_active_wallet(evm_addr)
     # Round down to 2 decimals
     amount = round(amount, 2)
     if amount < MIN_TOPUP:
         return False, f"Amount ${amount} below minimum ${MIN_TOPUP}"
-    
+
     r = subprocess.run(
         ["acp", "compute", "top-up", "--amount", str(amount), "--chain-id", str(CHAIN_ID), "--json"],
-        capture_output=True, text=True, timeout=60, env=ENV
+        capture_output=True, text=True, timeout=15, env=ENV
     )
+    # Check for 404 — API endpoint is broken
+    if "404" in r.stderr or "Cannot GET" in r.stderr or "404" in r.stdout:
+        return False, "API endpoint broken (404) — top up via web dashboard"
     raw = r.stdout.strip()
     clean = raw.split('\n[acp-wrapper]')[0].strip()
     try:
@@ -112,7 +104,10 @@ def topup_compute(evm_addr, amount):
         elif "error" in data:
             return False, data.get("error", "unknown error")
         return True, data
-    except Exception as e:
+    except Exception:
+        # Check stderr for 404
+        if "404" in (r.stderr or "") or "Not Found" in (r.stderr or ""):
+            return False, "API endpoint broken (404) — top up via web dashboard"
         return False, f"Parse error: {raw[:200]}"
 
 def main():

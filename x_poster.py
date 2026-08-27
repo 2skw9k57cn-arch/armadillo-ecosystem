@@ -65,22 +65,49 @@ def can_post():
         return True
 
 def post_to_x(text):
-    """Post a tweet using xurl"""
+    """Post a tweet using xurl. Gracefully handles 402 credits depleted."""
+    # Check if credits are known to be depleted (skip to avoid wasting cron time)
+    credits_file = "/workspace/xurl_credits_depleted.flag"
+    if os.path.exists(credits_file):
+        # Check if flag is older than 24h (credits may have reset)
+        try:
+            flag_age = time.time() - os.path.getmtime(credits_file)
+            if flag_age < 86400:  # Less than 24h old
+                print("   ⏭️ X API credits depleted (flag <24h old) — skipping post")
+                return False
+        except Exception:
+            pass
+
     # Escape quotes
     safe_text = text.replace('"', '\\"')
     cmd = f'xurl --app armabase post "{safe_text}" 2>&1'
     out, err, rc = run(cmd, timeout=30)
-    
-    if rc == 0 and "error" not in out.lower():
+
+    if rc == 0 and "error" not in out.lower() and "402" not in out:
         # Save last post time
         with open(LAST_POST_FILE, "w") as f:
             json.dump({"timestamp": datetime.now(timezone.utc).isoformat(), "text": text}, f)
         log("post_success", {"text": text, "response": out[:200]})
         print(f"✅ Posted: {text[:80]}...")
+        # Remove credits depleted flag if it existed
+        try:
+            os.remove(credits_file)
+        except Exception:
+            pass
         return True
     else:
-        log("post_failed", {"text": text, "error": out[:200]})
-        print(f"❌ Post failed: {out[:100]}")
+        # Check for 402 credits depleted
+        if "402" in out or "credits depleted" in out.lower():
+            print(f"❌ X API credits depleted — flagging to skip future attempts")
+            try:
+                with open(credits_file, "w") as f:
+                    f.write(datetime.now(timezone.utc).isoformat())
+            except Exception:
+                pass
+            log("credits_depleted", {"error": out[:200]})
+        else:
+            print(f"❌ Post failed: {out[:100]}")
+            log("post_failed", {"text": text, "error": out[:200]})
         return False
 
 # ============ CONTENT GENERATORS ============

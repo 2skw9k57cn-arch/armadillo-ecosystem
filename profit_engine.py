@@ -26,7 +26,7 @@ from datetime import datetime
 
 # ─── Paths ────────────────────────────────────────────────────────────────
 WORKSPACE      = "/workspace"
-CONFIG_PATH    = os.path.join(WORKSPACE, "config.json")
+CONFIG_PATH    = os.path.expanduser("~/.config/acp/config.json")
 LEARNED_PARAMS = os.path.join(WORKSPACE, "learned_params.json")
 TRADE_LOG      = os.path.join(WORKSPACE, "profit_engine_log.json")
 REPORTS_DIR    = os.path.join(WORKSPACE, "reports")
@@ -86,10 +86,10 @@ MAX_POSITION_PCT = 0.80    # Max 80% of usable USDC into one token (aggressive w
 # ════════════════════════════════════════════════════════════════════════
 
 def run(cmd):
-    """subprocess.run wrapper with shell=True, capture_output, text, timeout=300"""
+    """subprocess.run wrapper with shell=True, capture_output, text, timeout=15"""
     try:
         result = subprocess.run(
-            cmd, shell=True, capture_output=True, text=True, timeout=300
+            cmd, shell=True, capture_output=True, text=True, timeout=15
         )
         return result.stdout.strip(), result.stderr.strip(), result.returncode
     except subprocess.TimeoutExpired:
@@ -124,19 +124,35 @@ def now_str():
 
 def get_balances(agent_key):
     """Get USDC + all token balances for an agent.
+    Uses direct RPC for USDC (fast), acp wallet balance for tokens.
     Returns dict: {'USDC': float, 'ARBA': float, ...}
-    tokenBalance is a hex string (0x...), parsed as int(bal, 16) / 10**decimals.
     """
     use_agent(agent_key)
-    out, err, rc = run("acp wallet balance --json 2>&1")
     balances = {"USDC": 0.0}
     for sym in TOKENS:
         balances[sym] = 0.0
 
+    # Fast path: USDC via direct RPC
+    try:
+        import requests as _req
+        USDC_BASE = "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+        wallet = WALLETS.get(agent_key, agent_key)
+        data = "0x70a08231" + wallet[2:].lower().zfill(64)
+        payload = {"jsonrpc": "2.0", "id": 1, "method": "eth_call",
+                   "params": [{"to": USDC_BASE, "data": data}, "latest"]}
+        resp = _req.post("https://mainnet.base.org", json=payload, timeout=5)
+        result = resp.json().get("result", "0x")
+        balances["USDC"] = int(result, 16) / 1e6 if result != "0x" else 0.0
+    except Exception:
+        pass
+
+    # Token balances via acp wallet balance (only for ecosystem tokens)
+    out, err, rc = run("acp wallet balance --chain-id 8453 --json 2>&1")
     if rc != 0:
         return balances
     try:
-        d = json.loads(out)
+        raw = out.split('[acp-wrapper]')[0].strip() if '[acp-wrapper]' in out else out
+        d = json.loads(raw.strip())
         for t in d.get("tokens", []):
             meta = t.get("tokenMetadata", {})
             sym = (meta.get("symbol") or "").upper()
@@ -147,9 +163,6 @@ def get_balances(agent_key):
             except (ValueError, TypeError):
                 bal = 0.0
 
-            # Match USDC
-            if sym == "USDC":
-                balances["USDC"] = bal
             # Match by contract address for ecosystem tokens
             addr = (t.get("tokenAddress") or "").lower()
             for token_sym, token_info in TOKENS.items():

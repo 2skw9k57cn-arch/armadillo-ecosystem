@@ -325,11 +325,12 @@ def swap_virtual_to_usdc():
     return False
 
 def route_usdc_to_armabase():
-    """Route excess USDC from Scout to ArmaBase for distribution"""
+    """Route excess USDC from Scout to ArmaBase for distribution.
+    Only routes if Scout has >$10 (keeps enough for compute top-up)."""
     usdc = get_balance('USDC')
 
-    if usdc > 1.5:
-        excess = round(usdc - 0.5, 2)
+    if usdc > 10:
+        excess = round(usdc - 5, 2)  # Keep $5 for Scout compute
         if excess >= 2:
             print(f"\n  📤 Routing ${excess:.2f} USDC from Scout → ArmaBase...")
 

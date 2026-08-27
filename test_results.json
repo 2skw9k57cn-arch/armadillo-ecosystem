@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-27T07:59:45.177772+00:00",
+  "timestamp": "2026-08-27T08:32:28.217144+00:00",
   "total_scripts": 19,
   "total_pass": 61,
   "total_fail": 1,
@@ -335,7 +335,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-27 07:59 UTC\n   USDC available: $0.10\n   VIRTUAL on Base: $0.742600 (liq: $4,3"
+          "detail": "\ud83d\udd04 Cross-Chain Arbitrage Scanner \u2014 2026-08-27 08:32 UTC\n   USDC available: $0.10\n   VIRTUAL on Base: $0.752900 (liq: $4,3"
         }
       ],
       "all_passed": true
@@ -362,7 +362,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-27 07:59 UTC\n   HL USDC available: $0.17\n   \u23ed\ufe0f Insufficient HL balance (need $2.0)\n[2"
+          "detail": "\ud83d\udcc8 HL Spot Trading Module \u2014 2026-08-27 08:32 UTC\n   HL USDC available: $0.17\n   \u23ed\ufe0f Insufficient HL balance (need $2.0)\n[2"
         }
       ],
       "all_passed": true
@@ -389,7 +389,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-27 07:59 UTC\n   Selected: trade_win\n   Content: \ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total rea"
+          "detail": "\ud83d\udc26 X Auto-Poster \u2014 2026-08-27 08:32 UTC\n   Selected: trade_win\n   Content: \ud83d\udd25 66% WR on the sniper bot. 14.5 SOL total rea"
         }
       ],
       "all_passed": true
@@ -443,7 +443,7 @@
         {
           "check": "end_to_end",
           "passed": true,
-          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-27 07:59:44 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
+          "detail": "\ud83d\udee1\ufe0f Token Utility Engine \u2014 2026-08-27 08:32:27 UTC\n\n1\ufe0f\u20e3  Token-Gated Offerings:\n   Already initialized \u2014 skipping offerin"
         }
       ],
       "all_passed": true

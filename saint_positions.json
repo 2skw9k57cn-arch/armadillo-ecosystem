@@ -86,5 +86,26 @@
     ],
     "opened": "2026-08-27T01:57:28.569042",
     "status": "open"
+  },
+  {
+    "symbol": "POL",
+    "side": "short",
+    "size": 99,
+    "entry": 0.10575,
+    "leverage": 4,
+    "sl": 0.1089342857142857,
+    "tp": 0.08882999999999999,
+    "signal_type": "ema_bear",
+    "confidence": 56,
+    "rsi": 33.34992533598802,
+    "atr_pct": 2.007429922323538,
+    "vol_spike": 0.183597852796685,
+    "reasons": [
+      "EMA9<EMA21 bearish cross",
+      "MACD histogram negative",
+      "24h -12.9% strong decline"
+    ],
+    "opened": "2026-08-27T04:14:42.446825",
+    "status": "open"
   }
 ]

@@ -1,23 +1,5 @@
 [
   {
-    "timestamp": "2026-08-23T17:44:40.827832+00:00",
-    "action": "skip",
-    "details": {
-      "sol_balance": 0.015494627,
-      "distributable": -0.004505373,
-      "reason": "below_threshold"
-    }
-  },
-  {
-    "timestamp": "2026-08-23T17:55:09.119527+00:00",
-    "action": "skip",
-    "details": {
-      "sol_balance": 0.015494627,
-      "distributable": -0.004505373,
-      "reason": "below_threshold"
-    }
-  },
-  {
     "timestamp": "2026-08-23T18:05:37.766739+00:00",
     "action": "skip",
     "details": {
@@ -1792,6 +1774,24 @@
   },
   {
     "timestamp": "2026-08-27T04:09:43.605742+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.015786771,
+      "distributable": -0.004213228999999999,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-27T04:15:51.196339+00:00",
+    "action": "skip",
+    "details": {
+      "sol_balance": 0.015786771,
+      "distributable": -0.004213228999999999,
+      "reason": "below_threshold"
+    }
+  },
+  {
+    "timestamp": "2026-08-27T04:19:07.431521+00:00",
     "action": "skip",
     "details": {
       "sol_balance": 0.015786771,

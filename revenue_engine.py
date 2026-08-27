@@ -27,6 +27,8 @@ ARBA_CONTRACT = "0x557642685ce68F3975458375B51553871807e1b5"
 USDC_CONTRACT = "0x833589fCD6edb6e08f4c7c32d4f71b54bda02913"
 DEAD_ADDRESS = "0x000000000000000000000000000000000000dEaD"
 WALLET = "0x12b5d81cdbe234de287cf45061f5e56f3ceb37dc"
+# Goal wallet: user's Coinbase deposit address (Base, can receive USDC)
+GOAL_WALLET_EVM = "CYYEbobXq1TJQi3mtZ1eYoXDSnnVZe1yPLbTvkr8QQLM"
 REVENUE_LOG = "/workspace/revenue_log.json"
 LAST_BALANCE_FILE = "/workspace/last_usdc_balance.json"
 
@@ -158,17 +160,38 @@ def main():
         print(f"💰 New revenue detected: ${new_revenue:.2f} USDC")
         print(f"   (was ${last_usdc:.2f}, now ${usdc:.2f})")
         
-        # Buyback-burn disabled by user request — 100% kept as profit
-        profit_amount = new_revenue
-        print(f"   Profit (keep): ${profit_amount:.2f}")
+        # SWEEP: 50% to goal wallet as withdrawable profit
+        # KEEP: 50% for operations (compute, trading capital)
+        SWEEP_PCT = 0.50
+        sweep_amount = round(new_revenue * SWEEP_PCT, 2)
+        keep_amount = round(new_revenue - sweep_amount, 2)
+        
+        print(f"   Sweep (50% → goal): ${sweep_amount:.2f}")
+        print(f"   Keep (50% ops):     ${keep_amount:.2f}")
+        
+        # Sweep USDC to goal wallet if amount >= $1 (min tx)
+        sweep_tx = ''
+        if sweep_amount >= 1.0:
+            ok, result = withdraw_usdc(sweep_amount, GOAL_WALLET_EVM)
+            if ok:
+                sweep_tx = result
+                print(f"   ✅ Swept ${sweep_amount:.2f} to goal wallet (tx: {sweep_tx[:20]}...)")
+            else:
+                print(f"   ⚠️ Sweep failed: {str(result)[:80]}")
+        else:
+            print(f"   ⏭️ Sweep skipped (amount ${sweep_amount:.2f} < $1 min)")
         
         # Log
         log_revenue({
             'timestamp': int(time.time()),
             'date': time.strftime('%Y-%m-%d %H:%M:%S UTC', time.gmtime()),
             'new_revenue': new_revenue,
+            'sweep_pct': SWEEP_PCT,
+            'sweep_usdc': sweep_amount,
+            'sweep_tx': sweep_tx,
+            'keep_usdc': keep_amount,
             'buyback_usdc': 0,
-            'profit_usdc': profit_amount,
+            'profit_usdc': sweep_amount,
             'arba_bought': 0,
             'arba_burned': 0,
             'buyback_tx': '',

@@ -775,21 +775,27 @@ def file_report(cycle_num, agent_results):
 #  CROSS-HIRING — Agents hire each other to generate economic activity
 # ════════════════════════════════════════════════════════════════════════
 
-# Cheapest offerings for cross-hiring
+# Cheapest offerings for cross-hiring (verified Aug 27 2026)
 CHEAP_OFFERINGS = {
-    "armabase": ("Trending Tokens Pulse", "0x12b5d81cdbe234de287cf45061f5e56f3ceb37dc"),
-    "scout":    ("Quick Token Brief",     "0xc274243bdfb988f0fc0766f214d2ef66e0b8c6f4"),
-    "saint":    ("hyperliquid_perp_signal", "0x73d1486635fe66b3fff1db69a289a3e3fa625f8d"),
+    "armabase": ("Gas Price Optimizer", "0x12b5d81cdbe234de287cf45061f5e56f3ceb37dc"),
+    "scout":    ("Gas-Free Token Snapshot", "0xc274243bdfb988f0fc0766f214d2ef66e0b8c6f4"),
+    "saint":    ("Quick Perp Setup", "0x73d1486635fe66b3fff1db69a289a3e3fa625f8d"),
 }
 
 def cross_hire(hiring_agent, provider_agent):
-    """One agent hires another for a cheap job — generates USDC flow."""
+    """One agent hires another for a cheap job — generates USDC flow.
+    Checks USDC balance first and skips if can't afford the job."""
     offering_name, provider_wallet = CHEAP_OFFERINGS[provider_agent]
-    
+
     use_agent(hiring_agent)
+    # Check if hiring agent has enough USDC (need at least $0.30 for $0.25 job + gas)
+    usdc = get_balances(hiring_agent)["USDC"]
+    if usdc < 0.30:
+        return False, f"{hiring_agent} has ${usdc:.2f} — can't afford ${0.25} job"
+
     out, err, rc = run(
         f"acp client create-job --provider {provider_wallet} "
-        f"--offering-name \"{offering_name}\" --chain-id 8453 --json 2>&1"
+        f"--offering-name \"{offering_name}\" --requirements '{{}}' --chain-id 8453 --json 2>&1"
     )
     if rc != 0:
         return False, f"create-job failed: {err[:100]}"
@@ -811,11 +817,35 @@ def cross_hire(hiring_agent, provider_agent):
 
 
 def run_cross_hiring_cycle():
-    """Agents cross-hire each other to generate economic velocity.
-    Currently disabled — acp client create-job requires --requirements flag
-    that changes between CLI versions. Re-enable when API stabilizes."""
-    print(f"\n  💼 Cross-hiring: disabled (create-job API unstable)")
-    return []
+    """Agents cross-hire each other to generate economic velocity."""
+    print(f"\n  💼 Cross-hiring cycle (agents hiring each other)...")
+    hires = []
+
+    # ArmaBase hires Scout
+    ok, msg = cross_hire("armabase", "scout")
+    if ok:
+        print(f"     ✅ {msg}")
+        hires.append(msg)
+    else:
+        print(f"     ⚠️ {msg}")
+
+    # Scout hires Saint
+    ok, msg = cross_hire("scout", "saint")
+    if ok:
+        print(f"     ✅ {msg}")
+        hires.append(msg)
+    else:
+        print(f"     ⚠️ {msg}")
+
+    # Saint hires ArmaBase
+    ok, msg = cross_hire("saint", "armabase")
+    if ok:
+        print(f"     ✅ {msg}")
+        hires.append(msg)
+    else:
+        print(f"     ⚠️ {msg}")
+
+    return hires
 
 
 # ════════════════════════════════════════════════════════════════════════
@@ -869,9 +899,11 @@ def run_agent_cycle(agent_key, cycle_num):
             actions.append(f"hold {symbol}: {reason}")
 
     # Phase 2: Buy new positions
-    # Re-check USDC after sells
-    balances = get_balances(agent_key)
-    usdc = balances["USDC"]
+    # Re-check USDC only if we made sells (avoids 19s of redundant balance calls)
+    if trade_count > 0:
+        balances = get_balances(agent_key)
+        usdc = balances["USDC"]
+    # else: reuse usdc from Phase 1 (no sells = no balance change)
     usable = usdc - RESERVE_USDC
 
     if usable >= MIN_TRADE_USDC:

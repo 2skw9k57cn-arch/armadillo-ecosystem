@@ -244,7 +244,7 @@ for cron_def in "${EXPECTED_CRONS[@]}"; do
                     PROMPT="Create ACP marketplace jobs hiring other Armadillo ecosystem agents. NEVER STOP — runs every 3h forever."
                     ;;
                 ecosystem-job-monitor)
-                    PROMPT="Check ACP marketplace events for all agents. Drain events. Fund budget_set jobs, complete submitted jobs. NEVER STOP — runs every 10m forever."
+                    PROMPT="Drain each agent ACP event file (/tmp/acp-events-*.jsonl). As provider: set-budget 0.01 USDC then submit. As client: fund then complete. NEVER STOP — runs every 10m forever."
                     ;;
                 profit-engine-ogsaint)
                     PROMPT="Run profit engine for OGSAINT. Execute: bash ~/.hermes/scripts/profit-engine-agent.sh 019f9f75-130e-75fc-9459-5358c8d25206 OGSAINT. Buy AND sell ecosystem tokens every cycle. NEVER STOP — runs every 1h forever."

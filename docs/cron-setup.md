@@ -40,7 +40,7 @@ $HERMES cron create "6h" "Run ecosystem swap loop. Execute ~/.hermes/scripts/eco
 $HERMES cron edit <ID> --repeat -1
 
 # 5. Job Monitor (30m, AI)
-$HERMES cron create "30m" "Check ACP marketplace events for all agents. Drain events from /tmp/acp-events-*.jsonl files. Fund budget_set jobs, complete submitted jobs. Use acp events drain and acp client fund/complete/reject." --name "ecosystem-job-monitor" --skill acp-cli --workdir /workspace
+$HERMES cron create "30m" "Run bash ~/.hermes/scripts/ecosystem-job-monitor.sh. Drain each /tmp/acp-events-*.jsonl. Providers set-budget 0.01 USDC and submit; client funds and completes. Agents talk over Virtuals ACP." --name "ecosystem-job-monitor" --skill acp-cli --workdir /workspace
 $HERMES cron edit <ID> --repeat -1
 
 # 6. Job Creator (12h, AI)

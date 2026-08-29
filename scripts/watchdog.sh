@@ -26,7 +26,7 @@ STATE_DIR="${HERMES_HOME}/.hermes/data"
 PROGRESS_FILE="${STATE_DIR}/watchdog-progress.json"
 SCRIPTS_DIR="${HERMES_HOME}/.hermes/scripts"
 REPO_CACHE="${HERMES_HOME}/.hermes/repo-cache"
-GITHUB_REPO="${GITHUB_REPO:-2skw9k57cn-arch/Armadillo-}"
+GITHUB_REPO="${GITHUB_REPO:-2skw9k57cn-arch/armadillo-ecosystem}"
 GITHUB_BRANCH="${GITHUB_BRANCH:-main}"
 
 mkdir -p "$STATE_DIR" "$SCRIPTS_DIR" "$REPO_CACHE"
@@ -77,7 +77,7 @@ log "=== WATCHDOG RUN #${CYCLE} (home=${HERMES_HOME}) ==="
 # -------------------------------------------------------
 # Uses git (with system credential store) instead of raw curl
 # so this works with private repos.
-REPO_DIR="${REPO_CACHE}/Armadillo-"
+REPO_DIR="${REPO_CACHE}/armadillo-ecosystem"
 GIT_OK=0
 
 if [ -d "${REPO_DIR}/.git" ]; then

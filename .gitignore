@@ -41,3 +41,17 @@ reports/
 Thumbs.db
 config.json
 .backup_*/
+
+# Secrets
+.x_auth_token
+
+# Scraped research dumps
+.firecrawl/
+
+# Extra runtime / logs (git_autosync uses git add -A, which honors this)
+*_log.json
+*.flag
+scout_cycle_count.txt
+test_results.json
+token_utility_baseline.json
+sol_positions.json
